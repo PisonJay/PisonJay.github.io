@@ -1,0 +1,3837 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="renderer" content="webkit"> <!-- 让360支持高速渲染模式 -->
+<link rel="shortcut icon" href="http://www.54benniao.com/favicon.ico?v=1.0">
+<link href="./index_files/common.css" rel="stylesheet">
+</head>
+<body>
+<div id="article-wrap">
+<div id="article">
+
+<h1>三极管，双极型晶体管</h1>
+
+<div id="arc-body">1951 年，William Schockley 发明了第一个结型晶体管，这种半导体器件能够放大电子信号，如广播和电视信号。<br>
+<br>
+<span style="color:#008000;">晶体管</span>、<span style="color:#008000;">双极性晶体管（BJT）</span>或者<span style="color:#008000;">单机型晶体管（FET）</span>，通常指的就是<span style="color:#008000;">三极管</span>，它的出现带来了许多半导体领域的其它发明，包括集成电路（IC），这种电路可以在一个很小的器件中包含成千上万的微小晶体管。由于有了集成电路，使得现代计算机和其他电子奇迹的出现成为可能。<br>
+<br>
+<span style="color:#b22222;">双极性晶体管，利用的是自由电子和空穴，双极是“两种极性”的缩写。</span>双极型晶体管具有放大特性和开关特性。<span style="color:#b22222;">而单极型晶体管，只利用一种电荷，即自由电子或空穴。</span>单机型晶体管有两种类型：结型场效应管和MOS场效应管。<br>
+<br>
+设置晶体管的工作点可分为两种基本方式：<span style="color:#008000;">基级偏置</span>和<span style="color:#008000;">发射极偏置</span>。基级偏置产生一个固定的基极电流，而发射极偏置产生一个固定的发射极电流。基级偏置主要用于开关电路，而发射极偏置主要用于放大电路。<br>
+<br>
+<span style="color:#008000;">原型电路</span>，指的是一种基础电路的形式，通过修改原型电路可以得到更高级的电路。基级偏置电路是开关电路设计的原型电路，而发射极偏置电路是放大电路设计的原型电路。<br>
+<br>
+通过将晶体管的 Q 点偏置在负载线中点附近后，同时把一个小的交流信号耦合到基极，便会产生一个交流的集电极电压。交流集电极电压与交流基极电压波形相似，但幅度要大很多，换句话说，<span style="color:#b22222;">交流集电极电压是对交流基极电压的放大</span>。放大器件的发明对电子学的发展具有至关重要的作用，如果没有放大器件，就没有收音机、电视机和计算机。<br>
+<br>
+晶体管放大电路有三种组态，分别为共射（CE）、共集（CC）和共基（CB）放大器。共射放大器的信号是从基极输入，从集电极输出。共集放大器的信号是从基极输入，从发射极输出。共基放大器的信号是从发射极输入，从集电极输出。各个放大器有各自的特点和应用环境。
+</div>
+</div>
+</div>
+
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极型晶体管（npn晶体管、三极管）及其工作原理</h1>
+
+<div id="arc-body">1951 年，William Schockley 发明了第一个结型晶体管，这种半导体器件能够放大电子信号，如广播和电视信号。晶体管的出现带来了许多半导体领域的其他发明，包括集成电路（IC），这种电路可以在一个很小的器件中包含成千上万的微小晶体管。由于有了集成电路，使得现代计算机和其他电子奇迹的出现成为可能。<br>
+<h2>
+	无偏置的晶体管</h2>
+<span style="color:#008000;">双极型晶体管</span>（简称 “<span style="color:#008000;">BJT</span>”)，利用的是自由电子和空穴。双极是“两种极性”的缩写，晶体管有三个掺杂区，如图 1 所示。底部区域是<span style="color:#008000;">发射极</span>，中间区域是<span style="color:#008000;">基极</span>，顶部区域是<span style="color:#008000;">集电极</span>。实际晶体管的基极比集电极和发射极薄很多。图 1 所示晶体管是一个 <em>npn</em> 型器件，<em>p</em> 区在两个 <em>n</em> 区的中间。<em>n</em> 型材料中的多子是自由电子，<em>p</em> 型材料中的多子是空穴。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPQGPA15.jpg"><br>
+	图 1 晶体管结构</div>
+<br>
+晶体管也可以制造成 <em>pnp</em> 型。<em>pnp</em> 型晶体管的 <em>n</em> 区在两个 <em>p</em> 区中间。为了避免 <em>npn</em> 管和 <em>pnp</em> 管的混淆，首先集中讨论 <em>npn</em> 型晶体管。<br>
+<h2>
+	掺杂浓度</h2>
+图 1 中，发射极是重掺杂的，基极掺杂浓度较轻，集电极的掺杂浓度为中等，介于发射极重掺杂和基极轻掺杂之间。集电极区域在外形上是三个区域中最大的。<br>
+<h2>
+	发射结和集电结</h2>
+图 1 所示的晶体管有两个结，一个在发射极和基极之间，另一个在集电极和基极之间。因此，晶体管看起来好像两个背靠背的二极管。下面的二极管称为<span style="color:#008000;">发射极-基极二极管</span>，或简称为<span style="color:#008000;">发射结</span>，上面的二极管称为<span style="color:#008000;">集电极-基极二极管</span>，或简称为<span style="color:#008000;">集电结</span>。<br>
+<h2>
+	扩散前后</h2>
+图 1 所示是晶体管各区域载流子扩散之前的情况。<em>n </em>区中的自由电子将会穿过 <em>pn </em>结扩散到 <em>p</em> 区并与那里的空穴复合。两个 <em>n</em> 区的自由电子都会穿过 <em>pn</em> 结并与空穴复合。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPQH04H31.jpg" style="width: 400px; height: 389px;"><br>
+	图 2 耗尽层</div>
+<br>
+扩散的结果是形成两个耗尽层，如图 2 所示。对硅晶体管而言，每个耗尽层的势垒电压在 25°C 下大约为 0.7V（锗晶体管在 25°C 下为 0.3V）。这里重点讨论硅器件，因为目前硅器件比锗器件的应用更广泛。<br>
+<h4>
+	知识拓展</h4>
+1947 年 12 月 23 日下午，Walter H.Brattain 和 John Bardeen 在贝尔电话实验室的实验发现了第一个晶体管的放大作用。第一个晶体管称为“<span style="color:#008000;">点接触晶体管</span>”，这是 Schockley 发明的结型晶体管的前身。<br>
+<h2>
+	有偏置的晶体管</h2>
+未加偏置的晶体管像是两个背靠背的二极管，每个二极管的势垒电压大约为 0.7V。将外部电压源连接到晶体管上时，可以得到通过晶体管不同区域的电流。<br>
+<h2>
+	发射极电子</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PPQH400510.jpg" style="width: 500px; height: 296px;"><br>
+	图 3 加偏置的晶体管</div>
+<br>
+图 3 所示是施加偏置的晶体管，负号表示自由电子。重掺杂发射极的作用是将自由电子发射或注入到基极。轻掺杂基极的作用是将发射极注入的电子传输到集电极。集电极收集或聚集来自基极的绝大部分电子，因而得名。<br>
+<br>
+图 3 所示是晶体管的常见偏置方式。其中左边的电源 <em>V</em><sub><em>BB</em></sub> 使发射结正偏，右边的电源 <em>V</em><sub><em>CC</em></sub> 使集电结反偏。尽管还有其他可能的偏置方式，但是发射结正偏，集电结反偏是最常用的偏置方式。<br>
+<h4>
+	知识拓展</h4>
+晶体管中，发射极-基极间的耗尽层要比集电极-基极间的窄，原因是发射极和集电极的掺杂浓度不同。由于发射极的掺杂浓度高，有足够多的自由电子可以提供，所以耗尽层扩展到 <em>n</em> 型区的宽度小。而相比之下，集电极的自由电子较少，为建立起势垒电压，耗尽层必须扩展得更宽一些。<br>
+<h2>
+	基极电子</h2>
+图 3 中，在发射结正偏的瞬间，发射极中的电子尚未迸入到基区。如果 <em>V</em><sub><em>BB</em></sub> 大于发射极-基极的势垒电压，那么发射极电子将进入基区，如图 4 所示。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPQH5044T.jpg" style="width: 500px; height: 296px;"><br>
+	图 4 发射级将自由电子注入基级</div>
+<br>
+理论上，这些自由电子可以沿着以下两个方向中任意一个流动：
+<ul>
+<li>
+		它们可以向左流动并从基极流出，通过该路径上的 <em>R</em><sub><em>B </em></sub>到达电源正极。</li>
+<li>
+		它们也可以流到集电极。</li>
+</ul>
+<br>
+自由电子会去向哪里呢？大多数电子会继续流到集电极。原因有两个：一是基极轻掺杂，二是基区很薄。轻掺杂意味着自由电子在基区的寿命长，基区很薄则意味着自由电子只需通过很短的距离就可以到达集电极。由于这两个原因，几乎所有发射极注入的电子都能通过基极到达集电极。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPQH534436.jpg" style="width: 500px; height: 296px;"><br>
+	图 5 自由电子从基极流入集电极</div>
+<br>
+只有很少的自由电子会与轻掺杂的基极中的空穴复合，如图 5 所示，然后作为导带电子，通过基区电阻到达电源 <em>V</em><sub><em>BB </em></sub>的正极。<br>
+<h2>
+	集电极电子</h2>
+几乎所有的自由电子都能到达集电极，如图 5 所示。当它们进入集电极，便会受到电源电压 <em>V</em><sub><em>CC</em></sub> 的吸引。这些自由电子因而会流过集电极和电阻 <em>R</em><sub><em>C</em></sub>，到达集电极电压源的正极。<br>
+<br>
+总结一下，在图 5 中，<em>V</em><sub><em>BB</em></sub> 使发射结正偏，迫使发射极的自由电子进入基极。基极很薄而且浓度低，使几乎所有电子有足够时间扩散到集电极。这些电子流过集电极和电阻 <em>R</em><sub><em>C</em></sub>，到达电压源 <em>V</em><sub><em>CC</em></sub> 的正极。<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极型晶体管（npn晶体管、三极管）的电流</h1>
+
+<div id="arc-body">图 1a) 和图 1b) 所示是型晶体管的电路符号。表示传统电流时，可使用图 1a)。表示电子流时，可使用图 1b)。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPZ93I6213.jpg" style="width: 500px; height: 321px;"><br>
+	图 1 晶体管的三种电流</div>
+<br>
+在图 1 中，晶体管有三种不同的电流：发射极电流 <em>I</em><sub><em>E</em></sub>、基极电流 <em>I</em><sub><em>B</em></sub> 和集电极电流 <em>I</em><sub><em>C</em></sub>。<br>
+<h2>
+	电流的大小</h2>
+发射极是电子发射的源头，因而它的电流最大。由于发射极中大多数电子流到集电极，所以集电极电流几乎和发射极电流大小相同。比较而言，基极电流非常小，通常不到集电极电流的 1/100。<br>
+<h2>
+	电流间的关系</h2>
+由基尔霍夫电流定律：流入一个点或结的所有电流总和等于流出这个点或结的所有电流总和。对于晶体管，得出如下重要的关系式<strong>（公式一）</strong>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPZ93T42K.jpg" style="width: 179px; height: 26px;"><br>
+	&nbsp;</div>
+即发射极电流是集电极电流和基极电流之和。由于基极电流很小，集电极电流几乎等于发射极电流：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPZ93ZOM.jpg" style="width: 106px; height: 26px;"><br>
+	&nbsp;</div>
+基极电流远小于集电极电流：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPZ93923361.jpg" style="width: 104px; height: 26px;"><br>
+	&nbsp;</div>
+其中，&lt;&lt; 表示远小于。<br>
+<br>
+图 2 所示是 <em>pnp</em> 晶体管的电路符号和它的电流，它的电流方向和 <em>npn</em> 管的相反。同时，公式一对 <em>pnp</em> 管电流也是成立的。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPZ94132P9.jpg" style="width: 250px; height: 342px;"><br>
+	图 2 <em>pnp</em> 晶体管</div>
+<h2>
+	直流系数 α</h2>
+<br>
+直流系数 α（用 α<sub>dc</sub> 表示）定义为集电极直流电流与发射极直流电流之比：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPZ9421O17.jpg" style="width: 90px; height: 50px;"><br>
+	&nbsp;</div>
+因为集电极电流几乎等于发射极电流，所以 α<sub>dc</sub> 略小于 1。例如，对于一个低功率晶体管，α<sub>dc</sub> 通常大于 0.99。即使是大功率晶体管，α<sub>dc</sub> 也通常大于 0.95。<br>
+<h2>
+	直流系数 β</h2>
+晶体管的直流系数 β（用符号 β<sub>dc</sub> 表示）定义为集电极直流电流与基极直流电流之比<strong>（公式二）</strong>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPZ943112V.jpg" style="width: 90px; height: 50px;"><br>
+	&nbsp;</div>
+β<sub>dc</sub> 也称为<span style="color:#008000;">电流增益</span>，通过较小的基极电流控制比它大得多的集电极电流。<br>
+<br>
+具有电流增益是晶体管的主要特点，几乎所有应用都是由此产生的。对于低功率晶体管（小于 1W），电流增益通常为 100〜300。大功率（高于 1W）晶体管的电流增益通常为 20〜100。<br>
+<h2>
+	两个推论</h2>
+公式二可以重新整理成两个等效形式。首先，如果已知 β<sub>dc</sub> 和 <em>I</em><sub><em>B</em></sub> 的值，可以用下面的推论计算集电极电流：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPZ9435NT.jpg" style="width: 118px; height: 26px;"><br>
+	&nbsp;</div>
+其次，如果已知 β<sub>dc</sub> 和 <em>I</em><sub><em>C</em></sub> 的值，可以利用下面的推论计算基极电流：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPZ94416323.jpg" style="width: 82px; height: 50px;"><br>
+	&nbsp;</div>
+<strong>【例 1】</strong>晶体管的集电极电流为 10mA，基极电流为 40μA。该晶体管的电流增益是多少？<br>
+<br>
+解：用集电极电流除以基极电流得：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPZ94500U3.jpg" style="width: 198px; height: 50px;"><br>
+	&nbsp;</div>
+<strong>【例 2】</strong>晶体管的电流增益为 175。当基极电流为 0.1mA 时，集电极电流是多少？<br>
+<br>
+解：基极电流乘以电流增益得：<br>
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPZ94520260.jpg" style="width: 407px; height: 26px;"></div>
+<br>
+<strong>【例 3】</strong>晶体管集电极电流为 2mA。如果电流增益为 135，则基极电流是多少？<br>
+<br>
+解：集电极电流除以电流增益得：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PPZ94623157.jpg"></div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极性晶体管（npn晶体管、三极管）的共发射极组态</h1>
+
+<div id="arc-body">晶体管有三种有用的组态：CE（共发射极）、CC（共集电极）和 CB（共基极）。CC 和 CB 组态将在后续章节讨论。本章集中讨论应用最广的 CE 组态。<br>
+<h2>
+	共发射极</h2>
+在图 1 所示电路中，两个电压源的公用端或地端连接到发射极上，该电路称为<span style="color:#008000;">共发射极组态</span>。该电路有两个回路，左边的回路是基极回路，右边的是集电极回路。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP910350S35.jpg" style="width: 500px; height: 244px;"><br>
+	图 1 共发射极组态基本电路</div>
+<br>
+在基极回路中，电压源 <em>V</em><sub><em>BB</em></sub> 使发射结正偏，<em>R</em><sub><em>B</em></sub> 为限流电阻。通过改变 <em>V</em><sub><em>BB</em></sub> 或 <em>R</em><sub><em>B</em></sub>，可以改变基极电流，而改变基极电流将使集电极电流发生改变，即基极电流控制集电极电流。这一点很重要，说明可以用小电流（基极）控制大电流（集电极）。<br>
+<br>
+在集电极回路中，电压源 <em>V</em><sub><em>CC</em></sub> 通过 <em>R</em><sub><em>C</em></sub> 使集电结反偏。电压源 <em>V</em><sub><em>CC</em></sub> 必须使集电结反偏，否则晶体管将不能正常工作。即集电极必须是正电压，这样才能够将注入基极的大多数自由电子收集过来。<br>
+<br>
+图 1 所示电路中，左边回路中基极电流的流动在基极电阻 <em>R</em><sub><em>B</em></sub> 上产生一个电压，极性如图 1 所示。同样地，右边回路中集电极电流的流动在集电极电阻 <em>R</em><sub><em>C</em></sub> 上产生一个电压，极性如图 1 所示。<br>
+<h2>
+	双下标</h2>
+晶体管电路中常使用双下标表示方法。当下标中两个字符相同时，电压表示电压源（<em>V</em><sub><em>BB</em></sub> 和 <em>V</em><sub><em>CC</em></sub>）。当下标中两个字符不同时，则表示两点间的电压（<em>V</em><sub><em>BE</em></sub> 和 <em>V</em><sub><em>CE</em></sub>）。<br>
+<br>
+例如，<em>V</em><sub><em>BB</em></sub> 下标中两个字符相同，表明 <em>V</em><sub><em>BB</em></sub> 是基极电压源。同样地，<em>V</em><sub><em>CC</em></sub> 是集电极电压源。<em>V</em><sub><em>BE</em></sub> 表示 B 点和 E 点之间的电压，即基极和集电极之间的电压。同样，<em>V</em><sub><em>CE</em></sub> 是 C 点和 E 点之间的电压，即集电极和发射极之间的电压。<br>
+<h2>
+	单下标</h2>
+单下标用于节点电压，即标注点和地之间的电压。例如，如果将图 1 所示电路重画，并将各部分的地电位分别表示，就得到如图 2 所示的电路。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9103ADS.jpg" style="width: 500px; height: 246px;"><br>
+	图 2 共发射极组态接地电路</div>
+<br>
+电压 <em>V</em><sub><em>B</em></sub> 是基极和地之间的电压，电压 <em>V</em><sub><em>C</em></sub> 是集电极和地之间的电压，<em>V</em><sub><em>E</em></sub> 是发射极和地之间的电压（该电路中 <em>V</em><sub><em>E</em></sub> 为零）。<br>
+<br>
+通过将单下标电压相减，可以计算出字符不同的双下标电压。下面举三个例子：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9103H1T6.jpg" style="width: 177px; height: 100px;"><br>
+	&nbsp;</div>
+这是计算任何晶体管电路中双下标电压的方法。由于在 <em>C</em><sub><em>E</em></sub> 组态中，<em>V</em><sub><em>E</em></sub> 为零（见图 2），则电压可简化为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9103J3V4.jpg" style="width: 176px; height: 100px;"></div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极型晶体管（npn晶体管、三极管）的基极特性</h1>
+
+<div id="arc-body"><div style="text-align: center;">
+<img alt="" src="./index_files/2-1PP911133LF.jpg" style="width: 400px; height: 399px;"><br>
+	图 1 基级特性</div>
+<br>
+<em>I</em><sub><em>B</em></sub> 与 <em>V</em><sub><em>BE</em></sub> 的特性曲线看起来就像是普通二极管的特性曲线，如图 1 所示。<span style="color:#b22222;">实际上，对于正向偏置的发射结，它的特性就是二极管的伏安特性，即可以采用之前讨论过的任何有关二极管的近似方法。</span>
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP911154U22.jpg" style="width: 500px; height: 246px;"><br>
+	图 2 双极型晶体管的接地电路</div>
+<br>
+对图 2 中的基极电阻使用欧姆定律，得到：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP911162KC.jpg" style="width: 173px; height: 50px;"><br>
+	&nbsp;</div>
+如果采用理想二极管，则取 <em>V</em><sub><em>BE</em></sub>=0。如果采用二阶近似，则取 <em>V</em><sub><em>BE</em></sub>=0.7V。<br>
+<br>
+大多数情况下，采用二阶近似是在理想二极管计算速度和高阶近似计算精度之间的最好折衷。在二阶近似中要取 0.7V，如图 1 所示。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9111F1634.jpg" style="width: 500px; height: 263px;"><br>
+	图 3</div>
+<br>
+采用二阶近似计算图 3 中的基极电流和基极电阻上的电压。当 β<sub>dc</sub>=200 时，集电极电流是多少？<br>
+<br>
+解：2V 的基极电压源通过 100kΩ 的限流电阻使发射结正偏。因为发射结上压降为 0.7V，基极电阻上的电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9111IW38.jpg" style="width: 463px; height: 26px;"><br>
+	&nbsp;</div>
+流过基极电阻的电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9111K3X6.jpg" style="width: 384px; height: 50px;"><br>
+	&nbsp;</div>
+电流增益为 200，则集电极电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9111PI03.jpg" style="width: 433px; height: 26px;"></div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极型晶体管（npn晶体管、三极管）的集电极特性</h1>
+
+<div id="arc-body">前面已经讨论了计算图 1 中电路基极电流的方法。因为 <em>V</em><sub><em>BB</em></sub> 使发射结正偏，需要计算的是通过基极电阻 <em>R</em><sub><em>B</em></sub> 的电流。下面讨论集电极回路。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9132945Q0.jpg" style="width: 500px; height: 241px;"><br>
+	图 1 基本晶体管电路</div>
+<br>
+可以改变图 1 中的 <em>V</em><sub><em>BB</em></sub> 和 <em>V</em><sub><em>CC</em></sub>，使晶体管产生不同的电压和电流。通过测量 <em>I</em><sub><em>C</em></sub> 和 <em>V</em><sub><em>CE</em></sub>，获得 <em>I</em><sub><em>C</em></sub> 与 <em>V</em><sub><em>CE</em></sub> 特性曲线的数据。<br>
+<br>
+例如，假定按需要改变 <em>V</em><sub><em>BB</em></sub> 使得 <em>I</em><sub><em>B</em></sub>=10μA，保持这个基极电流值不变，改变 <em>V</em><sub><em>CC</em></sub>，并测量出 <em>I</em><sub><em>C</em></sub> 和 <em>V</em><sub><em>CE</em></sub>。根据所得数据画出图 2 所示的特性曲线。（注意：这是 2N3904 晶体管的特性曲线，一种被广泛使用的低功率晶体管。对于其他晶体管，数值可能不同，但是曲线的形状是类似的。）
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9133141b0.jpg" style="width: 500px; height: 220px;"><br>
+	图 2 集电极特性曲线</div>
+<br>
+当 <em>V</em><sub><em>CE</em></sub> 为零时，集电结不再处于反偏状态，因而当 <em>V</em><sub><em>CE</em></sub> 为零时，图 2 中显示集电极电流为零。当 <em>V</em><sub><em>CE</em></sub> 从零开始增加时，集电极电流迅速增加。当介于 0〜1V 之间时，集电极电流增到 1mA，并几乎恒定不变。<br>
+<br>
+图 2 中恒定电流区域与之前讨论过的晶体管特性有关。当集电结变为反向偏置后，到达耗尽层的电子被全部收集。进一步增加 <em>V</em><sub><em>CE</em></sub> 并不能增加集电极电流，因为集电极只能收集发射极注入基极中的自由电子，这些注入电子的数目仅依赖于基极电路，而不是集电极电路。因此，图 2 显示的集电极电流从 <em>V</em><sub><em>CE</em></sub> 小于 1V 直至大于 40V 的区域均为恒定值。<br>
+<br>
+当 <em>V</em><sub><em>CE</em></sub> 大于 40V 时，集电结将被击穿，晶体管将失去正常特性，因此晶体管不能工作在击穿区。在晶体管数据手册中，有一个最大额定指标就是集电极-发射极击穿电压 <em>V</em><sub><em>CE(max)</em></sub>。如果晶体管被击穿，将会损坏。<br>
+<h2>
+	集电极电压和功率</h2>
+基尔霍夫电压定律说明一个回路或者闭合路径的电压和等于零。对于图 1 所示的集电极电路，得到如下推论：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9133230G0.jpg" style="width: 247px; height: 26px;"><br>
+	&nbsp;</div>
+说明 <em>V</em><sub><em>CE</em></sub> 等于集电极电源电压减去集电极电阻上的电压。在图 1 中，晶体管的功率大约为<strong>（公式一）</strong>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP913325U49.jpg" style="width: 163px; height: 26px;"><br>
+	&nbsp;</div>
+说明晶体管的功率等于 <em>V</em><sub><em>CE</em></sub> 与集电极电流的乘积。这个功率导致集电结的结温升高，功率越大，结温越高。<br>
+<br>
+当结温升高至 150〜200°C 时，晶体管将会烧毁。数据手册中最重要的信息之一就是最大额定功率 <em>P</em><sub><em>D(max)</em></sub>，公式一给出的功耗必须小于 <em>P</em><sub><em>D(max)</em></sub>，否则，晶体管将会损坏。<br>
+<h2>
+	工作区</h2>
+在图 2 所示特性曲线的不同区域，晶体管的工作状态是不同的。首先，在处于 1〜40V 的中间区域，是晶体管的正常工作区。在这个区域，发射结正偏，集电结反偏。而且，集电极将发射极注入基极的电子几乎全部收集，因此改变集电极电压不影响集电极电流，这个区域叫作<span style="color:#008000;">有源区</span>，有源区是曲线的水平部分，即集电极电流在这个区域是恒定的。<br>
+<br>
+另外一个区域是<span style="color:#008000;">击穿区</span>。因为晶体管在这个区域会损坏，所以绝不允许工作在该区域。齐纳二极管的击穿区特性是经过优化的，可以工作在该区域，而晶体管是不允许工作在击穿区的。<br>
+<br>
+第三个区域是曲线在起始处上升的部分，这里的 <em>V</em><sub><em>CE</em></sub> 在 0〜1V 之间。这个曲线的斜坡部分称为<span style="color:#008000;">饱和区</span>。在该区域内，集电结的正电压不能将注入基极的自由电子全部收集，基极电流 <em>I</em><sub><em>B</em></sub> 大于正常值，电流增益 β<sub>dc</sub> 则小于正常值。<br>
+<h2>
+	更多的特性曲线</h2>
+如果在 <em>I</em><sub><em>B</em></sub>=20μA 时测量 <em>I</em><sub><em>C</em></sub> 和 <em>V</em><sub><em>CE</em></sub>，就可以得到图 3 中第二条特性曲线，与第一条曲线相似，只是集电极电流在有源区的值为 2mA。而且，集电极电流在有源区也是恒定值。<br>
+<br>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PP913344c29.jpg" style="width: 500px; height: 411px;"><br>
+	图 3 一组集电极特性曲线<br>
+	&nbsp;</div>
+画出不同基极电流对应的曲线后，就得到与图 3 类似的一组集电极特性曲线。得到这组曲线的另一种方法是用<span style="color:#008000;">特性曲线扫描仪</span>（一种能够显示晶体管 <em>I</em><sub><em>C</em></sub> 与 <em>V</em><sub><em>CE </em></sub>特性曲线的测试仪器）。在图 3 中的有源区部分，每个集电极电流是相应基极电流的 100 倍。例如，顶部特性曲线的集电极电流为 7mA，而基极电流为 70μA。则电流增益为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9133614O2.jpg" style="width: 252px; height: 50px;"><br>
+	&nbsp;</div>
+对其他任意曲线进行检测，得到的结果相同：电流增益为 100。<br>
+<br>
+对于其他晶体管，电流增益可能不是 100，但是其特性曲线的形状都是相似的。所有的晶体管特性都分为有源区、饱和区和击穿区。有源区是最重要的，因为晶体管工作在有源区才能够实现对信号的放大。<br>
+<h4>
+	知识拓展</h4>
+使用特性曲线扫描仪时，图 3 中的集电极特性曲线实际上随着 <em>V</em><sub><em>CE</em></sub> 的增加略微上翘，这是由于 <em>V</em><sub><em>CE</em></sub> 的增加使基区宽度略微变小的结果（当 <em>V</em><sub><em>CE</em></sub> 增加时，CB 结耗尽层变宽，从而使得基区变窄）。基区变窄则参与复合的空穴减少。由于每条曲线对应同一个恒定的基极电流，这个效应表现为集电极电流的增加。<br>
+<h2>
+	截止区</h2>
+在图 3 的最下端，有一条并不希望存在的曲线，它表示的是第四个可能的工作区。注意，此时基极电流为零，但仍然有一个小的集电极电流。在特性曲线扫描仪上，这个电流通常很小，难以观察到，而这里的底部曲线是将实际电流曲线的比例放大了。底部特性曲线叫做晶体管的<span style="color:#008000;">截止区</span>，这个小的集电极电流称为<span style="color:#008000;">集电极截止电流</span>。<br>
+<br>
+集电极截止电流的存在是因为集电结中有反向少子电流和表面漏电流。对于设计良好的电路，集电极截止电流很小，可以忽略。例如，晶体管 2N3904 的集电极截止电流为 50nA，如果实际集电极电流为 1mA，忽略 50nA 的集电极截止电流所产生的计算误差小于 5%。<br>
+<h2>
+	要点重述</h2>
+晶体管有四个不同的工作区域：有源区、截止区、饱和区和击穿区。晶体管工作在有源区时，可用来对弱信号进行放大。因为输入信号的变化使输出信号发生成比例的变化，所以有时有源区又称为线性区。晶体管在数字电路和计算机电路中工作在饱和区和截止区，这些电路均称为<span style="color:#008000;">开关电路</span>。<br>
+<br>
+【例 1】图 4a) 所示晶体管的 βdc=300。计算 <em>I</em><sub><em>B</em></sub>、<em>I</em><sub><em>C</em></sub>、<em>V</em><sub><em>CE</em></sub> 和 <em>P</em><sub><em>D</em></sub>。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9133S1E6.jpg" style="width: 600px; height: 432px;"><br>
+	图 4 晶体管电路</div>
+<br>
+解：图 4b) 显示了该电路接地的情况。基极电流等于：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9133Z92b.jpg" style="width: 462px; height: 50px;"><br>
+	&nbsp;</div>
+集电极电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9133921I1.jpg" style="width: 452px; height: 26px;"><br>
+	&nbsp;</div>
+<em>V</em><sub><em>CE </em></sub>为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9133933455.jpg" style="width: 707px; height: 26px;"><br>
+	&nbsp;</div>
+集电极功耗为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9134006407.jpg" style="width: 608px; height: 26px;"><br>
+	&nbsp;</div>
+当基极和集电极电源电压相等时，如图 4b) 所示，通常以如图 4c) 所示的简单电路形式表示。</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极型晶体管的理想化近似，二阶近似及高阶近似</h1>
+
+<div id="arc-body">图 1 所示晶体管的发射结电压为 <em>V</em><sub><em>BE</em></sub>，集电极-发射极两端电压为 <em>V</em><sub><em>CE</em></sub>。该晶体管的等效电路是什么？
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9150G1V6.jpg" style="width: 400px; height: 152px;"><br>
+	图 1 晶体管元器件</div>
+<h2>
+	理想化近似</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PP9150I3931.jpg" style="width: 500px; height: 144px;"><br>
+	图 2 晶体管的理想化近似</div>
+<br>
+图 2 所示是晶体管的理想化近似。将发射结表示为理想二极管，此时，<em>V</em><sub><em>BE</em></sub>=0，可以快速容易地计算出基极电流。该等效电路常用于故障诊断，因为这时所需要的仅是对基极电流的粗略估计。<br>
+<br>
+如图 2 所示，晶体管的集电极就像一个电流源，它输出的集电极电流并流经集电极电阻。因此，当计算出基极电流后，将它与电流增益相乘即可得到集电极电流。<br>
+<h2>
+	二阶近似</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PP9150P25Z.jpg" style="width: 500px; height: 141px;"><br>
+	图 3 晶体管的二阶近似</div>
+<br>
+图 3 所示是晶体管的二阶近似。由于该模型在基极电压比较小的时候能显著地改善分析结果，因此更为常用。<br>
+<br>
+这里采用二极管的二阶近似来计算基极电流。对于硅晶体管，<em>V</em><sub><em>BE</em></sub>=0.7V（对于锗晶体管，<em>V</em><sub><em>BE</em></sub>=0.3V）。在二阶近似下，基极和集电极电流略小于理想值。<br>
+<h2>
+	高阶近似</h2>
+只有在电流很大的大功率应用中，发射结的体电阻才显得很重要。发射结的体电阻效应将会使 <em>V</em><sub><em>BE</em></sub> 增加，使之大于 0.7V。例如，在大功率电路中，<em>V</em><sub><em>BE</em></sub> 可能大于 1V。<br>
+<br>
+同样地，集电结的体电阻在某些设计中也有明显的影响。除发射极和集电极体电阻外，晶体管还有很多其他的高阶效应，这使得手工计算变得十分繁琐且耗时。所以，二阶以上的近似计算应通过计算机来解决。<br>
+<h4>
+	知识拓展</h4>
+双极型晶体管通常用作恒流源。<br>
+<br>
+<strong>【例 1】</strong>图 4 中 <em>V</em><sub><em>CE</em></sub> 是多少？采用理想晶体管。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9150910529.jpg" style="width: 500px; height: 234px;"><br>
+	图 4</div>
+<br>
+解：对于理想发射结：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9150925538.jpg" style="width: 112px; height: 26px;"><br>
+	&nbsp;</div>
+因此，上的总电压是 15V。根据欧姆定律：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP915093N22.jpg" style="width: 273px; height: 50px;"><br>
+	&nbsp;</div>
+集电极电流等于电流增益与基极电流的乘积：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP915094T15.jpg" style="width: 369px; height: 26px;"><br>
+	&nbsp;</div>
+下面计算 <em>V</em><sub><em>CE</em></sub>，它等于集电极电源电压减去集电极电阻上的压降：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9151005451.jpg" style="width: 566px; height: 26px;"><br>
+	&nbsp;</div>
+在图 4 所示电路中，发射极电流的值不太重要，所以多数人不会计算它。但作为例题，这里将计算发射极电流，它等于集电极电流和基极电流之和：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP915102X39.jpg" style="width: 422px; height: 26px;"><br>
+	&nbsp;</div>
+这个值与集电极电流十分接近，所以一般不需要计算。多数人会将集电极电流的值 3.19mA 作为发射极电流。<br>
+<br>
+<strong>【例 2】</strong>如果采用二阶近似，图 4 所示电路中的 <em>V</em><sub><em>CE</em></sub> 是多少？。<br>
+<br>
+解：这里，使用二阶近似对图 4 中电路的电流和电压值进行计算。发射结上的电压：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP915105TS.jpg" style="width: 171px; height: 26px;"><br>
+	&nbsp;</div>
+所以，<em>R</em><sub><em>B</em></sub> 上的总电压是 15V 与 0.7V 的差：14.3V。基极电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9151123429.jpg" style="width: 275px; height: 50px;"><br>
+	&nbsp;</div>
+集电极电流等于电流增益与基极电流相乘：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP915113EL.jpg" style="width: 473px; height: 60px;"><br>
+	&nbsp;</div>
+这个改进后的答案比理想情况下的值高了大约 0.5V（4.06V-3.52V）。这 0.5V 的重要性则取决于实际场合，如故障诊断、设计或其他情况。<br>
+<br>
+<strong>【例 3】</strong>假设测得 <em>V</em><sub><em>BE</em></sub> 为 1V，那么图 4 中的 <em>V</em><sub><em>CE</em></sub> 是多少？<br>
+<br>
+解：<em>R</em><sub><em>B</em></sub> 上的总电压是 15V 和 1V 的差：14V。根据欧姆定律，基极电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP91512293T.jpg" style="width: 275px; height: 50px;"><br>
+	&nbsp;</div>
+集电极电流等于电流增益与基极电流相乘：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP91512424K.jpg" style="width: 466px; height: 60px;"><br>
+	&nbsp;</div>
+<strong>【例 4】</strong>当基极电压为 5V 时，前面三个例子中的 <em>V</em><sub><em>CE</em></sub> 各为多少？<br>
+<br>
+解：采用理想二极管：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9151320b7.jpg" style="width: 432px; height: 120px;"><br>
+	&nbsp;</div>
+采用二阶近似：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9151335T2.jpg" style="width: 444px; height: 120px;"><br>
+	&nbsp;</div>
+实际测量的 <em>V</em><sub><em>BE</em></sub>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9151349416.jpg" style="width: 444px; height: 120px;"><br>
+	&nbsp;</div>
+通过这个例子对低基极电压情况下的三种近似情况进行比较。可以看到，所有答案间的偏差在 1V 以内。由此，可作如下近似选择：若是对电路进行故障诊断，则理想化分析就足够了；但若是设计电路，因为精度的要求，就需要使用计算机来计算。表 5 总结了理想化近似和二阶近似的差别。<br>
+<br>
+<table>
+<caption>
+		表 5 晶体管电路的近似</caption>
+<tbody>
+<tr>
+<th>
+				&nbsp;</th>
+<th>
+				理想化近似</th>
+<th>
+				二阶近似</th>
+</tr>
+<tr>
+<th>
+				电路</th>
+<td>
+<img alt="" src="./index_files/2-1PP9151ANB.jpg" style="width: 300px; height: 165px;"></td>
+<td>
+<img alt="" src="./index_files/2-1PP9151F43A.jpg" style="width: 300px; height: 165px;"></td>
+</tr>
+<tr>
+<th>
+				使用情况</th>
+<td>
+				故障诊断或粗略估算</td>
+<td>
+				需要更精确的计算时，特别时 VBB 较小时</td>
+</tr>
+<tr>
+<th>
+<em>V</em><sub><em>BE</em></sub>=</th>
+<td>
+				0V</td>
+<td>
+				0.7V</td>
+</tr>
+<tr>
+<th>
+<em>I</em><sub><em>B</em></sub>=</th>
+<td>
+<img alt="" src="./index_files/2-1PP9151U49A.jpg" style="width: 193px; height: 38px;"></td>
+<td>
+<img alt="" src="./index_files/2-1PP9151Z2226.jpg" style="width: 300px; height: 38px;"></td>
+</tr>
+<tr>
+<th>
+<em>I</em><sub><em>C</em></sub>=</th>
+<td>
+<img alt="" src="./index_files/2-1PP9151929415.jpg" style="width: 280px; height: 20px;"></td>
+<td>
+<img alt="" src="./index_files/2-1PP9151951M7.jpg" style="width: 280px; height: 20px;"></td>
+</tr>
+<tr>
+<th>
+<em>V</em><sub><em>CE</em></sub>=</th>
+<td>
+<img alt="" src="./index_files/2-1PP9152004633.jpg" style="width: 280px; height: 14px;"></td>
+<td>
+<img alt="" src="./index_files/2-1PP9152011360.jpg" style="width: 314px; height: 14px;"></td>
+</tr>
+</tbody>
+</table>
+<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>初识双极型晶体管（npn晶体管，三极管）数据手册</h1>
+
+<div id="arc-body">小信号晶体管的功耗不到 1W，功率晶体管的功耗超过 1W。查看数据手册中的任意一种晶体管参数时，应该首先找到那些最大额定值，因为这些是晶体管电流、电压和其他参量的极限值。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9161SJ16.jpg" style="width: 600px; height: 776px;"><br>
+	图 1 双极型晶体管数据手册（<a href="http://www.54benniao.com/uploads/allimg/180809/2-1PP916202Q30.jpg" target="_blank">点此查看高清大图</a>）<br>
+<br>
+<img alt="" src="./index_files/2-1PP9161945H7.jpg" style="width: 600px; height: 893px;"><br>
+	图 1 续（<a href="http://www.54benniao.com/uploads/allimg/180809/2-1PP9162114133.jpg" target="_blank">点此查看高清大图</a>）</div>
+<h2>
+	击穿额定值</h2>
+在图 1 所示的数据手册中，给出了晶体管 2N3904 的最大额定值：<em>V</em><sub><em>CEO</em></sub>=40V；<em>V</em><sub><em>CBO</em></sub>=60V；<em>V</em><sub><em>EBO</em></sub>=6V。这些额定电压是反向击穿电压，<em>V</em><sub><em>CEO</em></sub> 是基极开路时集电极与发射极间的电压，表示发射极开路时集电极与基极间的电压，是集电极开路时发射极与基极间的最大反向电压。通常，一个保守的设计是绝不会允许电压接近最大额定值的，因为即使是接近最大额定值也会降低器件寿命。<br>
+<h2>
+	最大电流和功率</h2>
+在数据手册中也给出了最大电流和功率的值：<em>I</em><sub><em>C</em></sub>=200mA；<em>P</em><sub><em>D</em></sub>=625mW。<em>I</em><sub><em>C</em></sub> 是集电极最大直流电流额定值，即 2N3904 能够处理高达 200mA 的直流电流，前提是没有超过额定功率。额定值 <em>P</em><sub><em>D</em></sub> 是器件的最大功率额定值，这个功率额定值取决于是否采用了晶体管的散热措施。如果晶体管没有风扇冷却而且没有散热片（将在后面讨论），它的管壳温度 <em>T</em><sub><em>C</em></sub> 将会比环境温度 <em>T</em><sub><em>A</em></sub> 高很多。<br>
+<br>
+在多数应用中，像 2N3904 这样的小信号晶体管不用风扇冷却，也不用散热片。在这种情况下，当环境温度 <em>T</em><sub><em>A</em></sub> 为 25°C 时，晶体管 2N3904 的额定功率为 625mW。<br>
+<br>
+管壳温度 <em>T</em><sub><em>C</em></sub> 是晶体管封装或壳体的温度。在多数应用中，管壳温度要比 25°C 高，这是因为内部晶体管的热量使管壳温度升高。<br>
+<br>
+当环境温度为 25°C 时，保持管壳温度在 25°C 的唯一方法就是用风扇冷却或者用大散热片。如果采用了上述措施，就有可能将晶体管的温度降到 25°C。在这种情况下，额定功率可以提高到 1.5W。<br>
+<h2>
+	减额系数</h2>
+减额系数表示的是需要将器件的额定功率降低的值。晶体管 2N3904 的减额系数为 5mW/°C，意思是超过 25°C 后，温度每上升 1°C，需要将额定功率减少 5mW。<br>
+<h2>
+	散热片</h2>
+提高晶体管额定功率的一种方法是快速驱除内部热量，这就需要使用散热片（一块金属）。增大晶体管外壳的表面积，可以使热量更容易地散发到周围空气中。例如，图 2a) 所示的散热片，当把它按压到晶体管外壳上时，因为增加了翘片的表面积，热量能更快地辐射出去。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP91623445E.jpg" style="width: 600px; height: 325px;"><br>
+	图 2 散热片</div>
+<br>
+图 2b) 所示是一个功率晶体管，它的散热方式是利用金属片提供晶体管散热的路径。可以把这个金属片固定到电子设备的底板上，因为底板是一块大散热片，热量能够很容易地从晶体管传到底板上。<br>
+<br>
+如图 2c) 所示是大功率晶体管，集电极连接到管壳上，使得热量尽可能容易地散发出去。晶体管的外壳固定到底板上，为了防止集电极与底板的地短路，在晶体管外壳和底板之间有一个很薄的绝缘垫片和导热材料，主要目的是使晶体管更快散热，即在同样的环境温度下，额定功率更高。有时，将晶体管固定到大的鳍状散热片上，能达到更好的散热效果。<br>
+<br>
+无论采用什么样的散热片，目的都是为了降低外壳温度，从而降低晶体管内部温度或结的温度。数据手册中还包括热电阻参量，设计时可根据这些参量计算不同散热片的外壳温度。<br>
+<h2>
+	电流增益</h2>
+在 <em>h</em> 参数分析系统中，电流增益的符号被定义为 <em>h</em><sub><em>FE</em></sub>。<em>h</em><sub><em>FE</em></sub> 与 β<sub>dc</sub> 是相等的：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9162443322.jpg" style="width: 111px; height: 26px;"><br>
+	&nbsp;</div>
+数据手册中使用符号 <em>h</em><sub><em>FE</em></sub> 代表电流增益。<br>
+<br>
+在晶体管 2N3904 的数据手册中，在标记为“导通特性”的部分列出了 <em>h</em><sub><em>FE</em></sub> 的值：<br>
+<table>
+<caption>
+		表 3</caption>
+<tbody>
+<tr>
+<th>
+<em>I</em><sub><em>C</em></sub>，mA</th>
+<th>
+				最小 <em>h</em><sub><em>FE</em></sub></th>
+<th>
+				最大 <em>h</em><sub><em>FE</em></sub></th>
+</tr>
+<tr>
+<th>
+				0.1</th>
+<td>
+				40</td>
+<td>
+				—</td>
+</tr>
+<tr>
+<th>
+				1</th>
+<td>
+				70</td>
+<td>
+				—</td>
+</tr>
+<tr>
+<th>
+				10</th>
+<td>
+				100</td>
+<td>
+				300</td>
+</tr>
+<tr>
+<th>
+				50</th>
+<td>
+				60</td>
+<td>
+				—</td>
+</tr>
+<tr>
+<th>
+				100</th>
+<td>
+				30</td>
+<td>
+				—</td>
+</tr>
+</tbody>
+</table>
+<br>
+晶体管 2N3904 在集电极电流为 10mA 附近时有最佳工作点，在这个电流下，最小电流增益是 100，最大电流增益是 300。这说明如果批量生产某个包含 2N9304 晶体管的电路，且该管的集电极电流为 10mA，则其中有些管的电流增益可能低至 100，有些则会高达 300，而大多数管的电流增益将处于这个范围之中。<br>
+<br>
+当集电极电流小于或者大于 10mA 时，最小电流增益随之减小。在 0.1mA 时，最小电流增益是 40；在 100mA 时，最小电流增益为 30。数据手册中只给出了电流偏离 10mA 时的最小电流增益，因为此时代表了最坏情况。设计电路通常要考虑最坏情况，即需要确认当晶体管特性（如电流增益）处于最坏情况时电路是否可以工作。<br>
+<br>
+<strong>【例 1】</strong>晶体管 2N3904 的 <em>V</em><sub><em>CE</em></sub>=10V，<em>I</em><sub><em>C</em></sub>=20mA，其功耗为多少？当环境温度为 25°C 时，该功耗是安全的吗？<br>
+<br>
+解：将 <em>V</em><sub><em>CE</em></sub> 乘以 <em>I</em><sub><em>C</em></sub> 得到：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9162R3141.jpg" style="width: 412px; height: 26px;"><br>
+	&nbsp;</div>
+当环境温度为 25°C 时，晶体管的额定功率为 625mW，说明晶体管在额定功率以内，处于安全工作区。<br>
+<br>
+良好的设计包含对安全系数的设计，以保证晶体管有较长的工作寿命。常用的安全系数为 2 或更高。安全系数为 2 表示设计的允许额定功率为 625mW 的一半，即 312mW。因此，当环境温度保持在 25°C 时，功耗只有 200mW 的设计属于比较保守的。<br>
+<br>
+<strong>【例 2】</strong>在上例中，如果环境温度为 100°C，该功耗水平是否安全？<br>
+<br>
+解：首先，计算出新的环境温度高出参考温度 25℃ 的度数。得到：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9162Zc46.jpg" style="width: 321px; height: 26px;"><br>
+	&nbsp;</div>
+有时，上式写成如下形式：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP9162922541.jpg" style="width: 159px; height: 26px;"><br>
+	&nbsp;</div>
+其中，△ 代表“差”。这个公式读作温度差为 75°C。<br>
+<br>
+用减额系数与温度差相乘，得到：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP916293LS.jpg" style="width: 304px; height: 50px;"><br>
+	&nbsp;</div>
+经常写成：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP916295L02.jpg" style="width: 224px; height: 26px;"><br>
+	&nbsp;</div>
+其中 △P 表示功率差。最终，需要把这个功率差从 25°C 时的额定功率中减掉：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP91630122M.jpg" style="width: 530px; height: 26px;"><br>
+	&nbsp;</div>
+这就是环境温度为 100°C 时晶体管的额定功率。<br>
+<br>
+下面分析该设计的安全性。晶体管的功率是 200mW，而最大额定值是 250mW，因此晶体管是正常工作的。但是安全系数不到 2。如果环境温度进一步提高，或者功耗再增加，晶体管就会有被烧毁的危险。因此，需要重新设计电路，使安全系数达到 2。就是说需要改变电路参数，使功耗为 250mW 的一半，即 125mW。<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>表面贴装晶体管及其引脚布局</h1>
+
+<div id="arc-body">表面贴装晶体管通常是简单的三端形式，采用鸥翼型封装。SOT-23 封装是其中较小的一种，通常用于毫瓦量级的晶体管，而 SOT-223 是较大的封装，通常用于额定功率为 1W 左右的晶体管。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP91HT52K.jpg" style="width: 400px; height: 299px;"><br>
+	图 1 SOT-23 封装，适合于额定功率低于 1W 的表面贴装晶体管</div>
+<br>
+图 1 所示是典型的 SOT-23 封装。从上往下看，引脚按逆时针标号，其中引脚 3 是在单端的一侧。这种引脚分配已经成为双极型晶体管的标准：1 是基极，2 是发射极，3 是集电极。（场效应管的引脚分布通常为：1 是漏极，2 是源极，3 是栅极）<br>
+<br>
+SOT-223 封装用于工作在 1W 左右的晶体管的散热。这种封装比 SOT-23 的表面积更大，提高了散热能力。一些热量从上表面散发掉，大部分热量则通过器件与下面电路板的接触而传导出去。SOT-223 外壳的主要特点是集电极引脚从一侧延展到另一侧，图 2 的底视图显示出这两个集电极引脚是电连接的。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP91H92WZ.jpg" style="width: 500px; height: 380px;"><br>
+	图 2 SOT-223封装，该封装可使 1W 功率管散热</div>
+<br>
+SOT-23 和 SOT-223 封装引脚的分布标准不同。对于 SOT-223 封装，从顶部看，位于同一侧的三个引脚按从左向右的顺序编号，引脚 1 是基极，2 是集电极（与对侧的大金属片是电连接的），3 是发射极。<br>
+<br>
+SOT-23 的封装很小，上面无法标记标准元件的识别码。通常鉴别标准标识码的唯一方法就是注意看印在电路板上的引脚号码，然后参考这个电路的元件列表。SOT-223 封装足够大，能将标识码印到上面，但这些码很少是标准晶体管的标识码。关于其他方面，SOT-223 封装晶体管的情况与较小的 SOT-23 封装相同。<br>
+<br>
+有的电路可能采用 <em>SOIC</em> 封装，这种结构能容纳多个晶体管。<em>SOIC</em> 封装与小型双列直插封装类似，双列直插封装通常用于 <em>IC</em> 和较早的插接电路板技术中。不同的是，<em>SOIC</em> 上的引脚为鸥翼型，须采用表面贴装技术。</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极型晶体管（npn晶体管、三极管）电路故障分析和诊断</h1>
+
+<div id="arc-body">图 1 所示是接地的共发射极电路。15V 的基极电压源通过 470kΩ 的电阻使发射结正偏，15V 的集电极电压源通过 1kΩ 的电阻使集电结反偏。用理想化近似计算 <em>V</em><sub><em>CE</em></sub>。过程如下：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP91P231135.jpg" style="width: 416px; height: 120px;"></div>
+<h2>
+	常见故障</h2>
+如果对图 1 所示电路进行故障诊断，首先要做的是测量 <em>V</em><sub><em>CE</em></sub>，它应该是一个 11.8V 左右的值。这里之所以不采用二阶或三阶更精确的近似，是因为电阻通常有至少 ±5% 的容差，不论采用哪一种近似，都会使 <em>V</em><sub><em>CE</em></sub> 与计算结果不同。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PP91P3104b.jpg" style="width: 500px; height: 210px;"><br>
+	图 1 共发射极电路的故障诊断</div>
+<br>
+事实上，当有问题出现时，一般都是大问题，如短路或开路。短路可能是因为器件损坏或者焊锡飞溅到电阻两端造成的，开路可能是器件烧毁造成的。这样的问题将使得电流或电压发生很大的变化。例如，最常见的问题发生在当电源电压没有连接到集电极时，可能以几种方式发生，如电源电压本身的问题、电源电压和集电极电阻间的导线开路、集电极电阻开路等。以上任何一种情况下，因为没有集电极电源电压，图 1 中的集电极电压都将近似为零。<br>
+<br>
+另一种可能的问题是基极电阻开路，使得基极电流下降到零。这迫使集电极电流也降到零，且 <em>V</em><sub><em>CE</em></sub> 上升到集电极电源电压的值 15V。晶体管开路也会产生同样的结果。<br>
+<h2>
+	故障分析</h2>
+需要强调的是：典型故障会引起晶体管电流和电压出现较大偏差，故障诊断时很少寻找 0〜1V 之间的电压差，而是寻找那些和理想值明显不同的电压。因此在故障诊断的开始，采用理想晶体管分析会很有效。而且，很多故障诊断员甚至不用计算器就能得到 <em>V</em><sub><em>CE</em></sub>。<br>
+<br>
+如果不使用计算器，可以用心算估计 <em>V</em><sub><em>CE</em></sub> 的值。下面是估算图 1 中 <em>V</em><sub><em>CE</em></sub> 时的分析过程：基极电阻上的电压大约是 15V。1MΩ 的基极电阻上大约产生 15μA 的基极电流。由于 470kΩ 约为 1MΩ 的一半，基极电流就是它的两倍，大约 30μA。如果电流增益为 100，集电极电流大约是 3mA，流过 1kΩ 的电阻将产生 3V 的压降。从 15V 减去 3V 就得到 VCE 为 12V。所以测量得到的应该在 12V 左右，否则就是电路中某处出现了问题。<br>
+<h2>
+	故障列表</h2>
+前面讲过，短接元件等效于一个阻值为零的电阻，开路元件等效于一个阻值无穷大的电阻。例如，基极电阻可能短路或开路，分别用 <em>R</em><sub><em>BS</em></sub> 和 <em>R</em><sub><em>BO</em></sub> 来表示这两种故障情况。同样地，集电极电阻也可能短路或开路，用 <em>R</em><sub><em>CS</em></sub> 和 <em>R</em><sub><em>CO</em></sub> 表示。<br>
+<table>
+<caption>
+		表 2 问题和现象</caption>
+<tbody>
+<tr>
+<th>
+				故障</th>
+<th>
+<em>V</em><sub><em>B</em></sub>，<em>V</em></th>
+<th>
+<em>V</em><sub><em>C</em></sub>，<em>V</em></th>
+<th>
+				评价</th>
+</tr>
+<tr>
+<th>
+				没有</th>
+<td>
+				0.7</td>
+<td>
+				12</td>
+<td>
+				没有问题</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>BS</em></sub></th>
+<td>
+				15</td>
+<td>
+				15</td>
+<td>
+				晶体管烧毁</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>BO</em></sub></th>
+<td>
+				0</td>
+<td>
+				15</td>
+<td>
+				没有基级或集电极电流</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>CS</em></sub></th>
+<td>
+				0.7</td>
+<td>
+				15</td>
+<td>
+				—</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>CO</em></sub></th>
+<td>
+				0.7</td>
+<td>
+				0</td>
+<td>
+				—</td>
+</tr>
+<tr>
+<th>
+				没有 <em>V</em><sub><em>BB</em></sub></th>
+<td>
+				0</td>
+<td>
+				15</td>
+<td>
+				检查电源及其连线</td>
+</tr>
+<tr>
+<th>
+				没有 <em>V</em><sub><em>CC</em></sub></th>
+<td>
+				0.7</td>
+<td>
+				0</td>
+<td>
+				检查电源及其连线</td>
+</tr>
+</tbody>
+</table>
+<p>
+<br>
+	表 2 所示是几个可能在图 1 电路中发生的故障，用二阶近似计算得到这些电压。当电路正常工作时，应该测得集电极电压约为 12V。如果基极电阻短路，则 +15V 会出现在基极上，如此大的电压会将发射结烧毁，集电结可能因此而开路，使得集电极电压升至 15V。产生的问题及其对应的电压列在表 2 中。</p>
+<br>
+如果基极电阻开路，则基极电压或电流将不存在。此外，集电极电流将为零，且集电极电压升至 15V。<em>R</em><sub><em>BO</em></sub> 产生的问题及其对应的电压列在表 2 中。继续上面的步骤，可以得到表中其余的情况。</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极型晶体管（三极管）电流增益的影响因素</h1>
+
+<div id="arc-body"><span style="color:#b22222;">晶体管的电流增益 β<sub>dc</sub> 取决于三个因素：晶体管、集电极电流和温度。</span>比如，把一只晶体管替换为同种类型的另一只晶体管时，电流增益通常会发生变化。同样，如果集电极电流或者温度发生改变，电流增益也会随之改变。<br>
+<h2>
+	最坏和最好情况</h2>
+例如，2N3904 晶体管的数据手册列出了当温度为 25°C 且集电极电流为 10mA 时 <em>h</em><sub><em>FE</em></sub> 的最小值为 100，最大值为 300。如果用 2N3904 晶体管构成数千个电路，那么有些晶体管的电流增益会低至 100（最坏情况），而有些的电流增益会高达 300（最好情况）。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ009525A43.jpg" style="width: 500px; height: 330px;"><br>
+	图 1 电流增益的变化</div>
+<br>
+图 1 给出了 2N3904 晶体管在最坏情况下（<em>h</em><sub><em>FE</em></sub> 最小）的曲线，中间那条曲线是环境温度为 25°C 时的电流增益。当集电极电流为 10mA，电流增益是 100 时，即为 2N3094 的最坏情况。（最好情况下，一些 2N3094 晶体管在 10mA 和 25°C 时的电流增益能达到 300）<br>
+<h2>
+	电流和温度的影响</h2>
+25°C 时（中间的曲线），0.1mA 的电流增益为 50。当电流从 0.1mA 增加到 10mA 时，<em>h</em><sub><em>FE</em></sub> 增加到最大值 100，而在 200mA 处则下降到 20 以下。<br>
+<br>
+还要注意温度的影响。当温度下降时，电流增益也下降（最下面的曲线）。而当温度上升时，在几乎整个电流范围内的 <em>h</em><sub><em>FE</em></sub> 都增加了（最上面的曲线）。<br>
+<h2>
+	要点</h2>
+可见，更换晶体管、改变集电极电流或者改变温度会导致 <em>h</em><sub><em>FE</em></sub> 或 β<sub>dc</sub> 的较大改变。在特定的温度下，更换晶体管有可带来 3:1 的变化。当温度改变时，又可能带来 3:1 的变化。当电流发生变化时，可能带来大于 3:1 的变化。<br>
+<br>
+总之，2N3904 晶体管的电流增益可以从小于 10 到大于 300 不等。因此，如果所设计的电路需要精确的电流增益，那么在大批量的生产中将会出现废品。<br>
+<h4>
+	知识拓展</h4>
+符号 <em>h</em><sub><em>FE</em></sub> 表示 CE 组态的正向电流传输比。<em>h</em><sub><em>FE</em></sub> <span style="color:#008000;">是混合（hybrid，简写为 <em>h</em>）参量符号</span>。<span style="color:#008000;"><em>h</em> 参量系统</span>是今天最常用的定义晶体管参数的方法。<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极型晶体管（三极管）的负载线</h1>
+
+<div id="arc-body">图 1 所示为 CE 组态电路。给定 <em>R</em><sub><em>B</em></sub> 和 β<sub>dc</sub> 的值，便可计算集电极电流 <em>I</em><sub><em>C</em></sub> 和集电极电压 <em>V</em><sub><em>CE</em></sub>。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0105211258.jpg" style="width: 500px; height: 291px;"><br>
+	图 1 基极偏置电路</div>
+<h2>
+	基极偏置</h2>
+图 1 所示是基极偏置电路的例子，基极偏置是指设定一个固定的基极电流值。例如，当 <em>R</em><sub><em>B</em></sub>=1MΩ 时，则基极电流为 14.3μA（二阶近似）。即使是更换晶体管及改变温度，基极电流在各种工作条件下都会保持在 14.3μA 左右。<br>
+<br>
+如果图 1 中晶体管的 β<sub>dc</sub>=100，其集电极电流约为 1.43mA，<em>V</em><sub><em>CE</em></sub> 为:
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0105300510.jpg" style="width: 709px; height: 25px;"><br>
+	&nbsp;</div>
+因此，静态工作点 <em>Q</em> 为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0105319554.jpg" style="width: 482px; height: 26px;"></div>
+<h2>
+	图解法</h2>
+也可以利用晶体管的负载线和 <i>I<sub>C</sub></i><i><sub>－</sub></i><i>V<sub>CE</sub></i> 的特性曲线，通过图解法求出静态工作点。 图 1 中的 <em>V</em><sub><em>CE</em></sub> 为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0105351335.jpg" style="width: 251px; height: 26px;"><br>
+	&nbsp;</div>
+可求得 <em>I</em><sub><em>C</em></sub><strong>（公式一）</strong>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ010540B19.jpg" style="width: 170px; height: 50px;"><br>
+	&nbsp;</div>
+对这个方程作图（ <em>I</em><sub><em>C</em></sub> 和 <em>V</em><sub><em>CE</em></sub> 的关系），得到一条直线。这条线叫做<span style="color:#008000;">负载线</span>，它反映了负载对 <em>I</em><sub><em>C</em></sub> 和 <em>V</em><sub><em>CE</em></sub> 的影响。<br>
+<br>
+例如，将图 1 中的数值代入公式一，得到：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0105451J6.jpg" style="width: 184px; height: 50px;"><br>
+	&nbsp;</div>
+这是一个线性方程，即作图得到一条直线。（任何能化简成标准形式 y=mx+b 的方程都是线性方程）在集电极特性曲线上做出该方程的图，得到图 2。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01055142F.jpg" style="width: 500px; height: 273px;"><br>
+	图 2 基级偏置的负载线</div>
+<br>
+负载线的两个端点很容易找到。在负载线方程中（之前的方程），当 <em>V</em><sub><em>CE</em></sub>=0 时：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0105552331.jpg" style="width: 213px; height: 50px;"><br>
+	&nbsp;</div>
+与 <em>I</em><sub><em>C</em></sub>=5mA 和 <em>V</em><sub><em>CE</em></sub>=0 对应的就是图 2 中负载线的上端点。<br>
+<br>
+当 <em>I</em><sub><em>C</em></sub>=0，由负载线方程得：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01056204S.jpg" style="width: 174px; height: 50px;"><br>
+	&nbsp;</div>
+或
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0105632219.jpg" style="width: 159px; height: 26px;"><br>
+	&nbsp;</div>
+同样，与 <em>I</em><sub><em>C</em></sub>=0 和 <em>V</em><sub><em>CE</em></sub>=15V 对应的是图 2 中负载线的下端点。<br>
+<h2>
+	工作点的直观表示</h2>
+负载线的意义在于：它包含了电路所有可能的工作点。当基极电阻从零到无穷大变化时，导致了 <em>I</em><sub><em>B</em></sub> 的变化，从而使得 <em>I</em><sub><emc< em=""></emc<></sub> 和在整个工作范围内变动。如果对每个 <em>I</em><sub><em>B</em></sub> 画出相应的 <em>I</em><sub><em>C</em></sub> 和 <em>V</em><sub><em>CE</em></sub> 的值，就可得到负载线。因此，<span style="color:#b22222;">负载线表示的是晶体管所有可能的工作点。</span><br>
+<h2>
+	饱和点</h2>
+当基极电阻很小时，集电极电流过大，<em>V</em><sub><em>CE</em></sub> 几乎降到零。在这种情况下，晶体管进入饱和区，这意味着集电极电流已经到达了最大的可能值。<br>
+<br>
+<span style="color:#008000;">饱和点</span><span style="color:#b22222;">是图 2 中负载线与集电极在饱和区特性曲线的交点。</span>由于饱和时 <em>V</em><sub><em>CE</em></sub> 很小，饱和点几乎和负载线的上端点重合，所以，可以把饱和点近似看成负载线的上端点，但要记住这里存在一个小的误差。<br>
+<br>
+<span style="color:#b22222;">饱和点表示的是电路可能的最大集电极电流。</span>如图 3a) 中的晶体管，当集电极电流约为 5mA 时进入饱和区，在该电流下，<em>V</em><sub><em>CE</em></sub> 几乎下降到零。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0105P2423.jpg" style="width: 500px; height: 598px;"><br>
+	图 3 晶体管电路</div>
+<br>
+一种简单的求解饱和点电流的方法是，假设集电极和发射极短路，得到图 3b)，则 <em>V</em><sub><em>CE</em></sub> 下降到 0，集电极电源的 15V 电压全部加载到 3kΩ 的电阻上。这样，电流为:
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0105T0341.jpg" style="width: 212px; height: 50px;"></div>
+<blockquote>
+<p>
+		这种“假设短路”的方法可以用于任何基极偏置电路。</p>
+</blockquote>
+<br>
+基极偏置电路中，计算饱和电流的公式如下：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0105Z6195.jpg" style="width: 130px; height: 50px;"><br>
+	&nbsp;</div>
+这说明集电极电流的最大值等于集电极电源电压除以集电极电阻。这只是欧姆定律在集电极电阻上的应用，图 3b) 是这个方程的电路表示。<br>
+<h4>
+	知识拓展</h4>
+当晶体管饱和时，继续增大基极电流不会使集电极电流增大。<br>
+<h2>
+	截止点</h2>
+<span style="color:#008000;">截止点</span><span style="color:#b22222;">是图 2 中负载线与集电极特性曲线的截止区的交点。</span>由于截止时集电极电流很小，因此截止点几乎和负载线的下端点重合。因此，可以把截止点近似看成负载线的下端点。<br>
+<br>
+截止点表示的是电路可能的最大 <em>V</em><sub><em>CE</em></sub>。图 3a) 中，最大可能的 <em>V</em><sub><em>CE</em></sub> 约为 15V，即集电极的电源电压。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0110021F3.jpg" style="width: 500px; height: 269px;"><br>
+	图 4 计算集电极-发射极截止电压</div>
+<br>
+一种求解截止电压的简单的方法是，假设图 3a) 中晶体管的集电极和发射极开路（见图 4），此时，由于没有电流通过集电极电阻，集电极电源的 15V 电压全部加在集电极和发射极之间。因此，集电极和发射极之间的电压为 15V:
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ011005QU.jpg" style="width: 184px; height: 26px;"></div>
+<h4>
+	知识拓展</h4>
+当集电极电流为零时，晶体管截止。<br>
+<br>
+<strong>【例 1】</strong>图 5 所示电路中的饱和电流和截止电压各是多少？
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0110124Y8.jpg" style="width: 500px; height: 261px;"><br>
+	图 5 集电极电源电压为 30V</div>
+<br>
+解：假设集电极和发射极短路，则：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0110146347.jpg" style="width: 259px; height: 50px;"><br>
+	&nbsp;</div>
+下面再假设集电极和发射极开路，则：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0110200501.jpg" style="width: 212px; height: 26px;"><br>
+	&nbsp;</div>
+对应的负载线为如下图所示。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ011021G09.jpg" style="width: 400px; height: 245px;"><br>
+	图 6</div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极型晶体管（三极管）的静态工作点及其计算公式</h1>
+
+<div id="arc-body">每个晶体管电路都有一条负载线。对于任一电路，计算出饱和电流和截止电压，将这两个值标在纵轴和横轴上，然后过这两个点画一条直线就得到了负载线。<br>
+<h2>
+	确定静态工作点</h2>
+图 1a) 所示是一个基极偏置电路，基极电阻为 500kΩ。通过前面所讲的步骤得到饱和电流和截止电压。首先，假设集电极-发射极两端短路，则集电极电源电压全部加在集电极电阻上，即饱和电流为 5mA。然后，假设集电极-发射极两端开路，则电路中没有电流，电源电压全部加在集电极-发射极两端，即截止电压为 15V。标出饱和电流和截止电压后，就可以得到如图 1b) 所示的负载线。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0134T4361.jpg" style="width: 600px; height: 245px;"><br>
+	图 1 计算静态工作点</div>
+<br>
+为了讨论简单，先假设晶体管是理想的，则基极电源电压将全部加在基极电阻上。因此，基极电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0134911L7.jpg" style="width: 246px; height: 50px;"><br>
+	&nbsp;</div>
+后面的计算需要用到电流增益，假设晶体管的电流增益为 100，那么集电极电流为:
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01349261D.jpg" style="width: 298px; height: 26px;"><br>
+	&nbsp;</div>
+这个电流流过一个 3kΩ 集电极电阻产生 9V 的电压，从集电极电源电压中减去这个值，就得到晶体管上的电压。计算如下：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0134945458.jpg" style="width: 422px; height: 26px;"><br>
+	&nbsp;</div>
+找到 3mA 和 6V（集电极电流和电压），从而确定负载线上的工作点，如图 1b) 所示。这个点通常被称为<span style="color:#008000;">静态工作点</span>（quiescent point，静态是指静止不动），标为 <span style="color:#008000;"><em>Q</em></span>。<br>
+<h2>
+	静态工作点发生变化的原因</h2>
+前面假设电流增益为 100，如果电流增益为 50 或是 150 会怎样？首先，基极电流不会变，因为电流增益对基极电流不起作用。理想情况下，基极电流固定在 30μA，当电流增益为 50 时：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0135123457.jpg" style="width: 315px; height: 26px;"><br>
+	&nbsp;</div>
+<em>V</em><sub><em>CE</em></sub> 为:
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01351351J.jpg" style="width: 491px; height: 26px;"><br>
+	&nbsp;</div>
+在图 1b) 中画出这些值，将得到较低的工作点 <em>Q</em><sub><em>L</em></sub>。<br>
+<br>
+如果电流增益为 150，则：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01352023D.jpg" style="width: 324px; height: 26px;"><br>
+	&nbsp;</div>
+<em>V</em><sub><em>CE</em></sub> 为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0135215H2.jpg" style="width: 489px; height: 26px;"><br>
+	&nbsp;</div>
+在图 1b) 中画出这些值，将得到较高的工作点 <em>Q</em><sub><em>H</em></sub>。<br>
+<br>
+图 1b) 中显示的三个工作点说明了基极偏置的晶体管的静态工作点对 β<sub>dc</sub> 的变化很敏感。当电流增益从 50 变到 150 时，集电极电流从 1.5mA 变到 4.5mA。如果电流增益变化过大，则静态工作点很容易进人到饱和区或截止区。这时，由于在有源区以外电流增益有损失，所以放大电路便不能正常使用。<br>
+<h4>
+	知识拓展</h4>
+在基极偏置电路中，由于 <em>I</em><sub><em>C</em></sub> 和 <em>V</em><sub><em>CE</em></sub> 的值取决于 β 值的大小，故而也称这种电路是“由 β 决定”的。<br>
+<h2>
+	公式</h2>
+计算 <em>Q</em> 点的公式如下：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0135304357.jpg" style="width: 200px; height: 130px;"><br>
+	&nbsp;</div>
+<strong>【例 1】</strong>假设图 1a) 所示电路中的基极电阻增大到 1MΩ，若 β<sub>dc</sub> 为 100，<em>V</em><sub><em>CE</em></sub> 如何变化？<br>
+<br>
+解：理想情况下，基极电流减小为 15μA，集电极电流减小为 1.5mA，<em>V</em><sub><em>CE</em></sub> 增大为:
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01353405U.jpg" style="width: 505px; height: 26px;"><br>
+	&nbsp;</div>
+若是二阶近似，基极电流将减小为 14.3μA，集电极电流减小为 1.43mA，<em>V</em><sub><em>CE</em></sub> 增大为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0135400F0.jpg" style="width: 513px; height: 26px;"></div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极型晶体管（三极管）工作状态的判断方法</h1>
+
+<div id="arc-body">设置晶体管工作点有两种基本方法：<span style="color:#008000;">基级偏置</span>和<span style="color:#008000;">发射极偏置</span>。基级偏置产生一个固定的基极电流，发射极偏置产生一个固定的发射极电流。基级偏置主要用于开关电路，而发射极偏置则主要用于放大电路。<br>
+<br>
+对于放大电路，<em>Q</em> 点必须在所有工作条件下都处于有源区，否则，输出信号的波峰将由于进入饱和区或截止区而发生失真。对于开关电路，<em>Q</em> 点一般在饱和区和截止区之间切换。<br>
+<blockquote>
+<p>
+		开关电路的工作原理和应用条件稍后再作讨论。</p>
+</blockquote>
+<h2>
+	矛盾判别法</h2>
+假设图 1a) 中晶体管的击穿电压大于 20V，可以判断出晶体管不会工作在击穿区，而且，由于偏置电压的存在，晶体管也不会工作在截止区。但是还不能立刻判断出晶体管是工作在有源区还是饱和区。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0154104315.jpg" style="width: 500px; height: 552px;"><br>
+	图 1&nbsp;<br>
+	&nbsp;</div>
+故障诊断员和设计人员通常采用下面的方法来判断晶体管的工作区。步骤如下:
+<ol>
+<li>
+		假设晶体管工作在有源区；</li>
+<li>
+		计算电流和电压；</li>
+<li>
+		如果计算中出现了不可能的结果，则说明假设是错误的。</li>
+</ol>
+<br>
+若出现不可能的结果，说明晶体管工作在饱和区。否则，晶体管工作在有源区。<br>
+<h2>
+	饱和电流法</h2>
+例如，图 1a) 所示为一个基极偏置电路。先计算饱和电流：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ015415U02.jpg" style="width: 260px; height: 50px;"><br>
+	&nbsp;</div>
+理想情况下基极电流是 0.1mA，假设电流增益为 50，则集电极电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0154213b0.jpg" style="width: 350px; height: 26px;"><br>
+	&nbsp;</div>
+这个结果是不可能的，因为集电极电流不能大于饱和电流。所以，晶体管不可能工作在有源区，它一定工作在饱和区。<br>
+<h2>
+	集电极电压法</h2>
+若要计算图 1a) 中的 <em>V</em><sub><em>CE</em></sub>，可做如下推断：理想情况下基极电流为 0.1mA，假设电流增益为 50，则集电极电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ015424HN.jpg" style="width: 354px; height: 26px;"><br>
+	&nbsp;</div>
+从而 <em>V</em><sub><em>CE</em></sub> 为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01543034Z.jpg" style="width: 489px; height: 26px;"><br>
+	&nbsp;</div>
+这个结果是不可能的，因为 <em>V</em><sub><em>CE</em></sub> 不可能是负的。所以，晶体管不可能工作在有源区，它一定工作在饱和区。<br>
+<h2>
+	饱和区电流增益减小</h2>
+电流增益一般是对有源区而言的。例如，图所示的电流增益为 50，是指当晶体管工作在有源区时，集电极电流为基极电流的 50 倍。<br>
+<br>
+而当晶体管处于饱和状态时，电流增益比其处于有源区时要小。可以按下面的方法计算饱和电流增益：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ015433G16.jpg" style="width: 153px; height: 50px;"><br>
+	&nbsp;</div>
+对于图 1a)，饱和电流增益为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ015435W58.jpg" style="width: 262px; height: 50px;"></div>
+<h2>
+	深度饱和</h2>
+若使晶体管在所有条件下都工作在饱和区，设计时通常会选择一个使电流增益为 10 的基极电阻。因为这样能够产生足够大的基极电流使得晶体管处于饱和状态，该状态称为<span style="color:#008000;">深度饱和</span>。<br>
+<br>
+例如，图 1a) 中 50kΩ 的基极电阻产生的电流增益为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0154434264.jpg" style="width: 226px; height: 50px;"><br>
+	&nbsp;</div>
+对于图 1a) 中的晶体管，只需：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0154454440.jpg" style="width: 262px; height: 50px;"><br>
+	&nbsp;</div>
+即可使得晶体管进入饱和。所以，0.2mA 的基极电流将使晶体管进入深度饱和。<br>
+<br>
+为什么需要设计为深度饱和状态呢？如前所述，集电极电流、温度变化以及晶体管的替换都会使电流增益发生变化。为了确保晶体管在集电极电流较低、温度较低等情况下不至于脱离饱和，设计时就需要采用深度饱和使得晶体管在所有工作条件下都处于饱和状态。<br>
+<br>
+这里，深度饱和是指饱和电流增益近似为 10 的设计。而轻度饱和则指那些使得晶体管刚刚进入饱和的设计，即饱和电流增益只是略小于有源区电流增益。<br>
+<h2>
+	深度饱和的快速判别</h2>
+下面的方法可以快速判断晶体管是否处于深度饱和状态。通常，基极电源电压和集电极电源电压相等：这种情况下，可以用 10:1 规则设计电路，也就是说，使基极电阻大约是集电极电阻的 10 倍。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0155052316.jpg" style="width: 400px; height: 549px;"><br>
+	图 2</div>
+<br>
+图 2a) 所示电路是按 10:1 规则设计的。只要看到电路中参数比为 10:1（<em>R</em><sub><em>B</em></sub>：<em>R</em><sub><em>C</em></sub>），就可以判定晶体管处于深度饱和状态。<br>
+<br>
+<strong>【例 1】</strong>假设图 1a) 所示电路的基极电阻增大为 1MΩ，晶体管是否仍然处于饱和区？<br>
+<br>
+解：假设晶体管工作在有源区，看是否有矛盾出现。理想情况下，基极电流等于 10V 除以 1MΩ，即 10μA。集电极电流等于 50 乘以 10μA，即 0.5mA。这个电流通过集电极电阻产生 5V 电压，用 20V 减去 5V 得到：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0155150926.jpg" style="width: 156px; height: 26px;"><br>
+	&nbsp;</div>
+没有出现矛盾。如果晶体管是饱和的，将会得到一个负值，最大是 0V，由于得到的是 15V，所以可知晶体管是工作在有源区的。<br>
+<br>
+<strong>【例 2】</strong>假设图 1a) 所示电路的集电极电阻减小为 5kΩ，晶体管是否仍然处于饱和区？<br>
+<br>
+解：假设晶体管工作在有源区，看是否有矛盾出现。可以用与例 1 同样的方法，但为了解题的多样化，这里尝试第二种方法。<br>
+<br>
+先计算集电极饱和电流值，假设将集电极和发射极短路，则可以看到 20V 电压加载到 5kΩ 电阻上，得到集电极饱和电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ015523J54.jpg" style="width: 178px; height: 26px;"><br>
+	&nbsp;</div>
+理想情况下，基极电流等于 10V 除以 100kΩ，即 0.1mA。集电极电流等于 50 乘以 0.1mA，即 5mA。<br>
+<br>
+这里出现了矛盾。当 <em>I</em><sub><em>C</em></sub>=4mA 时晶体管即进入饱和，因而集电极电流不可能大于 4mA。这时可能改变的只有电流增益，基极电流仍然是 0.1mA，但是电流增益减小为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0155303W4.jpg" style="width: 260px; height: 50px;"><br>
+	&nbsp;</div>
+这个结果验证了前面的结论：晶体管有两个电流增益，一个在有源区，另一个在饱和区，第二个增益小于或等于第一个。<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极型晶体管（三极管）开关电路及其原理</h1>
+
+<div id="arc-body"><span style="color:#b22222;">基极偏置用于数字电路，因为这种电路通常工作在饱和区和截止区，因此，它们的输出不是高电压就是低电压。换句话说，工作点 <em>Q</em> 不会处于饱和区和截止区之间。</span>这样，<em>Q</em> 点发生变化也没有关系，因为当电流增益变化时，晶体管始终处于饱和或截止状态。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0162405I2.jpg" style="width: 400px; height: 549px;"><br>
+	图 1 处于饱和状态的晶体管</div>
+<br>
+举个基极偏置电路的工作状态在饱和与截止之间转换的例子。图 1a) 所示是一个晶体管处于深度饱和状态的例子，输出电压接近于 0V，即 <em>Q</em> 点在负载线的上端点（见图 1b) )。<br>
+<br>
+当开关断开时，基极电流下降为 0A，于是，集电极电流也下降为 0A。由于 1kΩ 电阻上没有电流通过，集电极电源电压全部加到集电极-发射极两端。因此，输出电压上升到 10V。此时，<em>Q</em> 点在负载线的下端点（见图 1b) )。<br>
+<br>
+该电路只有两种输出电压：0V 或 10V，可以由此来识别数字电路。它只有两种输出电平：高电平或低电平。两种输出电压的确切值并不重要，重要的是能够分辨出电平的高低。<br>
+<br>
+数字电路也常常称为<span style="color:#008000;">开关电路</span>，因为它的 <em>Q</em> 点在负载线的两个端点之间切换。在大多数设计中，这两个点就是饱和点和截止点。另一个常用的名称叫作<span style="color:#008000;">双态电路</span>，是指其具有两种输出状态：高电平和低电平。<br>
+<br>
+<strong>【例 1】</strong>图 1a) 所示电路的集电极电源电压减小为 5V，输出电压的两个值各是多少？如果饱和电压 <em>V</em><sub><em>CE(sat)</em></sub> 为 0.15V，集电极漏电流 <em>I</em><sub><em>CEO</em></sub> 为 50nA，输出电压的两个值又各是多少？<br>
+<br>
+解：晶体管在饱和与截止状态之间切换。理想情况下，输出电压的两个值为 0V 和 5V，第一个电压是晶体管饱和时的压降，第二个电压是晶体管截止时的压降。<br>
+<br>
+如果考虑饱和电压和集电极漏电流的影响，输出电压为 0.15V 和 5V。第一个电压是晶体管的饱和压降，已知为 0.15V；第二个电压是 <em>V</em><sub><em>CE</em></sub>，有 50nA 的电流流过 1kΩ 的电阻，则：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ0162604293.jpg" style="width: 520px; height: 26px;"><br>
+	&nbsp;</div>
+该电压十分接近 5V。<br>
+<br>
+只有在设计电路时才会考虑开关电路的饱和电压和泄漏电流的影响。对开关电路而言，所关心的就是得到可区分的高、低两种电压。至于低电压是 0V、0.1V 还是 0.15V 并不重要；同样地，高电压是 5V、4.9V 还是 4.5V 也不重要。重要的是，在分析开关电路时能够区分出是高电压还是低电压。<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极型晶体管（三极管）放大电路及其原理</h1>
+
+<div id="arc-body">计算机中的电路是数字电路，其中采用的是基极偏置以及由基极偏置构成的电路。但对于放大器，则需要电路的静态工作点 <em>Q</em> 不随电流增益的变化而变化。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01F231H6.jpg" style="width: 400px; height: 282px;"><br>
+	图 1 发射极偏置</div>
+<br>
+图 1 所示是一个发射极偏置电路。由图 1 可见，电阻从基极电路移到了发射极电路。这个变化改变了整个电路的特性，使得该电路的 <em>Q</em> 点十分稳定。电流增益从 50 变到 150 的过程中，<em>Q</em> 点在负载线上的位置几乎不变。<br>
+<h2>
+	基本概念</h2>
+将基极电源电压直接加在基极，基极和地之间的电压为 <em>V</em><sub><em>BB</em></sub>，发射极不再接地。发射极和地之间的电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01F32U16.jpg" style="width: 229px; height: 26px;"><br>
+	&nbsp;</div>
+如果 <em>V</em><sub><em>BB</em></sub> 大于 20 倍的 <em>V</em><sub><em>BE</em></sub>，则理想化近似足够准确；如果 <em>V</em><sub><em>BB</em></sub> 小于 20 倍的 <em>V</em><sub><em>BE</em></sub>，应该采用二阶近似，否则误差会大于 5%。<br>
+<h2>
+	确定 <em>Q</em> 点</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ01F35Kb.jpg" style="width: 400px; height: 294px;"><br>
+	图 2 确定 <em>Q</em> 点</div>
+<br>
+分析图 2 所示的发射极偏置电路。由于基极电源电压只有 5V，因此需要采用二阶近似。基极和地之间的电压为 5V，将基极到地之间的电压称为<span style="color:#008000;">基极电压</span>，记为 <em>V</em><sub><em>B</em></sub>。基极和发射极两端的压降为 0.7V，将该电压称为<span style="color:#008000;">基极-发射极电压</span>，记为 <em>V</em><sub><em>BE</em></sub>。<br>
+<br>
+将发射极和地之间的电压称为<span style="color:#008000;">发射极电压</span>，它等于：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01F441450.jpg" style="width: 356px; height: 26px;"><br>
+	&nbsp;</div>
+该电压加在发射极电阻上，可以用欧姆定律来计算发射极电流：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01F455V8.jpg" style="width: 280px; height: 50px;"><br>
+	&nbsp;</div>
+这也意味着集电极电流近似为 1.95mA。当这个集电极电流流过集电极电阻时，产生 1.95V 的压降。从集电极电源电压中减去这个压降，得到集电极和地之间的电压：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01F510964.jpg" style="width: 509px; height: 26px;"><br>
+	&nbsp;</div>
+将集电极到地之间的电压称为<span style="color:#008000;">集电极电压</span>。<br>
+<br>
+这个电压是故障诊断人员在检测晶体管电路时需要测量的。测量时将电压表的一端接到集电极，另一端接地。如果要得到 <em>V</em><sub><em>CE</em></sub>，需要从集电极电压中减去发射极电压，得到：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01F53SQ.jpg" style="width: 426px; height: 26px;"><br>
+	&nbsp;</div>
+所以，图 2 中的发射极偏置电路的 <em>Q</em> 点坐标为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01F559540.jpg" style="width: 434px; height: 26px;"></div>
+<div>
+<br>
+<em>V</em><sub><em>CE</em></sub> 可用来绘制负载线，并可在查阅晶体管的数据手册时使用。其计算公式为：</div>
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01H00T05.jpg" style="width: 217px; height: 26px;"></div>
+<h2>
+	电路对电流增益变化不敏感</h2>
+发射极偏置的优势在于，发射极偏置电路的 <em>Q</em> 点对电流增益的变化不敏感。电路分析过程便可证明。以下是前面用过的计算步骤：<br>
+<ol>
+<li>
+		计算发射极电压；</li>
+<li>
+		计算发射极电流；</li>
+<li>
+		计算集电极电压；</li>
+<li>
+		集电极电压减去发射极电压得到 <em>V</em><sub><em>CE</em></sub>。</li>
+</ol>
+<br>
+在上述计算过程中，没有用到电流增益。由于不需要用电流增益来计算发射极电流和集电极电流等参数，那么电流增益的精确值就不再重要了。<br>
+<br>
+将电阻从基极移到发射极后，迫使基极到地的电压等于基极电源电压。在基极偏置电路中，几乎所有的基极电源电压都加在基极电阻上，从而产生固定基极电流，而在发射极偏置电路中，电源电压减去 0.7V 后的电压全部加在发射极电阻上，产生的是固定的发射极电流。<br>
+<h2>
+	电流增益的微小影响</h2>
+电流增益对集电极电流有微小的影响。在所有工作条件下，三个电流的关系都满足：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01FGH53.jpg" style="width: 171px; height: 26px;"><br>
+	&nbsp;</div>
+也可以写成：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01FI0R5.jpg" style="width: 135px; height: 50px;"><br>
+	&nbsp;</div>
+由该方程求解集电极电流，得：
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ01FJ5G8.jpg" style="width: 151px; height: 50px;"><br>
+	&nbsp;</div>
+<em>I</em><sub><em>E</em></sub> 前面相乘的系数叫作<span style="color:#008000;">修正系数</span>，它表明 <em>I</em><sub><em>C</em></sub> 与 <em>I</em><sub><em>E</em></sub> 是不同的。当电流增益为 100 时，修正系数为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01FQ4255.jpg" style="width: 275px; height: 50px;"><br>
+	&nbsp;</div>
+也就是说集电极电流为发射极电流的 99%。所以，如果忽略修正系数，认为集电极电流与发射极电流相等，导致的误差只有 1%。<br>
+<h4>
+	知识拓展</h4>
+由于在发射极偏置电路中，<em>I</em><sub><em>C</em></sub> 和 <em>V</em><sub><em>CE</em></sub> 不受 β 值的影响，所以也称该电路是“与 β 不相关”的。<br>
+<br>
+<strong>【例 1】</strong>在图 3 所示的 MultiSim 仿真电路中，集电极对地的电压是多少?集电极和发射极之间的电压是多少？
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01FU3203.jpg"><br>
+	图 3 仪表测量值（<a href="http://www.54benniao.com/uploads/allimg/180810/2-1PQ01FZ6452.jpg" target="_blank">点此查看高清大图</a>）</div>
+<br>
+解：基极电压为 5V，发射极电压比基极电压低 0.7V，即：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01G024Q1.jpg" style="width: 365px; height: 26px;"><br>
+	&nbsp;</div>
+该电压加在 1kΩ 的发射极电阻上，因此发射极电流为 4.3V 除以 1kΩ，即：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01G042952.jpg" style="width: 253px; height: 50px;"><br>
+	&nbsp;</div>
+集电极电流近似等于 4.3mA，当该电流流过集电极电阻（这里是 2kΩ）时，产生的电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01G055492.jpg" style="width: 410px; height: 26px;"><br>
+	&nbsp;</div>
+集电极电源电压减去这个电压，得：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01G113642.jpg" style="width: 375px; height: 26px;"><br>
+	&nbsp;</div>
+该电压值与 MultiSim 中仪表测得的值很接近。这个电压是集电极对地的电压，也是在故障诊断时需要测量的电压。<br>
+<br>
+不能把电压表直接连在集电极和发射极之间，因为这样会将发射极对地短路，除非电压表具有很高的输入电阻，并且其地线悬浮。若需要测量 <em>V</em><sub><em>CE</em></sub> 的值，应该首先测量集电极对地的电压和发射极对地的电压，然后将两者相减得到。本例中：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01G1363H.jpg" style="width: 404px; height: 26px;"></div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>LED驱动电路及其原理</h1>
+
+<div id="arc-body">前文讨论到基极偏置电路产生固定的基极电流，发射极偏置电路产生固定的发射极电流。由于电流增益的问题，在饱和状态和截止状态之间切换的电路设计中常采用基极偏置，而工作在有源区的电路设计中常采用发射极偏置。<br>
+<br>
+本节讨论两种 <em>LED</em> 驱动电路：<span style="color:#b22222;">第一种电路采用基极偏置，第二种电路采用发射极偏置。</span>可以观察到不同电路在同一应用中的性能表现。<br>
+<h2>
+	基极偏置 <em>LED</em> 驱动</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ01J630N3.jpg" style="width: 500px; height: 286px;"><br>
+	图 1 基极偏置 <em>LED</em> 驱动电路</div>
+<br>
+图 1 所示电路中，基极电流为 0，即晶体管截止。当开关闭合时，晶体管进入深度饱和状态。就像将集电极-发射极两端短路一样，此时集电极电源电压（15V）将加在 1.5kΩ 的串联电阻和 <em>LED</em> 上。如果忽略 <em>LED</em> 上的压降，集电极电流的理想值为 10mA。但是如果允许 <em>LED</em> 上有 2V 压降，则只有 13V 的电压加在 1.5kΩ 的电阻上，集电极电流等于 13V 除以&nbsp; 1.5kΩ，即 8.67mA。<br>
+<br>
+这个电路工作在深度饱和状态，电流增益并不重要，因而是一个很好的 <em>LED</em> 驱动电路。如果要改变电路中 <em>LED</em> 的电流，可以改变集电极电阻或集电极电源电压。由于希望开关闭合时晶体管处于深度饱和状态，所以取基极电阻为集电极电阻的 10 倍。<br>
+<h2>
+	发射极偏置 <em>LED</em> 驱动</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ01JGc55.jpg" style="width: 500px; height: 313px;"><br>
+	图 2 发射极偏置 <em>LED</em> 驱动电路</div>
+<br>
+图 2 所示电路中，发射极电流为 0，即晶体管截止。当开关闭合时，晶体管进入有源区。理想情况下，发射极电压为 15V，也就是说发射极的电流是 10mA。此时，<em>LED</em> 上的压降对电流没有影响，即 <em>LED</em> 上的确切电压为 1.8V、2V 还是 2.5V 都没有关系。这是发射极偏置相对于基极偏置的一个优点：<em>LED</em> 上的电流与电压相互独立。该电路的另一个优点是不需要集电极电阻。<br>
+<br>
+图 2 所示的发射极偏置电路在开关闭合时工作在有源区。要改变 <em>LED</em> 电流，可以改变基极电源电压或者发射极电阻。例如，若改变基极电源电压，<em>LED</em> 电流将随之呈正比例变化。<br>
+<br>
+<strong>【例 1】</strong>当图 2 中的开关闭合时，若要得到 25mA 的 <em>LED</em> 电流，应该怎样做？<br>
+<br>
+解：一种方法是增大基极电源电压。若要流过 1.5kΩ 发射极电阻的电流为 25mA，由欧姆定律，得到发射极电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01JQ94W.jpg" style="width: 422px; height: 26px;"><br>
+	&nbsp;</div>
+理想情况下，<em>V</em><sub><em>BB</em></sub>=37.5V，如果采用二阶近似，则取 <em>V</em><sub><em>BB</em></sub>=38.2V。这比典型的电源电压要稍高一点，但是如果在特殊应用时允许使用这么高的电源电压，则该方法也是可行的。<br>
+<br>
+15V 的电源电压在电子电路中是很常见的，因而在大多数应用中更好的方法是减小发射极电阻。理想情况下，发射极电压为 15V，若流过发射极电阻的电流为 25mA，由欧姆定律得：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01JSRO.jpg" style="width: 253px; height: 50px;"><br>
+	&nbsp;</div>
+最接近该阻值的标准电阻为 620Ω，其容差为 5%。如果采用二阶近似，电阻为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ01JU2S6.jpg" style="width: 259px; height: 50px;"><br>
+	&nbsp;</div>
+最接近的标准电阻的阻值是 560Ω。<br>
+<br>
+下表列出了基极偏置和发射极偏置之间的区别。<br>
+<br>
+<table>
+<caption>
+		表 3 基级偏置和发射极偏置的比较</caption>
+<tbody>
+<tr>
+<th>
+				&nbsp;</th>
+<th>
+<img alt="" src="./index_files/2-1PQ01K344612.jpg" style="width: 300px; height: 349px;"></th>
+<th>
+<img alt="" src="./index_files/2-1PQ01K352960.jpg" style="width: 318px; height: 349px;"></th>
+</tr>
+<tr>
+<th>
+				特性</th>
+<td>
+				固定的基极电流</td>
+<td>
+				固定的发射极电流</td>
+</tr>
+<tr>
+<th>
+				β<sub>dc</sub>=100</th>
+<td>
+<em>I</em><sub><em>B</em></sub>=9.15μA<br>
+<em>I</em><sub><em>C</em></sub>=915μA</td>
+<td>
+<em>I</em><sub><em>B</em></sub>=21.5μA<br>
+<em>I</em><sub><em>C</em></sub>=2.15μA</td>
+</tr>
+<tr>
+<th>
+				β<sub>dc</sub>=300</th>
+<td>
+<em>I</em><sub><em>B</em></sub>=9.15μA<br>
+<em>I</em><sub><em>C</em></sub>=2.74μA</td>
+<td>
+<em>I</em><sub><em>B</em></sub>=7.7μA<br>
+<em>I</em><sub><em>C</em></sub>=2.15μA</td>
+</tr>
+<tr>
+<th>
+				工作模式</th>
+<td>
+				截止区和饱和区</td>
+<td>
+				有源区和线性区</td>
+</tr>
+<tr>
+<th>
+				应用</th>
+<td>
+				开关/数字电路</td>
+<td>
+				受控的 <em>I</em><sub><em>C </em></sub>驱动器和放大器</td>
+</tr>
+</tbody>
+</table>
+<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>参量增减分析发射极偏置电路</h1>
+
+<div id="arc-body">参量增减分析法对理解电路很有帮助。对图 1 中参数进行适当的微变，微变是指大约 10% 的变化（有些电阻的容差大约为 10%）。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3093211555.jpg" style="width: 500px; height: 432px;"><br>
+	图 1 参量增减分析</div>
+<br>
+例如，图 1 所示的发射极偏置电路的电路参数如下：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3093230359.jpg" style="width: 284px; height: 60px;"><br>
+	&nbsp;</div>
+这些是电路中的<span style="color:#008000;">自变量</span>（通常叫<span style="color:#008000;">作电路参数</span>），因为它们之间是无关的，改变其中一个参数的值不会对其他参数的值产生影响。<br>
+<br>
+其余的电压和电流如下：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3093252162.jpg" style="width: 619px; height: 20px;"><br>
+	&nbsp;</div>
+这些变量称为<span style="color:#008000;">因变量</span>，因为当某一个自变量的值改变时它们的值可能会随之改变。如果能真正理解电路的工作原理，就可以判断出当一个自变量的值增大时，因变量的值是增大、减小或是保持不变。<br>
+<br>
+例如，假设图 1 中 <em>V</em><sub><em>BB</em></sub> 增加 10%，那么 <em>V</em><sub><em>C</em></sub> 的值是增大、减小还是保持不变呢？<em>V</em><sub><em>C</em></sub> 的值会减小。因为基极电源电压增大，会使发射极电流增大，从而集电极电流也会增大，使集电极电阻上的压降增加，导致集电极电压减小。<br>
+<br>
+表 2 给出了图 1 中自变量发生微小增加时对因变量的影响，这些结论均考虑了二阶近似。通过对表 2 的研究，并分析其中发生变化的原因，会对电路的工作原理有更好的理解。<br>
+<br>
+<table>
+<caption>
+		表 2 参量增减分析</caption>
+<tbody>
+<tr>
+<th>
+				&nbsp;</th>
+<th>
+<em>V</em><sub><em>E</em></sub></th>
+<th>
+<em>I</em><sub><em>E</em></sub></th>
+<th>
+<em>I</em><sub><em>B</em></sub></th>
+<th>
+<em>I</em><sub><em>C</em></sub></th>
+<th>
+<em>V</em><sub><em>C</em></sub></th>
+<th>
+<em>V</em><sub><em>CE</em></sub></th>
+</tr>
+<tr>
+<th>
+<em>V</em><sub><em>BB</em></sub> 增加</th>
+<td>
+				增大</td>
+<td>
+				增大</td>
+<td>
+				增大</td>
+<td>
+				增大</td>
+<td>
+				减小</td>
+<td>
+				减小</td>
+</tr>
+<tr>
+<th>
+<em>V</em><sub><em>CC</em></sub> 增加</th>
+<td>
+				不变</td>
+<td>
+				不变</td>
+<td>
+				不变</td>
+<td>
+				不变</td>
+<td>
+				增大</td>
+<td>
+				增大</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>E</em></sub> 增加</th>
+<td>
+				不变</td>
+<td>
+				减小</td>
+<td>
+				减小</td>
+<td>
+				减小</td>
+<td>
+				增大</td>
+<td>
+				增大</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>C</em></sub> 增加</th>
+<td>
+				不变</td>
+<td>
+				不变</td>
+<td>
+				不变</td>
+<td>
+				不变</td>
+<td>
+				减小</td>
+<td>
+				减小</td>
+</tr>
+</tbody>
+</table>
+<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双极型晶体管（三极管）的常见故障诊断</h1>
+
+<div id="arc-body">晶体管可能出现的问题很多。因为它包含两个二极管，击穿电压、最大电流、额定功率中任何一个量超出范围，都会使其中一个或两个二极管损坏。这些故障可能是短路、开路、泄漏电流过大和 <em>β</em><sub><em>dc</em></sub> 减小。<br>
+<h2>
+	离线测试</h2>
+通常可用设置成二极管测试挡的数字万用表来测试晶体管。如图 1 所示，<em>npn</em> 型晶体管由两个背对背的二极管组成，可以测出每个 <em>pn</em> 结正向偏置和反向偏置的读数。集电极到发射极之间的电压也可以测量，用万用表的两种极性连接，测量结果都应该显示溢出。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3102132914.jpg" style="width: 500px; height: 322px;"><br>
+	图 1 <em>npn </em>型晶体管</div>
+<br>
+由于晶体管有三端，所以有六种可能的极性连接，如图 2a) 所示。要注意的是，只有两种极性连接的读数约为 0.7V，而且基极应是唯一与其他引脚间电压读数都是 0.7V 的引脚，并且需要与正极相连。也可参看图 2b) 。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3102S5935.jpg" style="width: 500px; height: 350px;"><br>
+	图 2 <em>npn</em> 管的万用表读数</div>
+<br>
+可以用同样的方法对 <em>pnp</em> 型晶体管进行测试。如图 3 所示，<em>pnp</em> 型晶体管也是由两个背对背的二极管组成。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ310254V14.jpg" style="width: 500px; height: 318px;"><br>
+	图 3 <em>pnp </em>型晶体管</div>
+<br>
+将数字万用表设置成二极管测试挡，对正常晶体管的测试结果如图 4a) 和图 4b) 所示。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3102TNa.jpg" style="width: 500px; height: 341px;"><br>
+	图 4 <em>pnp</em> 管的万用表读数</div>
+<br>
+很多数字万用表都有专门的 <em>β</em><sub><em>dc</em></sub> 和 <em>h</em><sub><em>FE</em></sub> 测量功能。将晶体管的引脚插入合适的槽中，将会显示正向电流增益。这个电流增益是针对特定的基极电流或集电极电流和 <em>V</em><sub><em>CE</em></sub> 而言的，可以从万用表的使用手册中查到测试条件。<br>
+<br>
+另一种测量晶体管的方法是用欧姆表。可以先测量集电极和发射极之间的电阻，该电阻值应该在两个方向上都很大，因为集电结和发射结是背靠背串联的。一个很常见的故障是集电极-发射极短路，原因是功率超过了额定值。如果任何方向上的读数在 0 到几千欧姆，则可判定晶体管发生短路，并应该更换。<br>
+<br>
+假设集电极-发射极电阻在两个方向都很大（几兆欧），可以测量集电结（集电极-基极两端）和发射结（基极-发射极两端）的正向电阻和反向电阻。这两个二极管的反向电阻和正向电阻之比都应该很大，典型值应该大于 1000 : 1（硅），如果不在这个范围，则该晶体管已损坏。<br>
+<br>
+即使晶体管通过了欧姆表测试，它仍然会有一些缺陷，因为欧姆表只是在直流情况下进行测量。可以用特性曲线测试仪查找更多细小的缺陷，如泄漏电流过大，<em>β</em><sub><em>dc</em></sub> 过小或击穿电压不足。图 5 所示是用特性曲线测试仪对晶体管进行测试的情形。也可以用商用的晶体管测试仪器检查泄漏电流、电流增益知和其他参数。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3102941F2.jpg" style="width: 400px; height: 303px;"><br>
+	图 5 Tektronix晶体管特性曲线测试仪</div>
+<h2>
+	在线测试</h2>
+最简单的在线测试是测量晶体管的对地电压。例如，测量集电极电压 <em>V</em><sub><em>C</em></sub> 和发射极电压 <em>V</em><sub><em>E</em></sub>，（<em>V</em><sub><em>C </em></sub>- <em>V</em><sub><em>E</em></sub>）的差值应该大于 1V 且小于 <em>V</em><sub><em>CC</em></sub>。如果在放大器电路中，该读数小于 1V，则有可能是晶体管短路了；如果该读数等于 <em>V</em><sub><em>CC</em></sub>，则有可能是晶体管开路了。<br>
+<br>
+上述测试通常能够确定电路中存在的直流故障。很多时候还需要对 <em>V</em><sub><em>BE</em></sub> 进行测试：测量基极电压 <em>V</em><sub><em>B</em></sub> 和发射极电压 <em>V</em><sub><em>E</em></sub>，读数的差值为 <em>V</em><sub><em>BE</em></sub>。对于工作在有源区的小信号晶体管，该值应该是&nbsp; 0.6〜0.7V；对于功率晶体管，由于发射结的体电阻，可能为 1V 或者更大。如果 <em>V</em><sub><em>BE</em></sub> 的读数小于 0.6V，则发射结没有处于正向偏置，故障可能出在晶体管或者偏置元件中。<br>
+<br>
+有时会对截止特性进行测试，方法如下：用一根跳线将基极和发射极短接，使发射结不会处于正向偏置，迫使晶体管进入截止区，此时集电极对地的电压应该等于集电极电源电压，如果不相等，则晶体管或者电路存在问题。<br>
+<br>
+做这个测试时一定要小心。如果有其他电路或者设备连接到集电极，应确保集电极电压的上升不会导致对它们的损害。<br>
+<h2>
+	故障表</h2>
+前面讲过，短路的器件相当于零电阻，开路的器件相当于无穷大的电阻。 例如，发射极电阻可能短路或者开路，用 <em>R</em><sub><em>ES</em></sub> 和 <em>R</em><sub><em>EO</em></sub> 分别表示这两个故障。类似地，集电极电阻也可能短路或者开路，分别用 <em>R</em><sub><em>CS</em></sub> 和 <em>E</em><sub><em>CO</em></sub> 表示。<br>
+<br>
+当一个晶体管损坏时，任何情况都有可能发生。例如，一个或两个 <em>pn</em> 结内部可能短路或开路。为了限制可能故障的数目，将晶体管故障限定在最可能出现的以下几种情形：集电极-发射极短路（<em>CES</em>）表示三端（基极，集电极和发射极）短接在一起；集电极-发射极开路（<em>CEO</em>）表示三端都是开路的；基极-发射极开路（<em>BEO</em>）表示基极-发射极二极管开路；集电极-基极开路（<em>CBO</em>）表示集电极-基极二极管开路。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ310311J44.jpg" style="width: 500px; height: 432px;"><br>
+	图 6</div>
+<br>
+当图 6 所示的电路正常工作时，应该测得基极电压为 2V，发射极电压为 1.3V，集电极电压近似为 10.3V。如果发射极电阻短路，+2V 电压将加在发射结上，这个大电压会使晶体管损坏，可能导致集电极-发射极开路，该故障 <em>R</em><sub><em>EO</em></sub> 及其电压如表 7 所示。<br>
+<br>
+<table>
+<caption>
+		表 7 故障与现象</caption>
+<tbody>
+<tr>
+<td>
+				故障</td>
+<td>
+<em>V</em><sub><em>B</em></sub>，V</td>
+<td>
+<em>V</em><sub><em>E</em></sub>，V</td>
+<td>
+<em>V</em><sub><em>C</em></sub>，V</td>
+<td>
+				评价</td>
+</tr>
+<tr>
+<td>
+				无</td>
+<td>
+				2</td>
+<td>
+				1.3</td>
+<td>
+				10.3</td>
+<td>
+				无故障</td>
+</tr>
+<tr>
+<td>
+<em>R</em><sub><em>ES</em></sub></td>
+<td>
+				2</td>
+<td>
+				0</td>
+<td>
+				15</td>
+<td>
+				晶体管损坏（<em>CEO</em>）</td>
+</tr>
+<tr>
+<td>
+<em>R</em><sub><em>EO</em></sub></td>
+<td>
+				2</td>
+<td>
+				1.3</td>
+<td>
+				15</td>
+<td>
+				没有基极电流或集电极电流</td>
+</tr>
+<tr>
+<td>
+<em>R</em><sub><em>CS</em></sub></td>
+<td>
+				2</td>
+<td>
+				1.3</td>
+<td>
+				15</td>
+<td>
+				—</td>
+</tr>
+<tr>
+<td>
+<em>R</em><sub><em>CO</em></sub></td>
+<td>
+				2</td>
+<td>
+				1.3</td>
+<td>
+				1.3</td>
+<td>
+				—</td>
+</tr>
+<tr>
+<td>
+				无 <em>V</em><sub><em>BB</em></sub></td>
+<td>
+				0</td>
+<td>
+				0</td>
+<td>
+				15</td>
+<td>
+				检查电源及其连线</td>
+</tr>
+<tr>
+<td>
+				无 <em>V</em><sub><em>CC</em></sub></td>
+<td>
+				2</td>
+<td>
+				1.3</td>
+<td>
+				1.3</td>
+<td>
+				检查电源及其连线</td>
+</tr>
+<tr>
+<td>
+<em>C</em><sub><em>ES</em></sub></td>
+<td>
+				2</td>
+<td>
+				2</td>
+<td>
+				2</td>
+<td>
+				晶体管三端短接</td>
+</tr>
+<tr>
+<td>
+<em>C</em><sub><em>EO</em></sub></td>
+<td>
+				2</td>
+<td>
+				0</td>
+<td>
+				15</td>
+<td>
+				晶体管三端开路</td>
+</tr>
+<tr>
+<td>
+<em>B</em><sub><em>EO</em></sub></td>
+<td>
+				2</td>
+<td>
+				0</td>
+<td>
+				15</td>
+<td>
+				基级-发射极二极管开路</td>
+</tr>
+<tr>
+<td>
+<em>C</em><sub><em>BO</em></sub></td>
+<td>
+				2</td>
+<td>
+				1.3</td>
+<td>
+				15</td>
+<td>
+				集电极-基级二极管开路</td>
+</tr>
+</tbody>
+</table>
+<br>
+如果发射极电阻开路，就不会有发射极电流，而且，集电极电流也将为 0，集电极电压将增大到 15V。该故障 <em>R</em><sub><em>EO</em></sub> 及其电压如表 7 所示。如此继续分析，可以得到表中其他情况。<br>
+<br>
+值得说明的是“无 <em>V</em><sub><em>CC</em></sub>”这一项。因为没有集电极电源电压，直觉上是集电极电压为 0，但是用电压表并不能测量到这个电压。因为将电压表接在集电极和地之间时，基极电源会产生一个小的正向电流流过与电压表串联的集电结。由于基极电压被固定在 2V，集电极电压比这个电压低 0.7V，所以，集电极和地之间的电压读数为 1.3V。或者说，电压表使电路实现了对地的连接，它就像一个大电阻串联在集电极结与地之间。</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>光敏晶体管及其工作原理和作用</h1>
+
+<div id="arc-body">如前文所述，基极开路的晶体管存在一个很小的集电极电流，由表面漏电流和由热激发的少子电流组成。将集电结暴露在光线下，就能够制造出<span style="color:#008000;">光敏晶体管</span>，这种器件对光的敏感度比光敏二极管要高。<br>
+<h2>
+	光敏晶体管的基本概念</h2>
+图 1a) 所示是一个基极开路的晶体管，电路中存在一个很小的集电极电流。忽略表面漏电流，重点关注集电结中热激发产生的载流子。假设由这些载流子产生的反向电流是一个理想电流源，与理想晶体管的集电结并联（见图 1b) ）。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3111613D2.jpg" style="width: 500px; height: 347px;"><br>
+	图 1 基极开路的晶体管等效电路</div>
+<br>
+由于基极管脚开路，反向电流被迫全部流入晶体管的基极，使得集电极电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31116262T.jpg" style="width: 140px; height: 26px;"><br>
+	&nbsp;</div>
+其中，<em>I</em><sub><em>R</em></sub> 是少子反向电流，这说明集电极电流比初始反向电流大，且为 <em>I</em><sub><em>R</em></sub> 的 <em>β</em><sub><em>dc</em></sub> 倍。<br>
+<br>
+集电结对光和热一样敏感。在光敏晶体管中，光通过一个窗口照到集电结上，随着光强的增加，<em>I</em><sub><em>R</em></sub> 增加，<em>I</em><sub><em>CEO</em></sub> 也增加。<br>
+<h2>
+	光敏晶体管和光敏二极管</h2>
+光敏晶体管和光敏二极管的主要差别是电流增益 <em>β</em><sub><em>dc</em></sub>。相同强度的光照到这两个器件上，光敏晶体管中产生的电流是光敏二极管的 <em>β</em><sub><em>dc</em></sub> 倍。相对于光敏二极管，光敏晶体管的一大优点是灵敏度增加了。
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ3111ANC.jpg" style="width: 600px; height: 267px;"><br>
+	图 2 光敏晶体管</div>
+<br>
+图 2a) 所示是光敏晶体管的电路符号。要注意它的基极是开路的，这是光敏晶体管常见的工作方式。可以用基极回路电阻（见图 2b) ）控制它的灵敏度，但为了获得对光的最大灵敏度，通常采用基极开路方式。<br>
+<br>
+灵敏度增加的代价是速度的降低。光敏晶体管比光敏二极管灵敏，但其开关速度则没有那么快。光敏二极管典型的输出电流为几微安，开关速度为几纳秒；光敏晶体管典型的输出电流为几毫安，开关速度为几微秒。图 2c) 所示是一个典型的光敏晶体管。
+<h2>
+	光耦合器</h2>
+图 3a) 所示是一个 <em>LED</em> 驱动光敏晶体管。该光耦合器比前面讨论过的 <em>LED</em> 驱动光敏二极管要灵敏得多。它的原理很简单，<em>V</em><sub><em>S</em></sub> 的变化会改变 <em>LED</em> 的电流，从而改变通过光敏晶体管的电流，导致集电极-发射极两端电压的改变。这样，信号就由输入电路耦合到了输出电路。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3115041634.jpg" style="width: 600px; height: 207px;"><br>
+	图 3 光耦合器</div>
+<br>
+光耦合器的一大优点是实现了输入和输出电路之间的电隔离。换句话说，输入电路的公共点和输出电路的公共点是不同的，因此两个电路之间没有电通路。这意味着可以将其中一个电路接地，而另一个电路的地浮空。例如，可以将输入电路的地接到仪器的机架上，而输出电路的公共端不接地。图 3b) 是一个典型的光耦合器集成电路。<br>
+<h4>
+	知识拓展</h4>
+光耦合器实际上是用来替代机械继电器的。它在功能上与机械继电器相似，可以使输入端和输出端之间高度隔离。相比之下，光耦合器具有以下优点：工作速度更快，无触点反弹，尺寸更小，无需黏附运动部件，并且可与数字微处理器电路相兼容。<br>
+<h2>
+	应用举例</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ311545K45.jpg" style="width: 500px; height: 223px;"><br>
+	图 4 过零检测器</div>
+<br>
+图 4 中，光耦合器 4N24 实现了电力线与过零检测器电路的电源线的隔离。集电极电流与 <em>LED</em> 电流的关系如图 5 所示。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3115545140.jpg" style="width: 400px; height: 382px;"><br>
+	图 5 光耦合器特性曲线</div>
+<br>
+可以用如下方法计算光耦合器的输出电压峰值。桥式整流器产生的全波电流流过 <em>LED</em>，忽略二极管压降，则通过 <em>LED</em> 的电流峰值为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3115601141.jpg" style="width: 388px; height: 50px;"><br>
+	&nbsp;</div>
+光敏晶体管的饱和电流值为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3115613212.jpg" style="width: 311px; height: 60px;"><br>
+	&nbsp;</div>
+图 5 所示是三个不同光耦合器在相应 <em>LED</em> 电流下的光敏晶体管电流的静态特性曲线。对于 4N24（最上面的曲线），当负载电阻为 0 时，10.2mA 的 <em>LED</em> 电流产生约 15mA 的集电极电流。由图 4 可知，由于光敏晶体管在 2mA 时饱和，所以电流不可能达到 15mA。也就是说，<em>LED</em> 的电流足以使光敏晶体管进入饱和。由于 <em>LED</em> 的峰值电流为 10.2mA，所以晶体管在一个周期的大部分时间里都是饱和的。这时，输出电压约为 0，如图 6 所示。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3115AH46.jpg" style="width: 500px; height: 184px;"><br>
+	图 6 检测器的输出</div>
+<br>
+当电力线电压极性发生改变时，则出现零点，可能从正电压变成负电压，也可能从负电压变成正电压。在过零点，<em>LED</em> 电流降到 0，此刻，光敏晶体管开路，输出电压上升到将近 20V，如图 6 所示。可见，输出电压在一个周期中的大部分时间里近似为零，在过零点，快速上升到 20V 然后下降到基准线。<br>
+<br>
+图 4 所示的电路很有用，因为该电路不需要变压器来实现与电力线的隔离，而是通过光耦合器实现隔离，而且该电路还可以检测过零点。在有些应用中需要将电路与电力线电压频率同步，就需要使用这种过零检测器。<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>分压偏置电路及其分析</h1>
+
+<div id="arc-body">原型电路是一种基础电路形式，通过修改原型电路可以得到更高级的电路。基极偏置电路是开关电路设计的原型电路，而发射极偏置电路是放大电路设计的原型电路。分压器偏置电路就是由发射级偏置电路衍生的实际应用电路。<br>
+<h2>
+	分压器偏置电路</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ3150232C0.jpg" style="width: 500px; height: 301px;"><br>
+	图 1 分压器偏置电路</div>
+<br>
+图 1a) 所示是应用最广泛的偏置电路。基极偏置电路包含一个分压器（<em>R</em><sub>1</sub> 和 <em>R</em><sub>2</sub>），因此该电路称为<span style="color:#008000;">分压偏置（VDB）电路</span>。<br>
+<h2>
+	VDB 电路的简化分析</h2>
+可采用以下方法进行故障诊断和初步分析。在设计良好的 VDB 电路中，基极电流远小于通过分压器电路的电流。由于基极电流对分压器的影响可以忽略，因此可以认为分压器与基极之间是开路的，从而得到如图 1b) 所示的等效电路。该电路中，分压器的输出电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ315034D61.jpg" style="width: 204px; height: 50px;"><br>
+	&nbsp;</div>
+理想情况下，这就是基极电源电压，如图 1c) 所示。<br>
+<br>
+可见，分压器偏置实际上是一种隐性的发射极偏置。或者说，图 1c) 与图 1a) 中的电路是等效的。因此，VDB 电路可以固定发射极电流，从而得到稳定的、与电流增益无关的 <em>Q</em> 点。<br>
+<br>
+上述简化方法是有误差的，这一点将在下一节专门讨论。VDB 电路的关键在于，对于设计良好的电路，使用图 1c) 所示电路所带来的误差很小。换言之，设计时可通过对电路参数的选择使得图 1a) 中的电路等同于图 1c) 中的电路。<br>
+<h4>
+	结论</h4>
+得到 <em>V</em><sub><em>BB</em></sub> 后，后续分析与发射极偏置电路的分析方法相同。下面是可用于分析 VDB 电路的公式汇总：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ315044W53.jpg" style="width: 154px; height: 210px;"><br>
+	&nbsp;</div>
+这些公式都基于欧姆定律和基尔霍夫定律。分析的步骤为：
+<ol>
+<li>
+		计算由分压器输出的基极电压 <em>V</em><sub><em>BB</em></sub>；</li>
+<li>
+		减去 0.7V 得到发射极电压（锗管为 0.3V）；</li>
+<li>
+		除以发射极电阻得到发射极电流；</li>
+<li>
+		假设集电极电流近似等于发射极电流；</li>
+<li>
+		从集电极电压源电压中减去集电极电阻两端的电压，得到集电极对地电压；</li>
+<li>
+		从集电极电压中减去发射极电压，得到 <em>V</em><sub><em>CE</em></sub>；</li>
+</ol>
+这六个步骤具有逻辑顺序，很容易记住，分析几个 VDB 电路以后就会运用自如了。<br>
+<h2>
+	VDB 电路的精确分析</h2>
+设计优良的 VDB 电路指的是分压器对基极输入电阻呈现准理想特性。下面做进一步讨论。<br>
+<h4>
+	电源电阻</h4>
+准理想电压源的概念如下：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3150635509.jpg" style="width: 370px; height: 26px;"><br>
+	&nbsp;</div>
+满足此条件时，负载电压与理想值的偏差不超过 1%，这里，将这个概念沿用到分压器。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3150A4414.jpg" style="width: 600px; height: 551px;"><br>
+	图 2 分压器偏置电路的分析</div>
+<br>
+图 2a) 中分压器的戴维南电阻是多少？将 <em>V</em><sub><em>CC</em></sub> 接地，从输出端看分压器，可见 <em>R</em><sub>1</sub> 与 <em>R</em><sub>2</sub> 并联，有：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3150H9355.jpg" style="width: 178px; height: 26px;"><br>
+	&nbsp;</div>
+由于该电阻的存在，分压器的输出电压并不理想。更精确的分析应考虑这个戴维南电阻，如图 2b) 所示。流过戴维南电阻的电流使得实际基极电压低于理想值 <em>V</em><sub><em>BB</em></sub>。<br>
+<h4>
+	负载电阻</h4>
+基极电压比理想值低多少呢？分压器需要为基极提供电流，如图 2b) 所示。分压器的负载电阻是如图 2c) 所示。为使分压器对基极呈现准理想特性，应按 100:1 的准则，即：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3150Q5O8.jpg" style="width: 185px; height: 26px;"><br>
+	&nbsp;</div>
+这里<strong>（公式一）</strong>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3150RT18.jpg" style="width: 231px; height: 26px;"><br>
+	&nbsp;</div>
+设计优良的 VDB 电路应满足此条件。<br>
+<h4>
+	准理想分压器</h4>
+如果图 2c) 中晶体管的电流增益为 100，则集电极电流是基极电流的 100 倍，发射极电流也是基极电流的 100 倍。从晶体管基极看进去，发射极电阻 <em>R</em><sub><em>E</em></sub> 被放大了 100 倍，于是：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3150915P2.jpg" style="width: 141px; height: 26px;"><br>
+	&nbsp;</div>
+因此，公式一可写成：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3151003402.jpg" style="width: 409px; height: 26px;"><br>
+	&nbsp;</div>
+在电路设计中，对电路参数的选择应尽可能满足 100:1 准则，从而获得超稳定的 <em>Q</em> 点。<br>
+<h4>
+	稳定分压器</h4>
+有时准理想设计会使 <em>R</em><sub>1</sub> 和 <em>R</em><sub>2</sub> 的阻值太小，导致其他问题（后文讨论）。这时，许多设计采用如下的准则进行折衷：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ315103I31.jpg" style="width: 370px; height: 26px;"><br>
+	&nbsp;</div>
+满足上述 10:1 条件的分压器称为稳定分压器。最坏情况下，采用稳定分压器意味着集电极电流比准理想情况下低 10%。这在很多应用中是可以接受的，因为 VDB 电路仍然具有合适的且稳定的 <em>Q</em> 点。<br>
+<h4>
+	更精确的近似</h4>
+如果需要更为精确的发射极电流，可采用下列表达式<strong>（公式二）</strong>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31511205X.jpg" style="width: 256px; height: 50px;"><br>
+	&nbsp;</div>
+这与准理想情况下的值不同，因为分母中有（<em>R</em><sub>1</sub>||<em>R</em><sub>2</sub>）项，当这一项趋于 0 时，上式简化为准理想情况下的值。<br>
+<br>
+公式二改善了分析结果，但它是一个相当复杂的公式。如果有计算机且需要用准理想分析得到更为精确的分析，建议使用 MultiSim 或等效电路仿真器。<br>
+<br>
+<strong>【例1】</strong>图 3 中的分压器是准理想的吗？用公式二计算更精确的发射极电流。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31512214Z.jpg" style="width: 263px; height: 400px;"><br>
+	图 3<br>
+	&nbsp;</div>
+解：检查是否满足 100:1 准则：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3151241W7.jpg" style="width: 413px; height: 26px;"><br>
+	&nbsp;</div>
+分压器的戴维南电阻为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3151254J7.jpg" style="width: 603px; height: 50px;"><br>
+	&nbsp;</div>
+基极输入电阻为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3151320621.jpg" style="width: 324px; height: 26px;"><br>
+	&nbsp;</div>
+它的 1% 为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ315133L07.jpg" style="width: 195px; height: 26px;"><br>
+	&nbsp;</div>
+由于 1.8kΩ 小于 2kΩ，因此分压电路是准理想的。 由公式二，发射极电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ315135YE.jpg" style="width: 554px; height: 50px;"><br>
+	&nbsp;</div>
+这个结果与简化分析得到的 1.1mA 极为接近。<br>
+<br>
+问题的关键是：当分压器满足准理想条件时，不一定用公式一计算发射极电流，即使分压器是稳定的，用计算也只能改善发射极电流精度的 10%。除非特别说明，以后所有对 VDB 电路的分析都采用简化方法。<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>分压偏置电路的负载线及静态工作点</h1>
+
+<div id="arc-body">图 1 所示电路是准理想分压器，本节讨论中，假定发射极电压被稳定在 1.1V。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3155516105.jpg" style="width: 600px; height: 246px;"><br>
+	图 1 计算 <em>Q</em> 点</div>
+<h2>
+	静态工作点（Q 点）</h2>
+前面章节中曾计算过 <em>Q</em> 点，集电极电流为 1.1mA，<em>V</em><sub><em>CE</em></sub> 为 4.94V，在图 1 中画出这些值，得到 <em>Q</em> 点。由于分压器偏置源于发射极偏置，<em>Q</em> 点实际上不随电流增益变化，改变 <em>Q</em> 点的方法之一是改变发射极电阻。<br>
+<br>
+例如，若发射极电阻变为 2.2kΩ，则发射极电流减小为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ315560D95.jpg" style="width: 268px; height: 50px;"><br>
+	&nbsp;</div>
+电压变化如下：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3155K5132.jpg" style="width: 515px; height: 26px;"><br>
+	&nbsp;</div>
+<br>
+且：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3155Q1N9.jpg" style="width: 404px; height: 26px;"><br>
+	&nbsp;</div>
+所以新 <em>Q</em> 点 <em>Q</em><sub><em>L</em></sub> 的坐标为 0.5mA 和 7.1V。<br>
+<br>
+另一方面，若将发射极电阻减小为 510Ω，则发射极电流增加为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3155936117.jpg" style="width: 264px; height: 50px;"><br>
+	&nbsp;</div>
+电压改变为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3155952955.jpg" style="width: 547px; height: 26px;"><br>
+	&nbsp;</div>
+且：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3160013E5.jpg" style="width: 436px; height: 26px;"><br>
+	&nbsp;</div>
+这时新 <em>Q</em> 点 <em>Q</em><sub><em>H</em></sub> 的坐标为 2.15mA 和 1.16V。<br>
+<h2>
+	Q 点在负载线中点</h2>
+饱和电流和截止电压受 <em>V</em><sub><em>CC</em></sub>、<em>R</em><sub><em>1</em></sub>、<em>R</em><sub><em>2</em></sub> 和 <em>R</em><sub><em>C</em></sub> 的控制，改变这些参数中的任何一个，都会使 <em>I</em><sub><em>C(sat)</em></sub>和（或）<em>V</em><sub><em>CE(cutoff) </em></sub>发生变化。当上述参数确定后，改变发射极电阻可以将 <em>Q</em> 点设置在负载线的任何位置。如果 <em>R</em><sub><em>E</em></sub> 太大，则 <em>Q</em> 点向截止点移动，如果 <em>R</em><sub><em>E</em></sub> 太小，则 <em>Q</em> 点向饱和点移动。有些设计将 <em>Q</em> 点设置在负载线的中点。<br>
+<h2>
+	VDB 电路的设计方法</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ3160132Q2.jpg" style="width: 225px; height: 400px;"></div>
+<div style="text-align: center;">
+	图 2 VDB 电路的设计</div>
+<br>
+图 2 所示是一个 VDB 电路。下面用该电路来说明如何建立稳定的 <em>Q</em> 点。这种设计方法适用于大多数电路，但只是一个参考，也可以采用其他方法。<br>
+<br>
+在开始设计之前，确定电路的需求和指标是很重要的。一般的电路通常需要在特定集电极电流的情况下将 <em>V</em><sub><em>CE</em></sub> 偏置在中点值。还要知道电源 <em>V</em><sub><em>CC</em></sub> 和所用晶体管的 β<sub>dc</sub> 值范围。而且要确保电路不会使晶体管的功率超过限定值。<br>
+<br>
+首先，将发射极电压设定为电源电压的 1/10 左右：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ316022O57.jpg" style="width: 165px; height: 26px;"><br>
+	&nbsp;</div>
+然后，计算在特定集电极电流情况下的 <em>R</em><sub><em>E</em></sub> 的值：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3160246108.jpg" style="width: 87px; height: 50px;"><br>
+	&nbsp;</div>
+由于 <em>Q</em> 点需要设置在直流负载线的中点附近，在集电极-发射极之间的电压约为 0.5<em>V</em><sub><em>CC</em></sub>，余下的 0.4<em>V</em><sub><em>CC</em></sub> 则加在集电极电阻上，因此：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3160311413.jpg" style="width: 120px; height: 26px;"><br>
+	&nbsp;</div>
+下一步，按照 100：1 原则设计准理想分压器：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ316035GD.jpg" style="width: 183px; height: 26px;"><br>
+	&nbsp;</div>
+<em>R</em><sub><em>2</em></sub> 通常比 <em>R</em><sub><em>1</em></sub> 小，所以准理想分压器的公式可简化为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31604145H.jpg" style="width: 167px; height: 26px;"><br>
+	&nbsp;</div>
+也可以选择 10:1 原则设计稳定分压器：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ316043EJ.jpg" style="width: 154px; height: 26px;"><br>
+	&nbsp;</div>
+在任何情况下，都采用 β<sub>dc</sub> 的最小额定值来满足特定集电极电流的要求。最后，利用比例关系计算 <em>R</em><sub><em>1</em></sub>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3160456119.jpg" style="width: 108px; height: 50px;"></div>
+<h4>
+	知识拓展</h4>
+使 <em>Q</em> 点处于晶体管负载线的中点非常重要，因为这样可以使放大器获得最大的交流输出电压。使 <em>Q</em> 点处于负载线中点的偏置有时也称为<span style="color:#008000;">“中点偏置”</span>。<br>
+<br>
+<strong>【例 1】</strong>设计图 2 中电路的电阻值，使之满足以下条件：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3160K4432.jpg" style="width: 432px; height: 60px;"><br>
+	&nbsp;</div>
+解：首先，确定发射极电压：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3160P5943.jpg" style="width: 262px; height: 60px;"><br>
+	&nbsp;</div>
+发射极电阻为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3160R0646.jpg" style="width: 248px; height: 120px;"><br>
+	&nbsp;</div>
+集电极电阻为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3160S1X8.jpg" style="width: 417px; height: 60px;"><br>
+	&nbsp;</div>
+选择准理想分压器或稳定分压器。准理想情况下，<em>R</em><sub><em>2</em></sub> 的值为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3160T5415.jpg" style="width: 380px; height: 60px;"><br>
+	&nbsp;</div>
+<em>R</em><sub><em>1</em></sub> 的值为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ3160910K0.jpg" style="width: 377px; height: 160px;"></div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>双电源发射极偏置电路及其分析</h1>
+
+<div id="arc-body">有些电子设备的电源可提供正负电压供电。例如，图 1 所示的晶体管电路有 +10V 和 -2V 两个电源电压。负电源使发射结正向偏置，正电源使集电结反向偏置。该电路源于发射极偏置电路，因此称为<span style="color:#008000;">双电源发射极偏置（TSEB）</span>。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31A25E07.jpg" style="width: 360px; height: 400px;"><br>
+	图 1 双电源发射极偏置</div>
+<h2>
+	电路分析</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ31A316207.jpg" style="width: 323px; height: 400px;"><br>
+	图 2 重画的 TSEB 电路</div>
+<br>
+首先要按通常习惯的形式重画电路图，即去掉电池符号，如图 2 所示。这种形式的电路图是必要的，因为在复杂的电路中，一般没有地方画电池符号。尽管电路图简化了形式，但仍然包含了所有信息，即 -2V 负电源与 1kΩ 电阻的下端相连，10V 正电源与 3.6kΩ 电阻的顶端相连。<br>
+<br>
+如果这类电路设计无误，则基极电流很小，可以忽略不计，相当于基极电源近似为 0V,如图 3 所示。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31A41K12.jpg" style="width: 261px; height: 400px;"><br>
+	图 3 基极电位理想值为 0</div>
+<br>
+发射结两端电压为 0.7V，因此发射极电位为 -0.7V。由于从基极到发射极有 0.7V 的正压降，当基极电位为 0V 时，发射极电位则为 -0.7V。<br>
+<br>
+图 3 中，发射极电阻对发射极电流的确定起关键作用。为得到该电流值，应用欧姆定律，则发射极电阻上端电位为 -0.7V，下端电位为 -2V，电阻上的电压等于两个电位之差。为了得到准确的结果，用高电位减去低电位，这里低电位为 -2V，因此：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31A455638.jpg" style="width: 454px; height: 26px;"></div>
+<br>
+得到发射极电阻上的压降后，用欧姆定律可计算发射极电流：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31A5163T.jpg" style="width: 303px; height: 60px;"><br>
+	&nbsp;</div>
+该电流流过 3.6kΩ 产生一个压降，从 +10V 电源电压中减掉，得：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31A5335X.jpg" style="width: 530px; height: 26px;"><br>
+	&nbsp;</div>
+<em>V</em><sub><em>CE</em></sub> 是集电极与发射极电位之差：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31A549218.jpg" style="width: 499px; height: 26px;"><br>
+	&nbsp;</div>
+与分压器基极偏置类似，好的双电源发射极偏置在设计时满足 100:1 准则，即:
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31A6064F.jpg" style="width: 192px; height: 26px;"><br>
+	&nbsp;</div>
+这时，可以采用以下简化公式进行分析：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31A62N41.jpg" style="width: 181px; height: 150px;"></div>
+<h4>
+	知识拓展</h4>
+设计良好的分压器或发射极偏置结构的晶体管电路属于与 β 无关的电路，因为 <em>I</em><sub><em>C</em></sub> 和 <em>V</em><sub><em>CE</em></sub> 的值不受晶体管 β 值的影响。<br>
+<h2>
+	基极电压</h2>
+图 3 中电路简化后，误差的来源之一是基极电阻上的小电压。由于有一个小的基极电流流过该电阻，基极和地之间存在负电压。在设计良好的电路中，基极电压小于 -0.1V。如果设计时必须采用较大的基极电阻进行折衷，则基极电压有可能低于 -0.1V。 如果对该电路进行故障诊断，基极和地之间电压的读数应当很小，否则就是电路有问题。<br>
+<br>
+<strong>【例1】</strong>图 3 中，若发射极电阻增至 1.8kΩ，集电极电压是多少？<br>
+<br>
+解：发射极电阻两端电压仍为 1.3V，发射极电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31ASO91.jpg" style="width: 294px; height: 50px;"><br>
+	&nbsp;</div>
+集电极电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31AU5507.jpg" style="width: 539px; height: 26px;"><br>
+	&nbsp;</div>
+<strong>【例 2】</strong>一级电路是指一个晶体管和与之相连的无源器件。图 4 所示是一个采用双电源发射极偏置的三级电路，其中每级的集电极对地电压是多少？
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31F051143.jpg" style="width: 600px; height: 239px;"><br>
+	图 4 三级电路</div>
+<br>
+解：首先忽略电容，因为它们对直流电压和直流电流而言是开路的，余下的是采用双电源发射极偏置的三个相互独立的晶体管。<br>
+<br>
+第一级的发射极电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31A9434E.jpg" style="width: 479px; height: 50px;"><br>
+	&nbsp;</div>
+集电极电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ31A95QQ.jpg" style="width: 546px; height: 26px;"><br>
+	&nbsp;</div>
+由于其他级的电路参数都是相同的，因此每级集电极对地的电压均近似为 7.85V。表 4 归纳了四种主要的偏置电路类型。<br>
+<br>
+<table>
+<caption>
+		表 4 主要偏置电路</caption>
+<tbody>
+<tr>
+<th>
+				类型</th>
+<th>
+				电路</th>
+<th>
+				计算</th>
+<th>
+				特性</th>
+<th>
+				应用</th>
+</tr>
+<tr>
+<th>
+				基级偏置</th>
+<td>
+<img alt="" src="./index_files/2-1PQ31F14V61.jpg" style="width: 300px; height: 204px;"></td>
+<td>
+<img alt="" src="./index_files/2-1PQ31F202S9.jpg" style="width: 184px; height: 120px;"></td>
+<td>
+				原件少；与 β 有关；固定及基极电流</td>
+<td>
+				开关；数字电路</td>
+</tr>
+<tr>
+<th>
+				发射极偏置</th>
+<td>
+<img alt="" src="./index_files/2-1PQ31F313415.jpg" style="width: 289px; height: 300px;"></td>
+<td>
+<img alt="" src="./index_files/2-1PQ31F331W4.jpg" style="width: 208px; height: 180px;"></td>
+<td>
+				固定发射极电流；与 β 无关</td>
+<td>
+<em>I</em><sub><em>C </em></sub>驱动器；放大器</td>
+</tr>
+<tr>
+<th>
+				分压器偏置</th>
+<td>
+<img alt="" src="./index_files/2-1PQ31F421540.jpg" style="width: 178px; height: 300px;"></td>
+<td>
+<img alt="" src="./index_files/2-1PQ31F434311.jpg" style="width: 157px; height: 200px;"></td>
+<td>
+				需要多个电阻；与 β 无关；只需单电源</td>
+<td>
+				放大器</td>
+</tr>
+<tr>
+<th>
+				双电源发射极偏置</th>
+<td>
+<img alt="" src="./index_files/2-1PQ31F523T2.jpg" style="width: 222px; height: 300px;"></td>
+<td>
+<img alt="" src="./index_files/2-1PQ31F533126.jpg" style="width: 177px; height: 210px;"></td>
+<td>
+				需要正负电源；与 β 无关</td>
+<td>
+				放大器</td>
+</tr>
+</tbody>
+</table>
+<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>发射极反馈偏置和集电极反馈偏置</h1>
+
+<div id="arc-body">本节将讨论几种其他类型的偏置。虽然这些偏置类型在新的设计中已经很少使用了，但当它们在电路图中出现时也应该能够识别。<br>
+<h2>
+	发射极反馈偏置</h2>
+前文讨论过基极偏置情况（见图 1a) ）。该电路在 <em>Q</em> 点的稳定性方面，性能是最差的。因为基极电流是固定的，集电极电流将随电流增益的变化而变化。当晶体管进行更换或温度发生变化时，这种电路的 <em>Q</em> 点将在负载线上移动。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4091F3F9.jpg" style="width: 400px; height: 383px;"><br>
+	图 1 两种偏置</div>
+<br>
+<span style="color:#008000;">发射极反馈偏置</span>是最早用来稳定 <em>Q</em> 点的方法，如图 1b) 所示，在电路中增加了发射极电阻。其基本原理是：假设 <em>I</em><sub><em>C</em></sub> 增加，则 <em>V</em><sub><em>E</em></sub> 增加，使得 <em>V</em><sub><em>B</em></sub> 增加；<em>V</em><sub><em>B</em></sub> 的增加意味着 <em>R</em><sub><em>B</em></sub> 两端电压减小，这样 <em>I</em><sub><em>B</em></sub> 会减小，导致 <em>I</em><sub><em>C</em></sub> 减小，与 <em>I</em><sub><em>C</em></sub> 增加的初始假设相反。由于发射极电压的变化反馈到了基极电流，所以称为<span style="color:#008000;">反馈</span>。又由于该反馈产生的变化与集电极电流的初始变化相反，所以称为<span style="color:#008000;">负反馈</span>。<br>
+<br>
+发射极反馈偏置并没有广泛应用，因为对于大多数需要批量生产的产品来说，该电路 <em>Q</em> 点的漂移仍然太大。相关公式如下<strong>（公式一）</strong>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4091R2445.jpg" style="width: 215px; height: 180px;"><br>
+	&nbsp;</div>
+使用发射极反馈偏置的目的是为了掩蔽 βdc 变化的影响，需要远大于 <em>R</em><sub><em>B</em></sub>/β<sub>dc</sub>，若满足该条件，则公式一中第一个公式对 β<sub>dc</sub> 的变化不敏感。而实际中，在不使晶体管截止的情况下，选择足够大的 <em>R</em><sub><em>E</em></sub> 值来消除的影响是很困难的。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4091952C1.jpg" style="width: 550px; height: 260px;"><br>
+	图 2 举例</div>
+<br>
+图 2a) 所示是一个发射极反馈偏置电路的例子，图 2b) 显示了负载线和两个不同电流增益下的 <em>Q</em> 点。可以看出，3:1 的电流增益变化使集电极电流发生较大的改变。与基极偏置相比，该电路的改进不多。<br>
+<h2>
+	集电极反馈偏置</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ4092030E4.jpg" style="width: 204px; height: 300px;"><br>
+	图 3 集电极反馈偏置电路</div>
+<br>
+图 3 所示是<span style="color:#008000;">集电极反馈偏置</span>（也称<span style="color:#008000;">自偏置</span>），这是另一个稳定 <em>Q</em> 点的方法。其基本思想也是将电压反馈到基极，以减小集电极电流的变化。例如，假设集电极电流增加，使集电极电压降低，从而使基极电阻两端的电压减小，导致基极电流的减小，其结果与集电极电流增大的初始假设相反。<br>
+<br>
+与发射极反馈偏置类似，集电极反馈偏置通过负反馈减小集电极电流的初始变化。以下是分析集电极反馈偏置的几个公式：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4092114X3.jpg" style="width: 217px; height: 140px;"><br>
+	&nbsp;</div>
+一般通过设置如下的基极电阻值使 Q 点处于负载线的中间：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4092133K7.jpg" style="width: 133px; height: 26px;"><br>
+	&nbsp;</div>
+图 4a) 所示是一个集电极反馈偏置的例子，图 4b) 显示了负载线和两种不同电流增益下的 <em>Q</em> 点。可以看到，3:1 的电流增益变化引起的集电极电流变化比使用发射极反馈要小（见图 2b) ）。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4092215222.jpg"><br>
+	图 4 集电极反馈偏置实例和 <em>Q</em> 点</div>
+<br>
+在稳定 <em>Q</em> 点方面，集电极反馈偏置比发射极反馈偏置更有效。尽管电路依然对电流增益变化敏感，但由于结构简单，因而在实际中得到了应用。<br>
+<h2>
+	集电极-发射极反馈偏置</h2>
+发射极反馈偏置和集电极反馈偏置是稳定晶体管电路的第一步。尽管采用负反馈的思想是正确的，但由于无法实现足够深的负反馈，电路依然存在不足。所以需要进一步改进偏置，如图 5 所示。该电路的原理是同时采用发射极反馈和集电极反馈来改善工作点的稳定性。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4092421115.jpg" style="width: 220px; height: 400px;"><br>
+	图 5 集电极-发射极反馈偏置</div>
+<br>
+然而结果显示，在一个电路中同时采用两种反馈虽然有一定帮助，但仍不适合大规模生产。对于这类电路的分析公式如下：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ409244Q91.jpg" style="width: 282px; height: 180px;"></div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>分压偏置电路的故障诊断</h1>
+
+<div id="arc-body">这里讨论分压器偏置电路的故障诊断，因为这种偏置电路应用最广泛。图 1 所示是前文分析过的 VDB 电路，表 2 列出了用 MultiSim 分析该电路得到的电压值。用于测量的电压表的输入电阻为 10MΩ。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4094PE62.jpg"><br>
+	图 1 故障诊断</div>
+<h2>
+	可确定故障</h2>
+开路或短路通常会产生唯一的电压值。例如，使图 1 中晶体管基极电压为 10V 的唯一方法是使 <em>R</em><sub><em>1</em></sub> 短路，其他元件的开路或短路不会产生相同的结果。表 2 中绝大多数情况只能产生唯一的电压集合，所以不需要断开电路做进一步的检查，就可以确定这些故障。<br>
+<h2>
+	不可确定故障</h2>
+表 2 中有两种故障得到的电压不唯一：<em>R</em><sub><em>1O</em></sub> 和 <em>R</em><sub><em>2S</em></sub>。这两种情况的电压值都为 0、0、10V。像这样不确定的故障，故障诊断时必须断开其中一个可疑元件，用欧姆表或其他测量仪器进行测试。如取出 <em>R</em><sub><em>1</em></sub>，用欧姆表测量其电阻。如果它是开路的，则可以确定该故障；如果它没问题，则是 <em>R</em><sub><em>2</em></sub> 短路。<br>
+<h2>
+	电压表的负载效应</h2>
+使用电压表相当于在电路中接入了一个新的电阻，该电阻会从电路中分流。如果被测电路的电阻较大，那么测量值会比正常值小。<br>
+<br>
+例如，假设图 1 中发射极电阻开路，基极电压为 1.8V。因为发射极电阻开路时没有发射极电流，所以测量之前发射极对地电压也一定为 1.8V。当用内阻为 10MΩ 的电压表测量 <em>V</em><sub><em>E</em></sub> 时，相当于在发射极和地之间接入了一个 10MΩ 的电阻，这将导致有微小的电流从发射极流过，从而在发射结上产生压降。所以表 2 中 <em>R</em><sub><em>EO</em></sub> 对应的 <em>V</em><sub><em>E</em></sub>=1.37V，而不是 1.8V。<br>
+<br>
+<table>
+<caption>
+		表 2 故障及现象</caption>
+<tbody>
+<tr>
+<th>
+				故障</th>
+<th>
+<em>V</em><sub><em>B</em></sub></th>
+<th>
+<em>V</em><sub><em>E</em></sub></th>
+<th>
+<em>V</em><sub><em>C</em></sub></th>
+<th>
+				评价</th>
+</tr>
+<tr>
+<th>
+				无</th>
+<td>
+				1.79</td>
+<td>
+				1.12</td>
+<td>
+				6</td>
+<td>
+				无故障</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>1S</em></sub></th>
+<td>
+				10</td>
+<td>
+				9.17</td>
+<td>
+				9.2</td>
+<td>
+				晶体管饱和</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>1O</em></sub></th>
+<td>
+				0</td>
+<td>
+				0</td>
+<td>
+				10</td>
+<td>
+				晶体管截止</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>2S</em></sub></th>
+<td>
+				0</td>
+<td>
+				0</td>
+<td>
+				10</td>
+<td>
+				晶体管截止</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>2O</em></sub></th>
+<td>
+				3.38</td>
+<td>
+				2.68</td>
+<td>
+				2.73</td>
+<td>
+				转化为发射极反馈偏置</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>ES</em></sub></th>
+<td>
+				0.71</td>
+<td>
+				0</td>
+<td>
+				0.06</td>
+<td>
+				晶体管饱和</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>EO</em></sub></th>
+<td>
+				1.8</td>
+<td>
+				1.37</td>
+<td>
+				10</td>
+<td>
+				10MΩ的电压表减小了 <em>V</em><sub><em>E</em></sub> 的值</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>CS</em></sub></th>
+<td>
+				1.79</td>
+<td>
+				1.12</td>
+<td>
+				10</td>
+<td>
+				集电极电阻短路</td>
+</tr>
+<tr>
+<th>
+<em>R</em><sub><em>CO</em></sub></th>
+<td>
+				1.07</td>
+<td>
+				0.4</td>
+<td>
+				0.43</td>
+<td>
+				基极电流过大</td>
+</tr>
+<tr>
+<th>
+<em>C</em><sub><em>ES</em></sub></th>
+<td>
+				2.06</td>
+<td>
+				2.06</td>
+<td>
+				2.06</td>
+<td>
+				晶体管所有管脚短接</td>
+</tr>
+<tr>
+<th>
+<em>C</em><sub><em>EO</em></sub></th>
+<td>
+				1.8</td>
+<td>
+				0</td>
+<td>
+				10</td>
+<td>
+				晶体管所有管脚开路</td>
+</tr>
+<tr>
+<th>
+				无电源</th>
+<td>
+				0</td>
+<td>
+				0</td>
+<td>
+				0</td>
+<td>
+				检查电源及其连线</td>
+</tr>
+</tbody>
+</table>
+<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>pnp三极管及其工作原理</h1>
+
+<div id="arc-body">前面的文章重点研究了 <em>npn</em> 型晶体管的偏置电路。在很多电路中也会用到 <em>pnp</em> 型晶体管，<em>pnp</em> 管在有负电源供电的电子设备中很常用。此外，在双电源（正负电源）供电时，<em>pnp</em> 管和 <em>npn</em> 管作为互补元件使用。<br>
+<br>
+图 1 所示是 <em>pnp</em> 管的结构及其电路符号。由于两种器件具有相反的掺杂类型，分析时需要转换思路。特别要注意的是，<em>pnp</em> 管发射极的多子是空穴而不是自由电子。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4103955E8.jpg" style="width: 300px; height: 224px;"><br>
+	图 1 <em>pnp</em> 三极管</div>
+<h2>
+	基本概念</h2>
+简而言之，在原子层面，发射极注入基极的是空穴，其中绝大部分空穴漂移到集电极，因此集电极电流几乎等于发射极电流。<br>
+<br>
+图 2 显示了晶体管的三种电流。实线箭头表示传统电流方向，虚线箭头表示电子流动方向。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ410414Y94.jpg" style="width: 267px; height: 300px;"><br>
+	图 2 <em>pnp </em>管电流</div>
+<h2>
+	负电源供电</h2>
+图 3 所示是包括 <em>pnp</em> 晶体管和 -10V 负电源的分压器偏置电路。2N3906 是 2N3904 的互补晶体管，即晶体管特性参数的绝对值相同，而所有电流和电压的极性相反。
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ4104354N7.jpg" style="width: 303px; height: 400px;"><br>
+	图 3 负电源供电的 <em>pnp </em>管电路</div>
+<br>
+由于采用负电源，电路参数将变为负值，在计算时要格外小心。确定图 3 电路 <em>Q</em> 点的步骤如下：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ410451H25.jpg" style="width: 458px; height: 80px;"><br>
+	&nbsp;</div>
+对 <em>pnp</em> 晶体管，发射结正向偏置时，<em>V</em><sub><em>E</em></sub> 比 <em>V</em><sub><em>B</em></sub> 高 0.7V，因此：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ410455I43.jpg" style="width: 607px; height: 24px;"><br>
+	&nbsp;</div>
+然后，确定发射极和集电极电流：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ41046152b.jpg" style="width: 341px; height: 90px;"><br>
+	&nbsp;</div>
+求解集电极电压和 <em>V</em><sub><em>CE</em></sub>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ41046291P.jpg" style="width: 595px; height: 55px;"></div>
+<h2>
+	正电源供电</h2>
+在晶体管电路中，正电源比负电源应用更为广泛。因此经常见到如图 4 所示的 <em>pnp</em> 管的倒置画法。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4104HY10.jpg" style="width: 281px; height: 400px;"><br>
+	图 4 正电源供电的 <em>pnp </em>管电路<br>
+	&nbsp;</div>
+该电路的工作原理是：<em>R</em><sub><em>2</em></sub> 两端电压加在发射结及与其串联的发射极电阻上，以此确定发射极电流。集电极电流流过 <em>R</em><sub><em>C</em></sub>，产生集电极对地的电压。故障诊断时，可用如下方法计算 <em>V</em><sub><em>C</em></sub>、<em>V</em><sub><em>B</em></sub> 和 <em>V</em><sub><em>E</em></sub>：
+<ol>
+<li>
+		计算 <em>R</em><sub><em>2</em></sub> 两端电压；</li>
+<li>
+		从上述电压减 0.7V 得到发射极电阻两端电压；</li>
+<li>
+		求得发射极电流；</li>
+<li>
+		计算集电极对地电压；</li>
+<li>
+		计算基极对地电压；</li>
+<li>
+		计算发射极对地电压。</li>
+</ol>
+<br>
+<strong>【例 1】</strong>计算图 4 电路中 <em>pnp</em> 晶体管的三个电压。<br>
+<br>
+解:先求 <em>R</em><sub><em>2</em></sub> 两端电压，由分压公式得：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4104T0P1.jpg" style="width: 191px; height: 50px;"><br>
+	&nbsp;</div>
+也可以用另一种方法得到电流值，即先求得分压电路的电流，再乘以 <em>R</em><sub><em>2</em></sub>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4104Z3453.jpg" style="width: 371px; height: 90px;"><br>
+	&nbsp;</div>
+然后，从上述电压中减去 0.7V，得到发射极电阻两端电压：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ410491WT.jpg" style="width: 359px; height: 26px;"><br>
+	&nbsp;</div>
+计算发射极电流：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4104931b1.jpg" style="width: 255px; height: 50px;"><br>
+	&nbsp;</div>
+集电极电流流过集电极电阻，产生集电极对地电压：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ410494G15.jpg" style="width: 437px; height: 26px;"><br>
+	&nbsp;</div>
+基极对地电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4105000X8.jpg" style="width: 376px; height: 26px;"><br>
+	&nbsp;</div>
+发射极对地电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4105014193.jpg" style="width: 381px; height: 26px;"></div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>基极偏置放大电路及其基本原理和特点</h1>
+
+<div id="arc-body">将晶体管的 <em>Q</em> 点偏置在负载线中点附近后，将一个小的交流信号耦合到基极，便会产生一个交流的集电极电压。交流集电极电压与交流基极电压波形相似，但幅度要大很多，即交流集电极电压是对交流基极电压的放大。<br>
+<br>
+放大器件的发明，包括早期的真空电子管和后来的晶体管，对电子学的发展具有至关重要的作用。如果没有放大器件，就没有收音机、电视机和计算机。<br>
+<br>
+本节将讨论基极偏置放大器。<br>
+<h2>
+	基极偏置放大器</h2>
+尽管基极偏置放大器不能用于大批量的电子产品，但可以利用它的基本原理来实现更复杂的放大器，所以仍具有指导意义。<br>
+<h4>
+	耦合电容</h4>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ4130P4D3.jpg" style="width: 600px; height: 184px;"><br>
+	图 1 对耦合电容的分析</div>
+<br>
+图 1a) 所示电路中交流电压源与一个电容和一个电阻相连接。由于电容的阻抗与频率成反比，所以电容能够有效的阻断直流电压，并传输交流电压。当频率足够高时，容性电抗远小于电阻，几乎全部的交流电压都加在电阻上。这种情况下使用的电容称为<span style="color:#008000;">耦合电容</span>，因为它将交流信号耦合或传输到电阻上。耦合电容很重要，它可以将交流信号耦合进入放大器，同时不影响放大器的 <em>Q</em> 点。<br>
+<br>
+要使耦合电容正常工作，它的电抗值在交流源最低频率下必须远小于电阻的值。例如，假设交流源的频率在 20Hz〜20kHz 之间变化，那么最坏情况是 20Hz，设计时选择电容的电抗值在 20Hz 时应远小于电阻值。<br>
+<br>
+怎样才可以认为足够小呢？定义如下：较适当的耦合电容值 <em>X</em><sub><em>C</em></sub>&lt;0.1R，即在最低工作频率下，电抗应小于电阻的 1/10。<br>
+<br>
+当满足此 10:1 的条件时，则图 1a) 电路可用等效电路图 1b) 代替。图 1a) 电路的阻抗值为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ413100OT.jpg" style="width: 178px; height: 26px;"><br>
+	&nbsp;</div>
+将最坏情况代入，得：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4131023151.jpg" style="width: 625px; height: 24px;"><br>
+	&nbsp;</div>
+在最低频率下，阻抗值与 <em>R</em> 值相差不超过 0.5%，所以图 1a) 中的电流只比图 1b) 中的电流小 0.5%。由于所有设计优良的电路都满足 10:1 准则，可以近似认为耦合电容是交流短路的（见图 1b) ）。<br>
+<br>
+关于耦合电容还需要说明的是，由于直流电压频率为 0，耦合电容的电抗在零频处为无穷大，因此对于电容，可以利用以下两个近似：
+<ol>
+<li>
+		对直流分析，电容开路；</li>
+<li>
+		对交流分析，电容短路；</li>
+</ol>
+<br>
+图 1c) 概括了这两个重要的近似概念。除非特别说明，以后分析的所有电路都满足 10:1 准则，因而可以将耦合电容看作开路或短路，如图 1c) 所示。<br>
+<br>
+<strong>【例 1】</strong>电路如图 1a) 所示，若 <em>R</em>=2kΩ，频率范围为 20Hz〜20kHz，求使其成为较好的耦合电容所需的 <em>C</em> 值。<br>
+<br>
+解：根据 10:1 准则，在最低频率下，<em>X</em><sub><em>C</em></sub> 应小于 <em>R</em> 的 1/10，因此，在 20Hz 时，<em>X</em><sub><em>C</em></sub>&lt;0.1R，即 <em>X</em><sub><em>C</em></sub>&lt;200Ω。<br>
+<br>
+由于：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ413132A63.jpg" style="width: 116px; height: 50px;"><br>
+	&nbsp;</div>
+整理得：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4131343547.jpg" style="width: 492px; height: 50px;"></div>
+<h4>
+	直流电路</h4>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ4131423559.jpg" style="width: 400px; height: 334px;"><br>
+	图 2 基极偏置电路</div>
+<br>
+图 2 所示是一个基极偏置电路，基极直流电压为 0.7V。由于 30V 远大于 0.7V，所以基极电流近似等于 30V 除以 1MΩ：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4131510418.jpg" style="width: 126px; height: 26px;"><br>
+	&nbsp;</div>
+电流增益为 100，则集电极电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ41315354a.jpg" style="width: 135px; height: 26px;"><br>
+	&nbsp;</div>
+集电极电压为：<br>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ413162SV.jpg" style="width: 415px; height: 26px;"></div>
+<br>
+因此 <em>Q</em> 点位于 3mA 和 15V 处。<br>
+<h4>
+	放大电路</h4>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ4131J2643.jpg" style="width: 500px; height: 252px;"><br>
+	图 3 基极偏置放大电路</div>
+<br>
+图 3 显示了如何通过增加元件来构成放大电路。首先，将耦合电容接在交流源和基极之间。由于耦合电容对直流开路，所以电容和交流源的存在并不改变基极直流电流。<br>
+<br>
+同样地，在集电极和 100kΩ 的负载电阻之间接入耦合电容。由于这个电容对直流开路，因此集电极直流电压在接入电容和负载电阻后保持不变。关键是用耦合电容来防止交流源和负载电阻对 <em>Q</em> 点的影响。<br>
+<br>
+在图 3 中，交流源电压为 100μV，由于耦合电容对交流短路，所有交流电压都加在基极和地之间，该电压产生的基极交流电流叠加在原来的直流基极电流上。或者说，总的基极电流包含直流分量和交流分量。<br>
+<br>
+图 4a) 对此进行了说明。交流分量叠加在直流分量上，在正半周，基极交流电流与 30μA 基极直流电流相加，而在负半周则与 30μA 相减。<br>
+<br>
+由于有电流增益，基极交流电流使集电极电流被放大。图 4b) 中，集电极电流的直流分量为 3mA，其上叠加了集电极交流电流。这个被放大的集电极电流流过集电极电阻，在该电阻上产生一个变化的电压。从电源电压中减去这个电压，便得到集电极电压，如图 4c) 所示。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4131U5122.jpg" style="width: 600px; height: 477px;"><br>
+	图 4 直流和交流分量</div>
+<br>
+集电极电压也是交流分量叠加在直流分量上，即在 15V 直流电平上以正弦波变化，该交流电压波形与输入电压反相，即两者相差 180°。在基极交流电流的正半周，集电极电流增加，使集电极电阻上的电压增加，即集电极对地电压降低。类似地，在负半周，集电极电流减小，使集电极电阻上的电压减小，从而使集电极电压增加。<br>
+<h4>
+	电压波形</h4>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ4132019252.jpg" style="width: 600px; height: 268px;"><br>
+	图 5 基极偏置放大器及其波形</div>
+<br>
+图 5 显示了基极偏置放大器的电压波形。交流电压源产生一个很小的正弦电压，这个电压被耦合到基极，并叠加到直流分量 +0.7V 上。基极电压的变化使基极电流、集电极电流和集电极电压都发生了正弦变化。集电极总电压是一个叠加在集电极直流电压 +15V 上的反相的正弦波。<br>
+<br>
+输出耦合电容的作用如下：由于它对直流开路，因此阻断了集电极电压的直流分量；又由于它对交流短路，因此将集电极电压的交流分量耦合到负载电阻上。所以负载电压是均值为 0 的纯交流信号。<br>
+<h4>
+	电压增益</h4>
+放大器的电压增益定义为交流输出电压与交流输入电压的比，即<strong>（公式一）</strong>:
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ413211Y45.jpg" style="width: 118px; height: 50px;"><br>
+	&nbsp;</div>
+例如，若测得交流负载电压为 50mV，交流输入电压为 100μV，则电压增益为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4132154941.jpg" style="width: 207px; height: 50px;"><br>
+	&nbsp;</div>
+说明交流输出电压是交流输入电压的 500倍。<br>
+<h4>
+	计算输出电压</h4>
+将公式一两端同时乘以 <em>V</em><sub><em>in</em></sub>，得<strong>（公式二）</strong>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ41322434A.jpg" style="width: 152px; height: 26px;"><br>
+	&nbsp;</div>
+该式用于已知 <em>A</em><sub><em>V</em></sub> 和 <em>V</em><sub><em>in</em></sub> 时对 <em>V</em><sub><em>out</em></sub> 的计算。<br>
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4132602534.jpg" style="width: 342px; height: 400px;"><br>
+	图 6 举例<br>
+	&nbsp;</div>
+例如，图 6a) 中三角形符号表示任意放大器。已知输入电压为 2mV，电压增益为 200，可以计算出输出电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4132A2222.jpg" style="width: 390px; height: 26px;"></div>
+<h4>
+	计算输入电压</h4>
+将公式二两边除以 <em>A</em><sub><em>V</em></sub>，得：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4132H21W.jpg" style="width: 114px; height: 50px;"><br>
+	&nbsp;</div>
+该式用于已知 <em>V</em><sub><em>out</em></sub> 和 <em>A</em><sub><em>V</em></sub> 时对 <em>V</em><sub><em>in</em></sub> 的计算。例如，已知图 6b) 中输出电压为 2.5V，电压增益为 350，则输入电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4132P5U3.jpg" style="width: 276px; height: 50px;"></div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>发射级偏置放大电路的分析</h1>
+
+<div id="arc-body">由于基极偏置放大器的 <em>Q</em> 点不稳定，因此该类型在放大电路中没有广泛应用。发射极偏置放大器（VDB 或 TSEB）具有稳定的 <em>Q</em> 点，因此应用较多。<br>
+<h2>
+	旁路电容</h2>
+旁路电容与耦合电容类似，对直流开路，对交流短路。但它并不是用来在两点间耦合信号，而是用来产生交流接地点。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4141G22U.jpg" style="width: 550px; height: 202px;"><br>
+	图 1 对旁路电容的分析</div>
+<br>
+图 1a) 所示是交流电压源与一个电阻和电容的连接，电阻只表示由电容端看到的戴维南电阻。当频率足够高时，电容的容抗远小于电阻，这时，几乎所有交流电压都加在电阻上。即 <em>E</em> 点呈现出良好的接地特性。<br>
+<br>
+在这种应用中的电容被称为<span style="color:#008000;">旁路电容</span>，因为它使 <em>E</em> 点旁路或对地短路。旁路电容的重要性在于，它能够在放大器中建立交流接地点，而不影响 <em>Q</em> 点。<br>
+<br>
+要使旁路电容正常工作，电容的容抗在交流源最低频率下必须远小于电阻。较适当的旁路电容值与耦合电容一样，定义为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4141K4516.jpg" style="width: 444px; height: 26px;"><br>
+	&nbsp;</div>
+满足此条件时，图 1a) 可以被等效电路图 1b) 所代替。<br>
+<br>
+<strong>【例 1】</strong>图 2 电路中，输入信号 <em>v</em> 的频率为 1kHz，要使 <em>E</em> 点具有良好的接地特性，电容 <em>C</em> 应取何值？
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4141R1357.jpg" style="width: 400px; height: 211px;"><br>
+	图 2 举例</div>
+<br>
+解：首先，求出从电容 <em>C</em> 看到的戴维南电阻：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4141T5332.jpg" style="width: 478px; height: 26px;"><br>
+	&nbsp;</div>
+<em>X</em><sub><em>C</em></sub> 应小于 <em>R</em><sub><em>TH</em></sub> 的 1/10，因此，在 1kHz 时 <em>X</em><sub><em>C</em></sub>&lt;37.5Ω，求得 <em>C</em> 为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4141ZS42.jpg" style="width: 497px; height: 50px;"></div>
+<h2>
+	VDB 放大器</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ4141926202.jpg" style="width: 600px; height: 298px;"><br>
+	图 3 VDB 放大器及其信号波形</div>
+<br>
+图 3 所示是分压器偏置（VDB）放大器。为计算直流电压和电流，将所有电容视为开路。则晶体管电路简化为在前面章节中分析过的 VDB 电路，电路的静态或直流值为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4142035a6.jpg" style="width: 723px; height: 26px;"><br>
+	&nbsp;</div>
+在电压源和基极之间、集电极和负载电阻之间分别接入耦合电容，同时需要在发射极和地之间接入一个旁路电容。如果没有旁路电容，基极交流电流会非常小，有了这个旁路电容，便可以获得较大的电压增益（有关的数学推导后续讲解）<br>
+<br>
+图 3 中，交流源电压 100μV 被耦合到基极输入端，由于存在旁路电容，交流电压全部加在发射结上。这样，基极交流电流将产生一个被放大的集电极交流电压。<br>
+<h2>
+	VDB 波形</h2>
+观察图 3 中的电压波形，交流源电压是均值为 0 的小的正弦信号，基极电压是该交流电压在 1.8V 直流电压上的叠加值。集电极电压为反相放大的交流电压在 6.04V 集电极直流电压上的叠加。负载电压与集电极电压相同，但均值为 0。<br>
+<br>
+需要注意的是，发射极的电压是 1.1V 的纯直流电压，没有交流成分。这是由于旁路电容使发射极交流接地。记住这一点对于故障诊断来说是非常重要的。如果旁路电容开路，则发射极与地之间会存在交流电压。出现该现象便可以断定故障的唯一可能是旁路电容开路。<br>
+<h4>
+	知识拓展</h4>
+在图 2 电路中，由于旁路电容的存在，发射极电压稳定在 1.1V 不变，因此基极电压的任何变化都会直接加在晶体管的发射结上。例如，假设 <em>v</em><sub><em>in</em></sub>=10mV（峰峰值），在 <em>v</em><sub><em>in</em></sub> 的正峰值点，交流基极电压等于 1.805V，<em>V</em><sub><em>BE</em></sub>=1.805V-1.1V=0.705V，在 <em>v</em><sub><em>in</em></sub> 的负峰值点，交流基极电压降为 1.795V，<em>V</em><sub><em>BE</em></sub>=1.795V—1.1V=0.695V。<em>V</em><sub><em>BE</em></sub> 上的交流电压变化（0.705〜0.695V）使 <em>I</em><sub><em>C</em></sub> 和 <em>V</em><sub><em>CE</em></sub> 发生交流变化。<br>
+<h2>
+	分立电路与集成电路</h2>
+图 3 中的 VDB 放大器是分立晶体管放大器的标准构建形式。分立表示所有元件（如电阻、电容、晶体管）都是独立接入并通过相互连接构成最终电路的。分立电路与集成电路（<em>IC</em>）不同，集成电路中所有元件是同时在一块半导体芯片上制造并连接的。<br>
+<h2>
+	TSEB 电路</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ4142233a1.jpg" style="width: 550px; height: 327px;"><br>
+	图 4 TSEB放大器及其信号波形</div>
+<br>
+图 4 所示是双电源发射极偏置（TSEB）放大器，前面章节已对这种电路的直流部分进行了分析，并计算出其静态电压为：<br>
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4142300922.jpg" style="width: 688px; height: 24px;"></div>
+<br>
+图 4 所示电路中有两个耦合电容和一个发射极旁路电容。该电路的交流情况与 VDB 放大器类似。交流信号被耦合到基极，放大后得到集电极电压，然后放大信号被耦合到负载上。<br>
+<br>
+观察信号的波形可知，交流源电压是一个很小的正弦电压，基极电压是这个小的交流分量在接近于 0V 的直流分量上的叠加。总的集电极电压是反相的正弦波在 +5.32V 的集电极直流电压上的叠加，负载电压是同一个放大信号，但没有直流分量。<br>
+<br>
+同样由于旁路电容的作用，发射极上是纯直流电压。若旁路电容开路，则发射极会呈现交流电压，这将极大地降低电压增益。因此，在对一个带有旁路电容的放大器进行故障诊断时，须谨记所有交流接地点上都应该没有交流电压。<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>放大器的小信号工作及其原理</h1>
+
+<div id="arc-body">图 1 所示是发射结电流-电压特性曲线。当交流电压耦合到晶体管的基极时，该交流电压将加在发射结上，使产生如图 1 所示的正弦变化。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4151619530.jpg" style="width: 400px; height: 344px;"><br>
+	图 1 信号太大时会产生失真</div>
+<h2>
+	瞬态工作点</h2>
+当电压增加到正的峰值点时，瞬态工作点由图 1 中的 <em>Q</em> 点移到最上面的点。反之，当正弦电压降到负的峰值点时，瞬态工作点从 <em>Q</em> 点移到最下面的点。<br>
+<br>
+总的 <em>V</em><sub><em>BE</em></sub> 是以直流电压为中心的交流电压，如图 1 所示。交流电压的幅度决定了瞬态工作点偏离 <em>Q</em> 点的距离。基极的交流电压越大，产生的偏离越大；基极的交流电压越小，产生的偏离越小。<br>
+<h2>
+	失真</h2>
+如图 1 所示，基极上的交流电压产生同频的发射极交流电流。例如，若驱动基极的交流信号源频率为 1kHz，则发射极电流频率也是 1kHz，且发射极交流电流的波形与基极交流电流的波形基本相同。若基极交流电压为正弦，则发射极交流电压也近似为正弦。<br>
+<br>
+由于特性曲线的弯曲，发射极交流电压并不是基极交流电压的完美复制。由于曲线向上弯曲，发射极交流电流的正半周被拉长，而负半周被压缩。<span style="color:#b22222;">这种在两个半周中被拉伸与压缩的现象被称为</span><span style="color:#008000;">失真</span>。在高精度放大器中是不希望有失真的，因为失真会使语音或音乐的音质发生改变。<br>
+<h2>
+	减小失真</h2>
+减小图 1 中信号失真的方法之一是使基极交流电压保持在小幅度。当基极电压的峰值降低后，瞬态工作点的移动范围将减小。变化的幅度越小，曲线的弯曲程度就越小。当信号足够小时，曲线呈现线性特性。<br>
+<br>
+使放大器在小信号下工作很重要。因为对于小信号而言，失真可以忽略。当信号幅度很小时，相应的特性曲线近似为线性，发射极交流电流的变化几乎与基极交流电压的变化成正比。即如果基极交流电压是幅度足够小的正弦波，则发射极交流电流也是幅度很小的正弦波，它在两个半周的波形没有明显的拉伸或压缩。<br>
+<h2>
+	10% 准则</h2>
+图 1 所示的发射极总电流包含直流分量和交流分量，可以表示为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4151I9332.jpg" style="width: 170px; height: 26px;"><br>
+	&nbsp;</div>
+其中 <em>I</em><sub><em>E</em></sub> 为发射极总电流，<em>I</em><sub><em>EQ</em></sub> 为发射极直流电流，<em>i</em><sub><em>e</em></sub> 为发射极交流电流。<br>
+<br>
+为了使失真最小，<em>i</em><sub><em>e</em></sub> 的峰峰值必须比 <em>I</em><sub><em>EQ</em></sub> 小，小信号工作条件定义为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4151P4329.jpg" style="width: 333px; height: 26px;"><br>
+	&nbsp;</div>
+即发射极交流电流的峰峰值小于发射极直流电流的 10% 时，称该交流信号为<span style="color:#008000;">小信号</span>。例如，图 2 所示电路中的发射极直流电流为 10mA，为满足小信号工作条件，发射极电流的峰峰值必须小于 1mA。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4152004158.jpg" style="width: 500px; height: 289px;"><br>
+	图 2 小信号工作条件的定义</div>
+<br>
+将满足 10% 准则的放大器称为<span style="color:#008000;">小信号放大器</span>。这类放大器用于收音机或电视接收机的前端，因为天线接收到的信号非常微弱，当该信号被耦合到晶体管放大器时，在发射极产生的电流变化很小，远小于 10% 准则所要求的幅度。<br>
+<br>
+【例 1】电路如图 3 所示，求发射极电流的小信号最大值。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4152135M6.jpg" style="width: 550px; height: 327px;"><br>
+	图 3 TSEB 放大器及其信号波形<br>
+	&nbsp;</div>
+解：首先求 <em>Q</em> 点，发射极电流为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4152255P4.jpg"><br>
+	&nbsp;</div>
+然后求发射极电流的小信号值 <em>i</em><sub><em>e(pp)</em></sub>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4152326259.jpg" style="width: 503px; height: 70px;"></div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>三极管的交流增益</h1>
+
+<div id="arc-body">前文所有关于电流增益的讨论都是指直流电流增益，定义为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4154530395.jpg" style="width: 108px; height: 60px;"><br>
+	&nbsp;</div>
+公式中的电流为图 1 中 <em>Q</em> 点的电流，由于图中特性曲线是弯曲的，因而直流增益与 <em>Q</em> 点有关。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ41545525A.jpg" style="width: 400px; height: 403px;"><br>
+	图 1 交流增益等于变化量之比</div>
+<h2>
+	定义</h2>
+交流电流增益与直流电流增益不同，它的定义为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ415460S41.jpg" style="width: 90px; height: 60px;"><br>
+	&nbsp;</div>
+即交流电流增益等于集电极交流电流除以基极交流电流。在图 1 中，交流信号只用到 <em>Q</em> 点两侧曲线很小的部分，因此交流电流增益的值不同于直流电流增益，后者几乎用到整条曲线。<br>
+<br>
+由图可见，<em>β</em> 等于图 1 中曲线在 <em>Q</em> 点的斜率。若将晶体管偏置在另一个 <em>Q</em> 点，则曲线斜率会有所变化，即 <em>β</em> 会发生改变。所以，<em>β</em> 的值取决于全部集电极直流电流的总值。<br>
+<br>
+在数据手册中，<em>β</em><sub><em>dc</em></sub> 以 <em>h</em><sub><em>FE</em></sub> 表示，<em>β</em> 以 <em>h</em><sub><em>fe</em></sub> 表示，注意这里的大写下标表示直流电流增益，小写下标表示交流电流增益。两种增益在数值上大致相当，因此在初步分析时，可以用其中一个的值代替另一个。<br>
+<h2>
+	标记法</h2>
+为了区分直流量和交流量，实际采用的标准是用大写字母和下标表示直流，例如，前文曾经使用过的：<br>
+<ol>
+<li>
+<em>I</em><sub><em>E</em></sub>、<em>I</em><sub><em>C</em></sub>、<em>I</em><sub><em>B</em></sub> 表示直流电流；</li>
+<li>
+<em>V</em><sub><em>E</em></sub>、<em>V</em><sub><em>C</em></sub>、<em>V</em><sub><em>B</em></sub> 表示直流电压；</li>
+<li>
+<em>V</em><sub><em>BE</em></sub>、<em>V</em><sub><em>CE</em></sub>、<em>V</em><sub><em>CB </em></sub>表示节点间的直流电压。</li>
+</ol>
+<br>
+对于交流量，使用小写字母和下标来表示，例如：<br>
+<ol>
+<li>
+<em>i</em><sub><em>e</em></sub>、<em>i</em><sub><em>c</em></sub>、<em>i</em><sub><em>b </em></sub>表示交流电流；</li>
+<li>
+<em>v</em><sub><em>e</em></sub>、<em>v</em><sub><em>c</em></sub>、<em>v</em><sub><em>b </em></sub>表示交流电压；</li>
+<li>
+<em>v</em><sub><em>be</em></sub>、<em>v</em><sub><em>ce</em></sub>、<em>v</em><sub><em>cb </em></sub>表示节点间的交流电压。</li>
+</ol>
+<br>
+还有一点值得说明的是，大写字母 <em>R</em> 表示直流电阻，小写字母 <em>r</em> 表示交流电阻。<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>发射结交流电阻及其计算公式</h1>
+
+<div id="arc-body">图 1 所示是发射结的电流-电压特性曲线。当一个交流小电压加在发射结上时，将产生发射极交流电流，该交流电流的大小取决于 <em>Q</em> 点位置。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4162120255.jpg"><br>
+	图 1 发射结的交流电阻</div>
+<br>
+由于曲线是弯曲的，<em>Q</em> 点在曲线上的位置越高，发射极交流电流的峰峰值将会越大。<br>
+<h2>
+	定义</h2>
+前面讲过，发射极总电流由直流分量和交流分量组成，即：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4162142Y4.jpg" style="width: 167px; height: 26px;"><br>
+	&nbsp;</div>
+其中 <em>I</em><sub><em>EQ</em></sub> 为发射极直流电流，<em>i</em><sub><em>e</em></sub> 为发射极交流电流。<br>
+<br>
+类似地，图 1 中发射结上的总电压包括直流分量和交流分量，可以写为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4162206261.jpg" style="width: 224px; height: 26px;"><br>
+	&nbsp;</div>
+其中 <em>V</em><sub><em>BEQ</em></sub> 为发射结上的直流电压，<em>v</em><sub><em>be</em></sub> 为发射结上的交流电压。<br>
+<br>
+如图 1 所示，<em>V</em><sub><em>BE</em></sub> 上的正弦变化在 <em>I</em><sub><em>E</em></sub> 上产生正弦变化，<em>i</em><sub><em>e</em></sub> 的峰峰值取决于 <em>Q</em> 点位置。由于曲线的弯曲，对于相同的 <em>v</em><sub><em>be</em></sub>，<em>Q</em> 点在曲线上的位置越高，产生的 <em>i</em><sub><em>e</em></sub> 越大。即发射结的交流电阻随发射极直流电流的增加而降低。<br>
+<br>
+发射结交流电阻的定义为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ41622524F.jpg" style="width: 122px; height: 60px;"><br>
+	&nbsp;</div>
+该式表示的是，发射结交流电阻等于发射结上的交流电压除以发射极交流电流。<em>r'</em><sub><em>e</em></sub> 上的 “ <em>' </em>”&nbsp; 表示这个电阻在晶体管的内部。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4162405313.jpg" style="width: 400px; height: 353px;"><br>
+	图 2 计算 <em>r'</em><sub><em>e</em></sub></div>
+<br>
+例如，图 2 中，发射结上的交流电压峰峰值为 5mV，在给定的 <em>Q</em> 点上，由它确定的发射极交流电流峰峰值为 100μA，则发射结交流电阻为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ416234T41.jpg" style="width: 241px; height: 60px;"><br>
+	&nbsp;</div>
+又比如，假设 <em>Q</em> 点在图 2 中曲线的位置更高，<em>v</em><sub><em>be</em></sub>=5mV，<em>i</em><sub><em>e</em></sub>=200μA，则交流电阻减小为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4162431H8.jpg" style="width: 243px; height: 60px;"><br>
+	&nbsp;</div>
+需要指出的是：由于 <em>v</em><sub><em>be</em></sub> 基本保持不变，因此发射结交流电阻总是随发射极直流电流的增加而降低。<br>
+<h2>
+	发射结交流电阻公式</h2>
+由固态物理学和微积分的知识，可推导出以下关于发射结交流电阻的重要公式<strong>（公式一）</strong>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ416245a52.jpg" style="width: 155px; height: 60px;"><br>
+	&nbsp;</div>
+即发射结交流电阻等于 25mV 除以发射极直流电流。<br>
+<br>
+公式一很重要，它不仅简单，而且适用于所有类型的晶体管，因而广泛用于工业上对发射结交流电阻的估算。<br>
+<br>
+该公式的使用条件是：假设满足小信号、室温、矩形突变发射结条件。由于商用晶体管一般具有渐变的非矩形结，实际情况会与公式一有些区别。事实上，几乎所有的商用晶体管的发射结交流电阻都在 25mV/<em>I</em><sub><em>E</em></sub> 和 50mV/<em>I</em><sub><em>E</em></sub> 之间。<br>
+<br>
+<em>r'</em><sub><em>e</em></sub> 很重要，它决定了电压增益。<em>r'</em><sub><em>e</em></sub> 值越小，电压增益越高。后续将阐述如何使用 <em>r'</em><sub><em>e</em></sub> 计算晶体管放大器的电压增益。<br>
+<br>
+<strong>【例 1】</strong>求图 3 中基极偏置放大器的 <em>r'</em><sub><em>e</em></sub>。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4162601B7.jpg" style="width: 600px; height: 301px;"><br>
+	图 3 基级偏置放大电路</div>
+<br>
+解：前文已经计算出该电路的发射极直流电流约为 3mA，由公式一可得发射结交流电阻为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ4162631F3.jpg" style="width: 308px; height: 60px;"></div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>晶体管（三极管）的交流等效电路：T模型和π模型</h1>
+
+<div id="arc-body">为分析晶体管放大器的交流情况，需要利用晶体管的交流等效电路。即需要晶体管模型来模拟交流信号在器件中的作用。<br>
+<h2>
+	T模型</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ41FJQ64.jpg" style="width: 400px; height: 228px;"><br>
+	图 1 晶体管的 T 模型</div>
+<br>
+最早的交流模型之一是 <span style="color:#008000;">EM 模型</span>，如图 1 所示。考虑交流小信号时，晶体管发射结的作用相当于交流电阻 <em>r'</em><sub><em>e</em></sub>，而集电结的作用相当于电流源 <em>i</em><sub><em>c</em></sub>。由于从侧面看 EM 模型像字母 T，因此这种等效电路也称为 <span style="color:#008000;">T 模型</span>。<br>
+<br>
+分析晶体管放大器时，可以将每个晶体管用 T 模型替换，然后计算 <em>r'</em><sub><em>e</em></sub> 和其他交流参量（如电压增益）。<br>
+<br>
+当有交流输入信号作为晶体管放大器的驱动时，发射结上的交流电压为 <em>v</em><sub><em>be</em></sub>，如图 2a) 所示，它产生基极交流电流 <em>i</em><sub><em>b</em></sub>。交流电压源提供基极交流电流，以保证放大器的正常工作，基极输入阻抗作为交流电压源的负载。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ41FT0952.jpg" style="width: 500px; height: 283px;"><br>
+	图 2 基极输入阻抗的定义</div>
+<br>
+如图 2b) 所示，从交流电压源向晶体管基极看进去的输入阻抗为 <em>z</em><sub><em>in(base)</em></sub>，在低频下该阻抗为纯阻性，定义为<strong>（公式一）</strong>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ41F91R50.jpg" style="width: 182px; height: 60px;"><br>
+	&nbsp;</div>
+对图 2a) 中的发射结运用欧姆定律，有：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ41F954353.jpg" style="width: 123px; height: 30px;"><br>
+	&nbsp;</div>
+将该式代入公式一，可得：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ41G00W30.jpg" style="width: 237px; height: 60px;"><br>
+	&nbsp;</div>
+由于 <em>i</em><sub><em>e</em></sub>≈<em>i</em><sub><em>c</em></sub>，上式可简化为<strong>（公式二）</strong>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ41G031C3.jpg" style="width: 152px; height: 30px;"><br>
+	&nbsp;</div>
+该式说明基极输入阻抗等于交流电流增益与发射结交流电阻的乘积。<br>
+<h2>
+	π模型</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ41G054461.jpg" style="width: 500px; height: 297px;"><br>
+	图 3 晶体管的 π 模型</div>
+<br>
+图 3a) 给出了晶体管的 π 模型，它是公式二的形象表示，比 T 模型（图 3b) ）更便于使用。T 模型的输入阻抗不直观，而 π 模型很清晰地显示出基极输入阻抗 <em>β</em><em>r'</em><sub><em>e</em></sub> 是基极交流电压源的负载。<br>
+<br>
+由于 π 模型和 T 模型都是晶体管的交流等效电路，因此可以选择任何一个来分析放大器。多数情况下选择 π 模型，而对有些电路，如差分放大器（后续介绍），T 模型可以更好地表现电路的行为。这两种模型在工业界都很常用。<br>
+<h4>
+	知识拓展</h4>
+除了图 1、图 2、图 3 给出的晶体管等效电路以外，还有其他更为精确的等效电路（模型）。具有较高精度的等效电路中包括“ 基极扩散电阻 <em>r'</em><sub><em>b </em></sub>”和集电极电流源的“ 内阻 <em>r'</em><sub><em>e </em></sub>”。需要精确计算时可采用这类模型。<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>放大电路的分析方法</h1>
+
+<div id="arc-body">对放大电路的分析是比较复杂的，因为电路中同时包含直流和交流两种电源。可以先计算直流电源的作用，然后再计算交流源的作用。在分析中使用叠加定理，将每个信号源的独立作用相加，便得到两个信号源同时作用的总效应。<br>
+<h2>
+	直流等效电路</h2>
+<span style="color:#b22222;">最简单的放大器分析方法是将其分解为直流分析和交流分析两部分。</span>在直流分析中，计算直流电压和直流电流。将所有电容视为开路，这时所分析的电路就是直流等效电路。<br>
+<br>
+由直流等效电路可以计算出所需的晶体管电流和电压。对于故障诊断，采用近似计算就可以了。在直流分析中，发射极直流电流最重要，它用于在交流分析中计算 <em>r'</em><sub><em>e</em></sub>。<br>
+<h2>
+	直流电压源的交流等效</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ50Z32c40.jpg"><br>
+	图 1 直流电压源是交流接地的</div>
+<br>
+图 1a) 电路中有交流源和直流源。对该电路的交流电流而言，直流电压源的作用相当于短路，如图 1b) 所示。因为直流电压源上的电压是恒定值，任何交流电流都不会在该电压源上产生交流电压。由于没有交流电压存在，则直流电压源等效于交流短路。<br>
+<br>
+也可以用基本电子学课程中讨论过的叠加定理来分析。对图 1a) 中电路应用叠加定理，可以计算出每个电源单独作用的结果，此时另一个电源减小为 0。直流电压源减小为 0 即等效于短路。因此，在计算图 1b) 中交流源的作用时，可以把直流电压源短路。<br>
+<br>
+在分析放大器的交流情况时，都可以采用将所有直流电压源短路的方法。如图 1b) 所示，即所有直流电压源相当于交流接地点。<br>
+<h2>
+	交流等效电路</h2>
+在分析过直流等效电路后，下面进行交流等效电路的分析。交流等效电路是将所有电容和所有直流电压源短路后的电路。其中的晶体管由其 π 模型或 T 模型代替。<br>
+<br>
+本章重点讨论如何得到目前已知的三种放大器的交流等效电路：基极偏置、VDB 和 TSEB 电路。<br>
+<h2>
+	基极偏置放大器</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ50Z429291.jpg" style="width: 500px; height: 456px;"><br>
+	图 2 基极偏置放大器的交流等效</div>
+<br>
+图 2a) 所示是一个基极偏置放大器。首先将所有电容开路并分析其直流等效电路，为交流分析做准备。然后将所有电容和直流电压源短路，得到交流等效电路，标为 +<em>V</em><sub><em>CC</em></sub> 的节点为交流接地点。<br>
+<br>
+图 2b) 所示是其交流等效电路，其中晶体管由 π 模型取代。基极电路中，交流输入电压加在与 <em>βr'</em><sub><em>e</em></sub> 并联的 <em>R</em><sub><em>B</em></sub> 上；集电极电路中，电流源中的交流电流 <em>i</em><sub><em>c</em></sub> 流过并联的 <em>R</em><sub><em>C</em></sub> 和 <em>R</em><sub><em>L</em></sub>。<br>
+<h2>
+	VDB放大器</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ50Z520433.jpg" style="width: 500px; height: 440px;"><br>
+	图 3 VDB 放大器的交流等效</div>
+<br>
+图 3a) 所示为 VDB 放大器，它的交流等效电路如图 3b) 所示。其中所有电容短路，直流电源变为交流接地点，晶体管为其 π 模型所取代。基极电路中，交流输入电压加在并联的 <em>R</em><sub><em>1</em></sub>、<em>R</em><sub><em>2</em></sub> 和 <em>βr'</em><sub><em>e</em></sub> 两端；集电极电路中，电流中的交流电流 <em>i</em><sub><em>c</em></sub> 流过并联的 <em>R</em><sub><em>C</em></sub> 和 <em>R</em><sub><em>L</em></sub>。<br>
+<h2>
+	TSEB放大器</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ50Z6115G.jpg" style="width: 500px; height: 551px;"><br>
+	图 4 TSEB放大器的交流等效</div>
+<br>
+最后一个例子是如图 4a) 所示的双电源发射极偏置放大器。在完成了直流等效电路分析后，可以画出其交流等效电路，如图 4b) 所示。其中所有电容短路，直流电压源变为交流接地点，晶体管替换为 π 模型。基极电路中，交流输入电压加在并联的 <em>R</em><sub><em>B</em></sub> 和 <em>βr'</em><sub><em>e</em></sub> 上。集电极电路中，电流源中的交流电流 <em>i</em><sub><em>c</em></sub> 流过并联的 <em>R</em><sub><em>C</em></sub> 和 <em>R</em><sub><em>L</em></sub>。<br>
+<h2>
+	共射放大器</h2>
+图 2、图 3 和图 4 所示是三种不同的共射（CE）放大器电路。电路中发射极是交流接地点，可以此作为 CE 放大器的判断依据。在 CE 放大器中，交流信号通过耦合进入基极，放大后的信号由集电极输出。<br>
+<br>
+还有另外两种基本的晶体管放大器：共基（CB）放大器和共集（CC）放大器。CB 放大器的基极是交流接地点，CC 放大器的集电极是交流接地点。它们的应用不如 CE 放大器广泛。后续章节将讨论 CB 放大器和 CC 放大器。<br>
+<h2>
+	要点</h2>
+上述分析方法可用于所有类型的放大器。首先分析直流等效电路，计算直流电压和电流，然后分析交流等效电路。得到交流等效电路的要点如下：
+<ol>
+<li>
+		将所有耦合电容和旁路电容短路；</li>
+<li>
+		将所有直流电压源作为交流接地点；</li>
+<li>
+		将晶体管用 π 模型或 T 模型替代；</li>
+<li>
+		画出交流等效电路。</li>
+</ol>
+<br>
+后续章节将用这种方法计算电压增益、输入阻抗和放大器的其他参量。使用叠加定理分析 VDB 电路的过程见表 5。<br>
+<br>
+<table>
+<caption>
+		表 5 VDB 直流和交流等效电路</caption>
+<tbody>
+<tr>
+<td>
+				原始电路</td>
+<td colspan="2" rowspan="1">
+<img alt="" src="./index_files/2-1PQ50Z933R4.jpg" style="width: 400px; height: 244px;"></td>
+</tr>
+<tr>
+<td>
+				直流电路</td>
+<td>
+<img alt="" src="./index_files/2-1PQ50Z94R01.jpg" style="width: 300px; height: 306px;"></td>
+<td>
+<ul>
+<li>
+						所有耦合和旁路电容开路</li>
+<li>
+						重画电路</li>
+<li>
+						求解直流电路的 Q 点：</li>
+</ul>
+<div style="margin-left: 40px;">
+<em>V</em><sub><em>B</em></sub>=1.8V<br>
+<em>V</em><sub><em>E</em></sub>=1.1V<br>
+<em>I</em><sub><em>E</em></sub>=1.1mA<br>
+<em>V</em><sub><em>CE</em></sub>=4.94V</div>
+</td>
+</tr>
+<tr>
+<td>
+				交流 π 模型</td>
+<td colspan="2" rowspan="1">
+<img alt="" src="./index_files/2-1PQ5091135434.jpg" style="width: 700px; height: 164px;"></td>
+</tr>
+<tr>
+<td>
+				交流 T 模型</td>
+<td>
+<img alt="" src="./index_files/2-1PQ509115A96.jpg" style="width: 500px; height: 222px;"></td>
+<td>
+<ul>
+<li>
+						将所有耦合和旁路电容短路</li>
+<li>
+						将所有直流电压源作为交流接地点</li>
+<li>
+						用 π 模型或 T 模型代替晶体管</li>
+<li>
+						画交流等效电路</li>
+<li>
+<img alt="" src="./index_files/2-1PQ50913123V.jpg" style="width: 173px; height: 30px;"></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>晶体管（双极型晶体管，三极管）的交流参数及其作用</h1>
+
+<div id="arc-body">下面的讨论参考了 2N3904 数据手册中的一部分，如图 1 所示。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5100K2561.jpg" style="width: 600px; height: 791px;"><br>
+	图 1 2N3904 数据手册的一部分（<a href="http://www.54benniao.com/uploads/allimg/180815/2-1PQ5100T6304.jpg" target="_blank">点此查看高清大图</a>）</div>
+<br>
+交流参量在标有“小信号特性”的部分，在这部分中可以找 <em>h</em><sub><em>fe</em></sub>、<em>h</em><sub><em>ie</em></sub>、<em>h</em><sub><em>re</em></sub> 和 <em>h</em><sub><em>oe</em></sub> 四个新参量，它们被称为 <span style="color:#008000;"><em>h </em>参量</span>。下面介绍<em> h</em> 参量的作用。<br>
+<h2>
+	H 参量</h2>
+在发明晶体管的初期，采用了一种叫做 <em>h</em> 参量的方法来分析和设计晶体管电路。<span style="color:#008000;"><em>h</em> 参量法</span><span style="color:#b22222;">是对晶体管外部端口特性建立数学模型的数学分析方法，对晶体管内部的物理过程并不关心。</span><br>
+<br>
+目前更为实际的方法是用 <em>β</em> 和 <em>r'</em><sub><em>e</em></sub> 进行分析的 <em>r'</em> 参量法。用该方法进行晶体管电路的分析和设计时可以使用欧姆定律和其他基本原理。所以 <em>r'</em> 参量法适用性更广。<br>
+<br>
+尽管如此，<em>h</em> 参量也不是没有用处。由于 <em>h</em> 参量比 <em>r'</em> 参量更容易测得，所以器件的数据手册中会使用 <em>h</em> 参量。数据手册中没有 <em>β</em>、<em>r'</em><sub><em>e</em></sub> 这些 <em>r'</em> 参量，只有 <em>h</em><sub><em>fe</em></sub>、<em>h</em><sub><em>ie</em></sub>、<em>h</em><sub><em>re</em></sub> 和 <em>h</em><sub><em>oe</em></sub>。从这四个 <em>h</em> 参量中可以获得转换为 <em>r'</em> 参量的有用信息。<br>
+<h2>
+	R 参量和 H 参量的关系</h2>
+例如，数据手册中“小信号特性”部分给出的 <em>h</em><sub><em>fe</em></sub> 实际上是交流电流增益，用符号表示则为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51010512Q.jpg" style="width: 98px; height: 30px;"><br>
+	&nbsp;</div>
+数据手册中列出 <em>h</em><sub><em>fe</em></sub> 的范围为 100〜400，因此 <em>β</em> 可能低至 100，也可能高达 400。这些参数是在集电极电流为 1mA、<em>V</em><sub><em>CE</em></sub> 为 10V 情况下的数值。<br>
+<br>
+另一个 <em>h</em> 参量是 <em>h</em><sub><em>ie</em></sub>，相当于输入阻抗。数据手册中给出了它的范围是 1〜10kΩ，它和 <em>r'</em> 参量的关系如下<strong>（公式一）</strong>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ510112RK.jpg" style="width: 104px; height: 60px;"><br>
+	&nbsp;</div>
+例如，<em>h</em><sub><em>ie</em></sub> 和 <em>h</em><sub><em>fe</em></sub> 的最大值分别为 10kΩ 和 400，所以：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5101152332.jpg" style="width: 261px; height: 60px;"><br>
+	&nbsp;</div>
+最后两个 <em>h</em> 参量 <em>h</em><sub><em>re</em></sub> 和 <em>h</em><sub><em>oe</em></sub> 在故障诊断和一般设计时用不到。<br>
+<h2>
+	其他参量</h2>
+在“小信号特性”中还有其他参量，包括 <em>f</em><sub><em>T</em></sub>、<em>C</em><sub><em>ibo</em></sub>、<em>C</em><sub><em>obo</em></sub> 和 <em>N</em><sub><em>F</em></sub>。<em>f</em><sub><em>T</em></sub> 给出了 2N3904 高频极限值的相关信息；<em>C</em><sub><em>ibo</em></sub> 和 <em>C</em><sub><em>obo</em></sub> 是器件的输入和输出电容；<em>N</em><sub><em>F</em></sub> 是噪声系数，它表示 2N3904 产生的噪声情况。<br>
+<br>
+2N3904 的数据手册中包含了很多值得关注的特性曲线。例如，“电流增益”曲线显示出当集电极电流从 0.1mA 增加到 10mA 时，<em>h</em><sub><em>fe</em></sub> 大约由 70 增至 160。注意当集电极电流为 1mA 时 <em>h</em><sub><em>fe</em></sub> 约为 125，这条曲线是 2N3904 在室温时的典型情况。由于 <em>h</em><sub><em>fe</em></sub> 的范围是 100〜400，所以在批量生产时的波动很大，另外还会随着温度的变化而变化。<br>
+<br>
+观察 2N3904 数据手册中的“输入阻抗”曲线，当集电极电流由 0.1mA 增至 10mA 时，<em>h</em><sub><em>ie</em></sub> 大约由 20Ω 降至 500Ω。公式一说明了计算 <em>r'</em><sub><em>e</em></sub> 的方法，即用 <em>h</em><sub><em>ie</em></sub> 除以 <em>h</em><sub><em>fe</em></sub> 得到 <em>r'</em><sub><em>e</em></sub>，下面进行计算。由数据手册中的图可以读出当集电极电流为 1mA 时的 <em>h</em><sub><em>fe</em></sub> 和 <em>h</em><sub><em>ie</em></sub> 近似值分别为 <em>h</em><sub><em>fe</em></sub>=125 和 <em>h</em><sub><em>ie</em></sub>=3.6kΩ，由公式一：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ510131DR.jpg" style="width: 310px; height: 60px;"><br>
+	&nbsp;</div>
+则 <em>r'</em><sub><em>e</em></sub> 的理想值为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ510133A18.jpg" style="width: 275px; height: 60px;"></div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>共射放大电路的电压增益及计算公式（含推导过程）</h1>
+
+<div id="arc-body">本节继续讨论共射（CE）放大器，并说明利用电路参数计算电压增益和交流电压的方法。这部分内容在故障诊断中非常重要，因为可以通过测量所需的交流电压来判断其是否与理论值相符。<br>
+<h2>
+	电压增益</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ511053L45.jpg" style="width: 500px; height: 230px;"><br>
+	图 1 CE放大电路<br>
+	&nbsp;</div>
+图 1 所示是一个分压器偏置放大电路。电压增益定义为交流输出电压除以交流输入电压。由定义可推导出用于故障诊断的另一个电压增益公式。<br>
+<h2>
+	由 π 模型推导的公式</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ5110624K0.jpg" style="width: 700px; height: 130px;"><br>
+	图 2 采用 π 模型的交流等效电路</div>
+<br>
+用晶体管 π 模型得到的交流等效电路如图 2 所示。基极交流电流 <em>i</em><sub><em>b</em></sub> 流过基极输入电阻（<em>βr'</em><sub><em>e</em></sub>），由欧姆定律可得：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5110A5121.jpg" style="width: 123px; height: 30px;"><br>
+	&nbsp;</div>
+在集电极电路中，电流源中的交流电流 <em>i</em><sub><em>c</em></sub> 流过并联的 <em>R</em><sub><em>L</em></sub> 和 <em>R</em><sub><em>C</em></sub>，所以输出电压等于：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5110G5D9.jpg" style="width: 411px; height: 30px;"><br>
+	&nbsp;</div>
+下面用 <em>v</em><sub><em>out</em></sub> 除以 <em>v</em><sub><em>in</em></sub>，得到：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5110I3104.jpg" style="width: 300px; height: 60px;"><br>
+	&nbsp;</div>
+可简化为<strong>（公式一）</strong>：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5110P2945.jpg" style="width: 169px; height: 60px;"></div>
+<h2>
+	集电极交流电阻</h2>
+在图 2 中，从集电极看到的交流负载总电阻是 <em>R</em><sub><em>C</em></sub> 和 <em>R</em><sub><em>L</em></sub> 的并联，这个总电阻称为<span style="color:#008000;">集电极交流电阻</span>，用符号 <em>r</em><sub><em>c</em></sub> 表示，定义为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5110Z4G7.jpg" style="width: 169px; height: 30px;"><br>
+	&nbsp;</div>
+将公式一改写为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ511091UR.jpg" style="width: 127px; height: 60px;"><br>
+	&nbsp;</div>
+<span style="color:#b22222;">即电压增益等于集电极交流电阻除以发射结交流电阻。</span><br>
+<h2>
+	由 T 模型推导的公式</h2>
+采用晶体管的任一模型得到的推导结果都相同。后面章节将采用 T 模型分析差分放大器，作为练习，这里用 T 模型来推导电压增益的公式。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5111002D5.jpg" style="width: 700px; height: 191px;"><br>
+	图 3 采用&nbsp; T 模型的交流等效电路</div>
+<br>
+用 T 模型得到的交流等效电路如图 3 所示。输入电压 <em>v</em><sub><em>in</em></sub> 跨接在 <em>r'</em><sub><em>e</em></sub> 两端。由欧姆定律可以得到：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ511102Mb.jpg" style="width: 106px; height: 30px;"><br>
+	&nbsp;</div>
+在集电极电路中，电流源中的交流电流 <em>i</em><sub><em>c</em></sub> 流过集电极交流电阻，所以交流输出电压等于：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5111044202.jpg" style="width: 142px; height: 30px;"><br>
+	&nbsp;</div>
+下面用 <em>v</em><sub><em>out</em></sub> 除以 <em>v</em><sub><em>in</em></sub> 得到:
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5111111W4.jpg" style="width: 207px; height: 60px;"><br>
+	&nbsp;</div>
+由于 <em>i</em><sub><em>c</em></sub>≈<em>i</em><sub><em>e</em></sub>，可以将上式化简为：
+<p style="text-align: center;">
+	&nbsp;</p>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ5111126333.jpg" style="width: 127px; height: 60px;"><br>
+	&nbsp;</div>
+该等式与由 π 模型推导的结果相同，需用到放大器的集电极交流电阻 <em>r</em><sub><em>c</em></sub> 和发射结交流电阻 <em>r'</em><sub><em>e</em></sub>，可适用于所有 CE 放大器。<br>
+<h4>
+	知识拓展</h4>
+共射放大器的电流增益 <em>A</em><sub><em>i</em></sub> 等于输出电流 <em>i</em><sub><em>out</em></sub> 和输入电流 <em>i</em><sub><em>in</em></sub> 之比。然而输出电流 <em>i</em><sub><em>out</em></sub> 并不是 <em>i</em><sub><em>c</em></sub>，而是流过负载的电流。可推导出 <em>A</em><sub><em>i</em></sub> 的表达式为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51112151a.jpg" style="width: 147px; height: 60px;"><br>
+	&nbsp;</div>
+或：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ511122a58.jpg" style="width: 182px; height: 60px;"><br>
+	&nbsp;</div>
+由于 <em>A</em><sub><em>v</em></sub>=<em>v</em><sub><em>out</em></sub>/<em>v</em><sub><em>in</em></sub>，则 <em>A</em><sub><em>i</em></sub> 可以表示为 <em>A</em><sub><em>i</em></sub>=<em>A</em><sub><em>v</em></sub>*(<em>Z</em><sub><em>in</em></sub>/<em>R</em><sub><em>L</em></sub>)。<br>
+<br>
+<strong>【例 1】</strong>图 4 所示放大器的电压增益是多少？负载电阻上的输出电压是多少?
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51113111a.jpg" style="width: 700px; height: 367px;"><br>
+	图 4 TSEB 放大器举例</div>
+<br>
+解：集电极交流电阻为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ511134X22.jpg" style="width: 489px; height: 26px;"><br>
+	&nbsp;</div>
+发射极交流电流近似为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5111410314.jpg"><br>
+	&nbsp;</div>
+发射极交流电阻为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5111424436.jpg" style="width: 305px; height: 60px;"><br>
+	&nbsp;</div>
+则电压增益为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ511143B49.jpg" style="width: 366px; height: 60px;"><br>
+	&nbsp;</div>
+输出电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5111450N6.jpg" style="width: 505px; height: 30px;"></div>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>共射放大电路输入电阻的负载效应</h1>
+
+<div id="arc-body">在之前的分析中均假设交流电压源是理想的，即内阻为零。在本节中，放大器的输入电阻作为交流信号源的负载，会使发射结上获得的电压低于信号源电压。<br>
+<h2>
+	输入阻抗</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ5134356454.jpg" style="width: 500px; height: 251px;"><br>
+	图 1 CE 放大电路</div>
+<br>
+在图 1 中，交流电压源 <em>v</em><sub><em>g</em></sub> 的内阻为 <em>R</em><sub><em>G</em></sub>（下标“g”代表信号发生器，与信号源是同义词）。如果交流信号源不是准理想的，则其内阻上将会产生部分压降，使得基极和地之间的交流电压小于理想值。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ513461JM.jpg" style="width: 700px; height: 158px;"><br>
+	图 2 交流等效电路</div>
+<br>
+交流信号源要驱动第一级的输入阻抗 <em>z</em><sub><em>in(stage)</em></sub>，该输入阻抗包括偏置电阻 <em>R</em><sub><em>1</em></sub> 和 <em>R</em><sub><em>2</em></sub>，与基极输入阻抗 <em>βr'</em><sub><em>e</em></sub> 并联，如图 2 所示。该级输入阻抗等于：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5134642260.jpg" style="width: 288px; height: 30px;"></div>
+<h2>
+	输入电压公式</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ513500G23.jpg" style="width: 500px; height: 252px;"><br>
+	图 3 CE 放大电路输入阻抗的影响</div>
+<br>
+若信号源不是准理想的，则图 3 中的交流输入电压 <em>v</em><sub><em>in</em></sub> 小于 <em>v</em><sub><em>g</em></sub>。由分压定理，可以得到<strong>（公式一）</strong>:<br>
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5134JD94.jpg" style="width: 294px; height: 60px;"></div>
+<br>
+该式适用于任何放大器。计算或估算出输入阻抗后，便可以确定输入电压。注意：当 <em>R</em><sub><em>G</em></sub> 小于 0.01<em>z</em><sub><em>in(stage)</em></sub> 时，可以认为信号源是准理想的。<br>
+<br>
+在图 4 中，交流信号源内阻为 600Ω，如果 <em>β</em>=300，输出电压是多少？如果 <em>β</em>=50，输出电压又是多少？
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ513494B62.jpg" style="width: 700px; height: 292px;"><br>
+	图 4 举例</div>
+<br>
+解：前面章节中，已计算过 <em>r'</em><sub><em>e</em></sub>=22.7Ω，<em>A</em><sub><em>v</em></sub>=117，这里不再给出具体的计算过程。 当 <em>β</em>=300 时，基极输入阻抗为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5135133326.jpg" style="width: 490px; height: 30px;"><br>
+	&nbsp;</div>
+该级的输入阻抗为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51351553c.jpg" style="width: 553px; height: 30px;"><br>
+	&nbsp;</div>
+由公式一可以计算出输入电压：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5135211431.jpg" style="width: 563px; height: 60px;"><br>
+	&nbsp;</div>
+这是晶体管基极上的交流电压，等效于加在发射结上的交流电压。放大器的输出电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ513522W92.jpg" style="width: 543px; height: 30px;"><br>
+	&nbsp;</div>
+若 <em>β</em>=50，基极的输入阻抗减小为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5135302422.jpg" style="width: 482px; height: 30px;"><br>
+	&nbsp;</div>
+该级的输入阻抗减小为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5135323G3.jpg" style="width: 537px; height: 30px;"><br>
+	&nbsp;</div>
+由公式一可以计算出输入电压：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5135340432.jpg" style="width: 543px; height: 60px;"><br>
+	&nbsp;</div>
+输出电压等于：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ5135401X9.jpg" style="width: 536px; height: 30px;"><br>
+	&nbsp;</div>
+这个例子说明了晶体管的交流电流增益对输出电压的影响。当 <em>β</em> 减小时，基极的输入阻抗减小，该级的输入阻抗也减小，使得级输入电压降低，则输出电压降低。<br>
+</div>
+
+</div>
+</div>
+<div id="article-wrap">
+<div id="article">
+
+<h1>多级放大电路及其电压增益的计算</h1>
+
+<div id="arc-body">为了获得更高的增益，可以把两级或者多级放大器级联起来，构成<span style="color:#008000;">多级放大器</span>。这意味着第一级的输出作为第二级的输入，第二级的输出作为第三级的输入，依此类推。<br>
+<h2>
+	第一级电压增益</h2>
+<div style="text-align: center;">
+<img alt="" src="./index_files/2-1PQ51FQ9548.jpg" style="width: 700px; height: 264px;"><br>
+	图 1 两级放大电路<br>
+	&nbsp;</div>
+图 1 所示是一个两级放大器。第一级输出的反相放大信号耦合到第二级的基极，第二级的反相放大输出耦合到负载电阻。由于每一级都将信号反相，相移为 180°，两级共移相 360°，因此负载上的信号相移 0°，即与信号源同相。
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51FT55a.jpg" style="width: 720px; height: 146px;"><br>
+	图 2 交流等效电路<br>
+	&nbsp;</div>
+图 2 所示是交流等效电路。可以看到，第二级的输入阻抗加重了第一级的负载，即第二级的 <em>z</em><sub><em>in</em></sub> 和第一级的 <em>R</em><sub><em>C</em></sub> 并联，则第一级的集电极交流电阻为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51F93B49.jpg" style="width: 332px; height: 30px;"><br>
+	&nbsp;</div>
+第一级的电压增益为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51F94LZ.jpg" style="width: 225px; height: 60px;"></div>
+<h2>
+	第二级电压增益</h2>
+第二级的集电极交流电阻为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G025133.jpg" style="width: 297px; height: 30px;"><br>
+	&nbsp;</div>
+电压增益为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G03G63.jpg" style="width: 176px; height: 60px;"></div>
+<h2>
+	总电压增益</h2>
+放大器的总电压增益等于两级电压增益的乘积：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G05W56.jpg" style="width: 254px; height: 30px;"><br>
+	&nbsp;</div>
+例如，若每一级的电压增益为 50，则总电压增益为 2500。<br>
+<br>
+<strong>【例 1】</strong>图 3 电路中第一级的集电极交流电压是多少？负载电阻上的交流输出电压是多少？
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G12c46.jpg" style="width: 720px; height: 265px;"><br>
+	图 3</div>
+<br>
+解：第一级的基极输入阻抗为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G150A8.jpg" style="width: 515px; height: 30px;"><br>
+	&nbsp;</div>
+第一级的级输入阻抗为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G2061D.jpg" style="width: 530px; height: 30px;"><br>
+	&nbsp;</div>
+第一级的基极输入信号为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G22O32.jpg" style="width: 581px; height: 60px;"><br>
+	&nbsp;</div>
+第二级的基极输入阻抗与第一级的相同：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G241560.jpg" style="width: 530px; height: 30px;"><br>
+	&nbsp;</div>
+该输入阻抗是第一级的负载电阻，即第一级的集电极交流电阻为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G254430.jpg" style="width: 359px; height: 30px;"><br>
+	&nbsp;</div>
+第一级的电压增益为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G30A57.jpg" style="width: 297px; height: 60px;"><br>
+	&nbsp;</div>
+所以第一级的集电极交流电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G31M56.jpg" style="width: 589px; height: 30px;"><br>
+	&nbsp;</div>
+第二级的集电极交流阻抗为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G332551.jpg" style="width: 413px; height: 30px;"><br>
+	&nbsp;</div>
+电压增益为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G34D11.jpg" style="width: 295px; height: 60px;"><br>
+	&nbsp;</div>
+所以负载电阻上的交流输出电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G400421.jpg" style="width: 566px; height: 30px;"><br>
+	&nbsp;</div>
+另一种计算最终输出电压的方法是利用总的电压增益，即:
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G412547.jpg" style="width: 400px; height: 30px;"><br>
+	&nbsp;</div>
+则负载电阻上的交流输出电压为：
+<div style="text-align: center;">
+<br>
+<img alt="" src="./index_files/2-1PQ51G424D3.jpg" style="width: 498px; height: 30px;"></div>
+</div>
+
+</div>
+</div>
+</body></html>

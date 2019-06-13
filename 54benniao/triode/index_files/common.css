@@ -1,0 +1,273 @@
+/*---------------重设CSS样式--------------------*/
+html{min-height:100%; width: 100%;}
+body{margin:0px;padding:0px;min-height:100%;width: 100%;font:14px "Helvetica Neue", "微软雅黑","Microsoft Yahei",Helvetica,Arial,sans-serif;color:#444;background-color: #f9f9f9;}
+h1,h2,h3,h4,h5,h6,p,dl,ol,ul,pre{margin-top:0px;margin-bottom:0px;}
+ul,ol,dd{list-style:none;margin-left:0px;padding-left:0px;}
+input{outline:none;}
+a,img{border:none;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/**********公共样式***********/
+code{
+	display: inline-block;
+	margin: auto 2px;
+	padding: 0px 4px;
+	font-size: 100%;
+	color: #333;
+	border: 1px solid #ddd;
+	background: #f6f6f6;
+	border-radius: 2px;
+	font-family: "Helvetica Neue", "微软雅黑","Microsoft Yahei",Helvetica,Arial,sans-serif;
+}
+em{
+	font-family: Georgia, serif;
+}
+blockquote{
+	margin: 10px 0px;
+	padding: 10px;
+	border-left: 4px solid #ddd;
+	color: #444;
+	background-color: #f9f9f9;
+	border-radius: 4px;
+	font-size: 14px;
+}
+.hover-none:hover,.hover-none a:hover{text-decoration:none;}
+
+.left{display:block;float:left;}
+.right{display:block;float:right;}
+.clearfix { *zoom:1; }
+.clearfix:after {content:"\200B"; display:block; height:0; clear:both; }
+
+.bg-f7f7f7{background-color: #f4f4f4 !important;}
+.info-box{
+	padding: 10px;
+	margin: 6px auto;
+	color: #444;
+	background-color: #f8f8f8;
+	border: 1px dashed #e1e1e1;
+}
+
+/**********字体***********/
+@font-face {
+  font-family: 'Glyphicons Halflings';
+
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.glyphicon-menu-down:before {
+	content: "\e259";
+}
+.glyphicon-menu-up:before {
+	content: "\e260";
+}
+.glyphicon-menu-left:before{
+	content: "\e257";
+}
+.glyphicon-menu-right:before{
+	content: "\e258";
+}
+.glyphicon-option-vertical:before{
+	content: "\e235";
+}
+
+
+/***********头部样式************/
+#header{
+	height: 52px;
+	width: 100%;
+	top: 0px;
+	background-color: #375a7f;
+	z-index: 1000;
+}
+#logo{
+	height: 36px;
+	padding: 8px 20px;
+}
+#nav-main li{
+	float: left;
+	margin-right: 15px;
+	line-height: 52px;
+}
+#nav-main li a{
+	display: block;
+	padding: 0px 6px;
+	color: #f3f3f3;
+}
+#nav-main li.active a{
+	padding: 0px 12px;
+	border-right: 1px solid #274769;
+	border-left: 1px solid #274769;
+	background-color: #2f4b69;
+}
+
+/***********布局************/
+#main{
+	position: relative;
+	width: 1040px;
+	margin: 50px auto;
+	border-radius: 4px;
+	border: 1px solid #e5e5e5;
+	background: url('../images/sidebar-arc-split.jpg') 0px 0px repeat-y #fff;
+}
+#sidebar{
+	float: left;
+	width: 250px;
+	margin: 12px auto 20px 15px;
+}
+#article-wrap{
+	padding: 0px 15px 20px 15px;
+	width: 729px;
+	line-height: 1.6em;
+}
+
+/***********正文样式************/
+#arc-info{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 5px 10px;
+	line-height: 1em;
+	font-size: 12px;
+	color: #666;
+	background-color: #f6f6f6;
+	border-left: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	border-radius: 0px 5px 0px 5px;
+}
+
+.pre-next-page{
+	padding: 7px 0px;
+	color: #444;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+}
+.pre-next-brief{
+	display: none;
+}
+.pre-next-page a{
+	color: #007dbb;
+}
+h1{
+	padding: 12px 0px;
+	font-size: 26px;
+	line-height: 1.6em;
+	font-weight: normal;
+}
+
+#arc-body{
+	margin: 10px auto;
+}
+#arc-body h2{
+	margin: 15px auto 15px auto;
+	font-size: 24px;
+	line-height: 1.6;
+}
+#arc-body h3{
+	margin: 15px auto;
+	font-size: 18px;
+	line-height: 1.6;
+}
+#arc-body h4{
+	margin: 8px auto;
+	font-size: 14px;
+	line-height: 1.6;
+}
+#arc-body ul{
+	list-style: disc;
+	padding-left: 20px;
+}
+#arc-body ol{
+	list-style:decimal;
+	padding-left: 20px;
+}
+#arc-body table{
+	margin: auto;
+    border-collapse:collapse;
+}
+#arc-body table td{
+    padding:5px 5px;
+    border:1px solid #ccc;
+}
+#arc-body table th{
+    padding:7px 5px;
+    border:1px solid #ccc;
+    background-color:#EDEDED;
+    color:#444;
+}
+
+/***********边栏样式************/
+#contents a{
+	color: #333;
+}
+#contents dt{
+	height: 30px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #999;
+	background: url('../images/icons.png') 0px 7px no-repeat;
+	overflow: visible;
+}
+#contents dt h4{
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 2px solid #444;
+}
+#contents dt h4 a{
+	padding-left: 12px;
+	padding-right: 5px;
+	color: #444;
+}
+#contents dd{
+	line-height: 26px;
+}
+#contents dd span.arc-num{
+	display: block;
+	float: left;
+	margin-top: 5px;
+	margin-right: 6px;
+	height: 16px;
+	width: 16px;
+	line-height: 16px;
+	text-align: center;
+	font-size: 12px;
+	background-color: #777;
+	color: #fff;
+}
+#contents dd.active, #contents dd.active a{
+	color: #D33428;
+}
+#contents dd.active span.arc-num{
+	background-color: #D5665E;
+}
+
+/***********底部样式************/
+#footer{
+	padding: 20px;
+	border-top: 1px solid #e5e5e5;
+	background-color: #eee;
+}
+#nav-bottom li{
+	float: left;
+}
+#nav-bottom li a {
+	color: #666;
+	font-weight: bold;
+}
+#nav-bottom li .blank {
+	padding: 0px 12px;
+	color: #999;
+	font-size: 12px;
+}
